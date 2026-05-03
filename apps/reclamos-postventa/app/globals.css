@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@source "../../../node_modules/@nexo/ui/components";
+
+@theme {
+    --color-blue-primary: #051525;
+    --color-blue-secondary: #196FB8;
+    --color-gray-primary: #7192a1;
+    --color-gray-body: #f4f6f8;
+    --color-gray-text: #888888;
+}
