@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useState } from 'react'
-import Image from 'next/image'
+import { AuthImage } from '@/components/AuthImage'
 
 const loginSchema = z.object({
   email: z.string().email('El correo electrónico no es válido'),
@@ -193,34 +193,8 @@ export default function LoginPage() {
         </div>
 
         {/* ── Imagen ── */}
-        <div className={`
-          absolute inset-y-0 right-0 w-full md:w-2/5
-          transition-transform duration-700 ease-in-out
-          hidden md:block overflow-hidden
-          ${showReset
-            ? 'md:-translate-x-[150%]'
-            : 'md:translate-x-0'
-          }
-        `}>
-          <div className="relative w-full h-full">
-            <Image
-              src="/login-bg.png"
-              alt="Nexo background"
-              fill
-              className="object-cover object-center"
-              priority
-            />
-            <div className="absolute inset-0 bg-black/40
-                            flex flex-col items-center justify-center">
-              <h2 className="text-white text-6xl font-bold
-                             tracking-widest drop-shadow-lg">   
-              </h2>
-              <p className="text-white/70 text-sm mt-2
-                            tracking-widest uppercase">
-              </p>
-            </div>
-          </div>
-        </div>
+       <AuthImage position="right" />
+       <AuthImage position="left" />
 
         {/* ── Formulario reset ── */}
         <div className={`

@@ -23,4 +23,14 @@ export interface RegisterCredentials {
     password: string;
     role: UserRole;
 }
+export type LoginInput = {
+    email: string;
+    password: string;
+};
+export type RegisterInput = {
+    full_name: string;
+    email: string;
+    password: string;
+    role: UserRole;
+};
 //# sourceMappingURL=auth.types.d.ts.map
