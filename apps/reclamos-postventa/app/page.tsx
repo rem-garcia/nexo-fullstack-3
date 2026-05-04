@@ -1,7 +1,7 @@
 'use client';
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import SidebarMenu from "@nexo/ui";
+import { InputReclamos, SelectReclamos, SidebarMenu, TextAreaReclamos } from "@nexo/ui";
 import { useState } from "react";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import z from "zod";
@@ -22,7 +22,7 @@ const reclamoFormSchema = z.object({
     nroDpto: z.string().nonempty({ error: "Campo obligatorio" }),
     tipoFalla: z.string().nonempty({ error: "Campo obligatorio "}),
     ubicacionFalla: z.string().nonempty({ error: "Campo obligatorio" }),
-    descripcionFalla: z.string().max(200, {error: "Has alcanzado el máximo de caracteres (200)"}).optional()
+    descripcionFalla: z.string().max(400, {error: "Has alcanzado el máximo de caracteres (400)"}).optional()
 });
 
 // Se hace una inferencia del tipo del esquema de Zod
@@ -33,9 +33,24 @@ export default function Home() {
     const [openSidebar, setOpenSidebar] = useState(false);
 
     // Elementos de react-hook-form para validacion de formularios
-    const { register, formState: { errors }, handleSubmit } = useForm<reclamoFormType>({
+    const { register, formState: { errors }, handleSubmit, control } = useForm<reclamoFormType>({
         // Resolver para usar el esquema de Zod en la validacion del formulario
-        resolver: zodResolver(reclamoFormSchema)
+        resolver: zodResolver(reclamoFormSchema),
+
+        // Se definen valores por defecto con cadenas vacias porque las validaciones
+        // del esquema de zod definido esperan datos de tipo string y React-Hook-Form las maneja
+        // como 'undefined' en la forma en que se esta usando en los componentes 'InputReclamos'
+        // y 'SelectReclamos'
+        defaultValues: {
+            nombreCliente: "",
+            emailCliente: "",
+            numTelefono: "",
+            tipoPropiedad: "",
+            nroDpto: "",
+            tipoFalla: "",
+            ubicacionFalla: "",
+            descripcionFalla: ""
+        }
     });
 
     const handleSidebar = () => {
@@ -48,29 +63,29 @@ export default function Home() {
 
     // Datos dummy. Despues se obtendran desde el backend
     const tiposPropiedad = [
-        {id: 1, tipo: "Departamento", value: "departamento"},
-        {id: 2, tipo: "Oficina", value: "oficina"}
+        {id: 1, descripcion: "Departamento", value: "departamento"},
+        {id: 2, descripcion: "Oficina", value: "oficina"}
     ];
 
     // Datos dummy. Despues se obtendran desde el backend
     const tiposFalla = [
-        {id: 1, tipoFalla: "Gasfitería", value: "gasfiteria"},
-        {id: 2, tipoFalla: "Electricidad", value: "electricidad"},
-        {id: 3, tipoFalla: "Filtración", value: "filtracion"},
-        {id: 4, tipoFalla: "Estructura / muro", value: "estructura"},
-        {id: 5, tipoFalla: "Pintura", value: "pintura"},
-        {id: 6, tipoFalla: "Carpintería", value: "carpinteria"},
-        {id: 7, tipoFalla: "Otro", value: "otro"}
+        {id: 1, descripcion: "Gasfitería", value: "gasfiteria"},
+        {id: 2, descripcion: "Electricidad", value: "electricidad"},
+        {id: 3, descripcion: "Filtración", value: "filtracion"},
+        {id: 4, descripcion: "Estructura / muro", value: "estructura"},
+        {id: 5, descripcion: "Pintura", value: "pintura"},
+        {id: 6, descripcion: "Carpintería", value: "carpinteria"},
+        {id: 7, descripcion: "Otro", value: "otro"}
     ];
 
     // Datos dummy. Despues se obtendran desde el backend
     const ubicacionesFalla = [
-        {id: 1, ubicacion: "Baño", value: "bano"},
-        {id: 2, ubicacion: "Cocina", value: "cocina"},
-        {id: 3, ubicacion: "Terraza", value: "terraza"},
-        {id: 4, ubicacion: "Living/comedor", value: "living-comedor"},
-        {id: 5, ubicacion: "Dormitorio", value: "dormitorio"},
-        {id: 6, ubicacion: "Otro", value: "otro"}
+        {id: 1, descripcion: "Baño", value: "bano"},
+        {id: 2, descripcion: "Cocina", value: "cocina"},
+        {id: 3, descripcion: "Terraza", value: "terraza"},
+        {id: 4, descripcion: "Living/comedor", value: "living-comedor"},
+        {id: 5, descripcion: "Dormitorio", value: "dormitorio"},
+        {id: 6, descripcion: "Otro", value: "otro"}
     ];
 
     return (
@@ -96,175 +111,86 @@ export default function Home() {
                     <fieldset className="mb-4">
                         <legend className="text-gray-text font-bold mb-3 uppercase">Datos de contacto</legend>
 
-                        <div className="mb-3">
-                            <label htmlFor="nombre-cliente">Nombre completo</label>
+                        <InputReclamos
+                            idTag="nombre-cliente"
+                            label="Nombre completo"
+                            name="nombreCliente"
+                            placeholder="Ingrese su nombre"
+                            control={control}
+                            errorMsg={errors.nombreCliente?.message}
+                        />
 
-                            <input
-                                id="nombre-cliente"
-                                className="block w-full p-3 border border-gray-200 rounded-xl"
-                                {...register("nombreCliente")}
-                                placeholder="Ingrese su nombre"
-                            />
+                        <InputReclamos
+                            idTag="correo"
+                            label="Correo electrónico"
+                            name="emailCliente"
+                            placeholder="correo@mail.com"
+                            control={control}
+                            errorMsg={errors.emailCliente?.message}
+                        />
 
-                            {errors.nombreCliente && (
-                                <p className="text-sm text-red-500">
-                                    <i className="fa-solid fa-triangle-exclamation mr-[5px]"></i>
-                                    {errors.nombreCliente?.message}
-                                </p>
-                            )}
-
-                        </div>
-
-                        <div className="mb-3">
-                            <label htmlFor="correo">Correo electrónico</label>
-                            <input
-                                id="correo"
-                                className="block w-full p-3 border border-gray-200 rounded-xl"
-                                type="email"
-                                {...register("emailCliente")}
-                                placeholder="correo@mail.com"
-                            />
-
-                            {errors.emailCliente && (
-                                <p className="text-sm text-red-500">
-                                    <i className="fa-solid fa-triangle-exclamation mr-[5px]"></i>
-                                    {errors.emailCliente?.message}
-                                </p>
-                            )}
-
-                        </div>
-
-                        <div className="mb-3">
-                            <label htmlFor="telefono">Teléfono</label>
-                            <input
-                                id="telefono"
-                                className="block w-full p-3 border border-gray-200 rounded-xl"
-                                type="tel"
-                                {...register("numTelefono")}
-                                placeholder="+56912345678"
-                            />
-
-                            {errors.numTelefono && (
-                                <p className="text-sm text-red-500">
-                                    <i className="fa-solid fa-triangle-exclamation mr-[5px]"></i>
-                                    {errors.numTelefono?.message}
-                                </p>
-                            )}
-                        </div>
+                        <InputReclamos
+                            idTag="telefono"
+                            label="Teléfono"
+                            name="numTelefono"
+                            type="tel"
+                            placeholder="+56912345678"
+                            control={control}
+                            errorMsg={errors.numTelefono?.message}
+                        />
                     </fieldset>
 
                     <fieldset className="mb-4">
                         <legend className="text-gray-text font-bold mb-3 uppercase">Propiedad</legend>
 
-                        <div className="mb-3">
-                            <label htmlFor="tipo-propiedad">Tipo de propiedad</label>
-                            <select
-                                id="tipo-propiedad"
-                                className="block w-full p-3 border border-gray-200 rounded-xl"
-                                {...register("tipoPropiedad")}
-                                defaultValue=""
-                            >
-                                <option value="" disabled>Seleccione una opción...</option>
+                        <SelectReclamos
+                            idTag="tipo-propiedad"
+                            label="Tipo de propiedad"
+                            name="tipoPropiedad"
+                            options={tiposPropiedad}
+                            control={control}
+                            errorMsg={errors.tipoPropiedad?.message}
+                        />
 
-                                {tiposPropiedad.map((tipoPropiedad) => (
-                                    <option key={tipoPropiedad.id} value={tipoPropiedad.value}>{tipoPropiedad.tipo}</option>
-                                ))}
-                            </select>
-
-                            {errors.tipoPropiedad && (
-                                <p className="text-sm text-red-500">
-                                    <i className="fa-solid fa-triangle-exclamation mr-[5px]"></i>
-                                    {errors.tipoPropiedad?.message}
-                                </p>
-                            )}
-                        </div>
-
-                        <div className="mb-3">
-                            <label htmlFor="nro-dpto">Número de Departamento/Oficina</label>
-                            <input
-                                id="nro-dpto"
-                                className="block w-full p-3 border border-gray-200 rounded-xl"
-                                //name="nroDpto"
-                                {...register("nroDpto")}
-                                placeholder="Ej. 201"
-                            />
-
-                            {errors.nroDpto && (
-                                <p className="text-sm text-red-500">
-                                    <i className="fa-solid fa-triangle-exclamation mr-[5px]"></i>
-                                    {errors.nroDpto?.message}
-                                </p>
-                            )}
-                        </div>
+                        <InputReclamos
+                            idTag="nro-dpto"
+                            label="Número de Departamento/Oficina"
+                            name="nroDpto"
+                            placeholder="Ej. 201"
+                            control={control}
+                            errorMsg={errors.nroDpto?.message}
+                        />
                     </fieldset>
 
                     <fieldset className="mb-4">
                         <legend className="text-gray-text font-bold mb-3 uppercase">Detalle de la falla</legend>
 
-                        <div className="mb-3">
-                            <label htmlFor="tipo-falla">Tipo de falla</label>
-                            <select
-                                id="tipo-falla"
-                                className="block w-full p-3 border border-gray-200 rounded-xl"
-                                {...register("tipoFalla")}
-                                defaultValue=""
-                            >
-                                <option value="" disabled>Seleccione una opción</option>
+                        <SelectReclamos
+                            idTag="tipo-falla"
+                            label="Tipo de falla"
+                            name="tipoFalla"
+                            options={tiposFalla}
+                            control={control}
+                            errorMsg={errors.tipoFalla?.message}
+                        />
 
-                                {tiposFalla.map((falla) => (
-                                    <option key={falla.id} value={falla.value}>{falla.tipoFalla}</option>
-                                ))}
-                            </select>
+                        <SelectReclamos
+                            idTag="ubicacion-falla"
+                            label="Ubicación de la falla"
+                            name="ubicacionFalla"
+                            options={ubicacionesFalla}
+                            control={control}
+                            errorMsg={errors.ubicacionFalla?.message}
+                        />
 
-                            {errors.tipoFalla && (
-                                <p className="text-sm text-red-500">
-                                    <i className="fa-solid fa-triangle-exclamation mr-[5px]"></i>
-                                    {errors.tipoFalla?.message}
-                                </p>
-                            )}
-                        </div>
-
-                        <div className="mb-3">
-                            <label htmlFor="ubicacion-falla">Ubicación de la falla</label>
-                            <select
-                                id="ubicacion-falla"
-                                className="block w-full p-3 border border-gray-200 rounded-xl"
-                                {...register("ubicacionFalla")}
-                                defaultValue=""
-                            >
-                                <option value="" disabled>Seleccione una opción</option>
-
-                                {ubicacionesFalla.map((ubicacion) => (
-                                    <option key={ubicacion.id} value={ubicacion.value}>{ubicacion.ubicacion}</option>
-                                ))}
-                            </select>
-
-                            {errors.ubicacionFalla && (
-                                <p className="text-sm text-red-500">
-                                    <i className="fa-solid fa-triangle-exclamation mr-[5px]"></i>
-                                    {errors.ubicacionFalla?.message}
-                                </p>
-                            )}
-                        </div>
-
-                        <div className="mb-3">
-                            <label htmlFor="descripcion-falla">Descripción de la falla (opcional)</label>
-                            <textarea
-                                id="descripcion-falla"
-                                className="block w-full p-3 border border-gray-200 rounded-xl"
-                                {...register("descripcionFalla")}
-                                cols={10}
-                                rows={7}
-                                placeholder="Describa con detalle la falla identificada."
-                            ></textarea>
-
-                            {errors.descripcionFalla && (
-                                <p className="text-sm text-red-500">
-                                    <i className="fa-solid fa-triangle-exclamation mr-[5px]"></i>
-                                    {errors.descripcionFalla?.message}
-                                </p>
-                            )}
-                        </div>
+                        <TextAreaReclamos
+                            idTag="descripcion-falla"
+                            label="Descripción de la falla (opcional)"
+                            name="descripcionFalla"
+                            control={control}
+                            placeholder="Describa con mayor detalle la falla encontrada"
+                            errorMsg={errors.descripcionFalla?.message}
+                        />
                     </fieldset>
 
                     <button
