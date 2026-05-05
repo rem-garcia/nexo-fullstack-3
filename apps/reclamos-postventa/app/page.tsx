@@ -1,41 +1,19 @@
 'use client';
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { ReclamoSchema, ReclamoType } from "@nexo/schemas";
 import { InputReclamos, SelectReclamos, SidebarMenu, TextAreaReclamos } from "@nexo/ui";
 import { useState } from "react";
 import { type SubmitHandler, useForm } from "react-hook-form";
-import z from "zod";
-
-// Esquema de Zod para validacion de formulario con React Hook Form
-const reclamoFormSchema = z.object({
-    nombreCliente: z.string().nonempty({ error: "Campo obligatorio" }),
-    emailCliente: z.email({
-        error: (iss) => iss.input === undefined || iss.input === "" ? "Campo obligatorio" : "Correo inválido"
-    }),
-    numTelefono: z.string().regex(
-        /^\+56(?:9\d{8}|[2-7]\d{7}|1\d\d{7})$/,
-        {
-            error: iss => iss.input === undefined || iss.input === "" ? "Campo obligatorio" : "Número de teléfono inválido"
-        }
-    ),
-    tipoPropiedad: z.string().nonempty({ error: "Campo obligatorio" }),
-    nroDpto: z.string().nonempty({ error: "Campo obligatorio" }),
-    tipoFalla: z.string().nonempty({ error: "Campo obligatorio "}),
-    ubicacionFalla: z.string().nonempty({ error: "Campo obligatorio" }),
-    descripcionFalla: z.string().max(400, {error: "Has alcanzado el máximo de caracteres (400)"}).optional()
-});
-
-// Se hace una inferencia del tipo del esquema de Zod
-// para usarlo como tipo en hook 'useForm' de react-hook-form
-type reclamoFormType = z.infer<typeof reclamoFormSchema>;
 
 export default function Home() {
     const [openSidebar, setOpenSidebar] = useState(false);
 
     // Elementos de react-hook-form para validacion de formularios
-    const { register, formState: { errors }, handleSubmit, control } = useForm<reclamoFormType>({
+    const { formState: { errors }, handleSubmit, control } = useForm<ReclamoType>({
+
         // Resolver para usar el esquema de Zod en la validacion del formulario
-        resolver: zodResolver(reclamoFormSchema),
+        resolver: zodResolver(ReclamoSchema),
 
         // Se definen valores por defecto con cadenas vacias porque las validaciones
         // del esquema de zod definido esperan datos de tipo string y React-Hook-Form las maneja
@@ -57,7 +35,7 @@ export default function Home() {
         setOpenSidebar(!openSidebar);
     };
 
-    const onSubmitForm: SubmitHandler<reclamoFormType> = (data) => {
+    const onSubmitForm: SubmitHandler<ReclamoType> = (data) => {
         console.log(data);
     };
 
