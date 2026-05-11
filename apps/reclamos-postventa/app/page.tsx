@@ -37,21 +37,14 @@ export default function Home() {
         setOpenSidebar(!openSidebar);
     };
 
-    /*
-    const onSubmitForm: SubmitHandler<ReclamoType> = (data) => {
-        console.log(data);
-    };
-    */
-
     const handleSuccess = () => {
+        setSuccessMsg("Reclamo enviado exitosamente")
+         reset();                      // Se reinician los valores del formulario
+
         setTimeout(
-            () => setSuccessMsg("Reclamo enviado exitosamente"),
-            2000             // 2 segundos de duracion
+            () => setSuccessMsg(null),
+            2000                       // 2 segundos de duracion
         );
-
-        reset();             // Se reinician los valores del formulario
-
-        setSuccessMsg(null); // Se reinicia el valor del estado 'successMsg'
     };
 
     const onSubmitForm: SubmitHandler<ReclamoType> = async (data) => {
@@ -73,6 +66,10 @@ export default function Home() {
             }
 
             // Si datos fueron enviados exitosamente, se muestra mensaje de exito y se reinicia el formulario.
+            if(serverError) {
+                setServerError(null);
+            }
+
             handleSuccess();
             
         } catch(err: any) {
