@@ -1,12 +1,22 @@
 {
   "name": "@nexo/ui",
   "version": "1.0.0",
-  "description": "",
-  "license": "ISC",
-  "author": "",
-  "type": "commonjs",
-  "main": "index.js",
+  "private": true,
+  "type": "module",
+  "main": "index.ts",
+  "types": "index.d.ts",
+  "exports": {
+      ".": "./index.ts"
+  },
+  "files": [
+      "components",
+      "index.ts"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.2.0",
+    "react-hook-form": "^7.75.0"
   }
 }
