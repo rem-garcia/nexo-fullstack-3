@@ -1,22 +1,12 @@
-import { PrismaClient } from '@prisma/client/edge'
-import { PrismaPg } from '@prisma/adapter-pg'
-import { Pool } from 'pg'
-
-const connectionString = process.env.DATABASE_URL!
-
-const pool = new Pool({ connectionString })
-const adapter = new PrismaPg(pool)
-
-const globalForPrisma = globalThis as unknown as {
-  prisma: PrismaClient | undefined
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["multiSchema"]
 }
 
-export const prisma =
-  globalForPrisma.prisma ??
-  new PrismaClient({ adapter })
-
-if (process.env.NODE_ENV !== 'production') {
-  globalForPrisma.prisma = prisma
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  schemas   = ["public", "auth"]
 }
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
