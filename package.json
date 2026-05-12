@@ -1,0 +1,25 @@
+{
+  "name": "nexo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sistema de gestión de visitas postventa para arriendos de oficinas y departamentos",
+  "license": "ISC",
+  "author": "Remi Garcia, Cristofer Lobos y Ricardo Diaz",
+  "type": "commonjs",
+  "main": "index.js",
+ "scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "dev": "turbo dev",
+  "dev:nexo": "npm --workspace=@nexo/nexo run dev",
+  "dev:reclamos": "npm --workspace=@nexo/reclamos-postventa run dev",
+  "dev:bff": "npm --workspace=@nexo/bff run dev"
+},
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "devDependencies": {
+    "turbo": "^2.9.6"
+  },
+  "packageManager": "npm@8.5.0"
+}

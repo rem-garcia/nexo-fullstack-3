@@ -1,0 +1,83 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# El patron '**' es para que se ignoren carpetas/archivos de forma recursiva (en este caso, para cada proyecto Next JS)
+
+# dependencies
+**/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+**/coverage
+
+# next.js
+apps/**/.next/
+/apps/**/out/
+/out/
+#/.next/
+#/out/
+
+# production
+**/build
+/apps/**/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+apps/**/.vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+**/next-env.d.ts
+next-env.d.ts
+
+# turborepo
+.turbo
+
+# Editores de texto
+# VS Code
+.vscode/
+.vscode/*
+
+# JetBrains (IDEA, WebStorm, PhpStorm, Rider, etc.)
+.idea/
+*.iml
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Emacs
+*~
+.\#*
+.tags
+.emacs.desktop
+
+# Vim
+*.swp
+*.swo
+*.swn
+
+# macOS Finder/Editor temp
+.DS_Store
+
+# Windows thumbnail/cache
+Thumbs.db
+desktop.ini
