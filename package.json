@@ -12,7 +12,8 @@
   "dev": "turbo dev",
   "dev:nexo": "npm --workspace=@nexo/nexo run dev",
   "dev:reclamos": "npm --workspace=@nexo/reclamos-postventa run dev",
-  "dev:bff": "npm --workspace=@nexo/bff run dev"
+  "dev:bff": "npm --workspace=@nexo/bff run dev",
+  "dev:reclamos-service": "npm --workspace=@nexo/reclamos-service run dev"
 },
   "workspaces": [
     "packages/*",
