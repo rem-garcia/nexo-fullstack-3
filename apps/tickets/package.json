@@ -1,5 +1,5 @@
 {
-  "name": "@nexo/bff",
+  "name": "@nexo/tickets",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,27 +9,26 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@prisma/adapter-pg": "^7.8.0",
-    "@prisma/client": "^7.8.0",
-    "@prisma/extension-accelerate": "^3.0.1",
-    "@supabase/ssr": "^0.10.3",
-    "@supabase/supabase-js": "^2.105.4",
-    "dotenv": "^17.4.2",
     "next": "16.2.4",
-    "pg": "^8.20.0",
-    "prisma": "^7.8.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
-    "zod": "^4.4.3"
+    "@prisma/adapter-pg": "latest",
+    "@prisma/client": "latest",
+    "pg": "latest",
+    "zod": "latest",
+    "dotenv": "latest",
+    "@supabase/supabase-js": "latest",
+    "@supabase/ssr": "latest"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
-    "@types/pg": "^8.20.0",
+    "@types/pg": "latest",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.4",
+    "prisma": "latest",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

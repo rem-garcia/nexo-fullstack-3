@@ -6,7 +6,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  schemas  = ["public", "auth"]
+  schemas  = ["auth", "public"]
 }
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
@@ -518,7 +518,7 @@ model profiles {
 model reclamo {
   nombre_cliente    String   @db.VarChar
   email_cliente     String   @db.VarChar
-  telefono          String   @db.VarChar
+  num_telefono      String   @db.VarChar
   tipo_propiedad    String   @db.VarChar
   nro_dpto          String   @db.VarChar
   tipo_falla        String   @db.VarChar

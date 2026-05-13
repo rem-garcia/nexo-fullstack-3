@@ -442,7 +442,7 @@ exports.Prisma.ProfilesScalarFieldEnum = {
 exports.Prisma.ReclamoScalarFieldEnum = {
   nombre_cliente: 'nombre_cliente',
   email_cliente: 'email_cliente',
-  telefono: 'telefono',
+  num_telefono: 'num_telefono',
   tipo_propiedad: 'tipo_propiedad',
   nro_dpto: 'nro_dpto',
   tipo_falla: 'tipo_falla',

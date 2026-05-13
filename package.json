@@ -7,13 +7,13 @@
   "author": "Remi Garcia, Cristofer Lobos y Ricardo Diaz",
   "type": "commonjs",
   "main": "index.js",
- "scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  "dev": "turbo dev",
-  "dev:nexo": "npm --workspace=@nexo/nexo run dev",
-  "dev:reclamos": "npm --workspace=@nexo/reclamos-postventa run dev",
-  "dev:bff": "npm --workspace=@nexo/bff run dev"
-},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "turbo dev",
+    "dev:nexo": "npm --workspace=@nexo/nexo run dev",
+    "dev:reclamos": "npm --workspace=@nexo/reclamos-postventa run dev",
+    "dev:tickets": "npm --workspace=@nexo/tickets run dev"
+  },
   "workspaces": [
     "packages/*",
     "apps/*"

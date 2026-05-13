@@ -31021,7 +31021,7 @@ export namespace Prisma {
   export type ReclamoMinAggregateOutputType = {
     nombre_cliente: string | null
     email_cliente: string | null
-    telefono: string | null
+    num_telefono: string | null
     tipo_propiedad: string | null
     nro_dpto: string | null
     tipo_falla: string | null
@@ -31034,7 +31034,7 @@ export namespace Prisma {
   export type ReclamoMaxAggregateOutputType = {
     nombre_cliente: string | null
     email_cliente: string | null
-    telefono: string | null
+    num_telefono: string | null
     tipo_propiedad: string | null
     nro_dpto: string | null
     tipo_falla: string | null
@@ -31047,7 +31047,7 @@ export namespace Prisma {
   export type ReclamoCountAggregateOutputType = {
     nombre_cliente: number
     email_cliente: number
-    telefono: number
+    num_telefono: number
     tipo_propiedad: number
     nro_dpto: number
     tipo_falla: number
@@ -31062,7 +31062,7 @@ export namespace Prisma {
   export type ReclamoMinAggregateInputType = {
     nombre_cliente?: true
     email_cliente?: true
-    telefono?: true
+    num_telefono?: true
     tipo_propiedad?: true
     nro_dpto?: true
     tipo_falla?: true
@@ -31075,7 +31075,7 @@ export namespace Prisma {
   export type ReclamoMaxAggregateInputType = {
     nombre_cliente?: true
     email_cliente?: true
-    telefono?: true
+    num_telefono?: true
     tipo_propiedad?: true
     nro_dpto?: true
     tipo_falla?: true
@@ -31088,7 +31088,7 @@ export namespace Prisma {
   export type ReclamoCountAggregateInputType = {
     nombre_cliente?: true
     email_cliente?: true
-    telefono?: true
+    num_telefono?: true
     tipo_propiedad?: true
     nro_dpto?: true
     tipo_falla?: true
@@ -31174,7 +31174,7 @@ export namespace Prisma {
   export type ReclamoGroupByOutputType = {
     nombre_cliente: string
     email_cliente: string
-    telefono: string
+    num_telefono: string
     tipo_propiedad: string
     nro_dpto: string
     tipo_falla: string
@@ -31204,7 +31204,7 @@ export namespace Prisma {
   export type reclamoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     nombre_cliente?: boolean
     email_cliente?: boolean
-    telefono?: boolean
+    num_telefono?: boolean
     tipo_propiedad?: boolean
     nro_dpto?: boolean
     tipo_falla?: boolean
@@ -31217,7 +31217,7 @@ export namespace Prisma {
   export type reclamoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     nombre_cliente?: boolean
     email_cliente?: boolean
-    telefono?: boolean
+    num_telefono?: boolean
     tipo_propiedad?: boolean
     nro_dpto?: boolean
     tipo_falla?: boolean
@@ -31230,7 +31230,7 @@ export namespace Prisma {
   export type reclamoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     nombre_cliente?: boolean
     email_cliente?: boolean
-    telefono?: boolean
+    num_telefono?: boolean
     tipo_propiedad?: boolean
     nro_dpto?: boolean
     tipo_falla?: boolean
@@ -31243,7 +31243,7 @@ export namespace Prisma {
   export type reclamoSelectScalar = {
     nombre_cliente?: boolean
     email_cliente?: boolean
-    telefono?: boolean
+    num_telefono?: boolean
     tipo_propiedad?: boolean
     nro_dpto?: boolean
     tipo_falla?: boolean
@@ -31253,7 +31253,7 @@ export namespace Prisma {
     id?: boolean
   }
 
-  export type reclamoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"nombre_cliente" | "email_cliente" | "telefono" | "tipo_propiedad" | "nro_dpto" | "tipo_falla" | "ubicacion_falla" | "descripcion_falla" | "creado_en" | "id", ExtArgs["result"]["reclamo"]>
+  export type reclamoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"nombre_cliente" | "email_cliente" | "num_telefono" | "tipo_propiedad" | "nro_dpto" | "tipo_falla" | "ubicacion_falla" | "descripcion_falla" | "creado_en" | "id", ExtArgs["result"]["reclamo"]>
 
   export type $reclamoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "reclamo"
@@ -31261,7 +31261,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       nombre_cliente: string
       email_cliente: string
-      telefono: string
+      num_telefono: string
       tipo_propiedad: string
       nro_dpto: string
       tipo_falla: string
@@ -31694,7 +31694,7 @@ export namespace Prisma {
   interface reclamoFieldRefs {
     readonly nombre_cliente: FieldRef<"reclamo", 'String'>
     readonly email_cliente: FieldRef<"reclamo", 'String'>
-    readonly telefono: FieldRef<"reclamo", 'String'>
+    readonly num_telefono: FieldRef<"reclamo", 'String'>
     readonly tipo_propiedad: FieldRef<"reclamo", 'String'>
     readonly nro_dpto: FieldRef<"reclamo", 'String'>
     readonly tipo_falla: FieldRef<"reclamo", 'String'>
@@ -32481,7 +32481,7 @@ export namespace Prisma {
   export const ReclamoScalarFieldEnum: {
     nombre_cliente: 'nombre_cliente',
     email_cliente: 'email_cliente',
-    telefono: 'telefono',
+    num_telefono: 'num_telefono',
     tipo_propiedad: 'tipo_propiedad',
     nro_dpto: 'nro_dpto',
     tipo_falla: 'tipo_falla',
@@ -34798,7 +34798,7 @@ export namespace Prisma {
     NOT?: reclamoWhereInput | reclamoWhereInput[]
     nombre_cliente?: StringFilter<"reclamo"> | string
     email_cliente?: StringFilter<"reclamo"> | string
-    telefono?: StringFilter<"reclamo"> | string
+    num_telefono?: StringFilter<"reclamo"> | string
     tipo_propiedad?: StringFilter<"reclamo"> | string
     nro_dpto?: StringFilter<"reclamo"> | string
     tipo_falla?: StringFilter<"reclamo"> | string
@@ -34811,7 +34811,7 @@ export namespace Prisma {
   export type reclamoOrderByWithRelationInput = {
     nombre_cliente?: SortOrder
     email_cliente?: SortOrder
-    telefono?: SortOrder
+    num_telefono?: SortOrder
     tipo_propiedad?: SortOrder
     nro_dpto?: SortOrder
     tipo_falla?: SortOrder
@@ -34828,7 +34828,7 @@ export namespace Prisma {
     NOT?: reclamoWhereInput | reclamoWhereInput[]
     nombre_cliente?: StringFilter<"reclamo"> | string
     email_cliente?: StringFilter<"reclamo"> | string
-    telefono?: StringFilter<"reclamo"> | string
+    num_telefono?: StringFilter<"reclamo"> | string
     tipo_propiedad?: StringFilter<"reclamo"> | string
     nro_dpto?: StringFilter<"reclamo"> | string
     tipo_falla?: StringFilter<"reclamo"> | string
@@ -34840,7 +34840,7 @@ export namespace Prisma {
   export type reclamoOrderByWithAggregationInput = {
     nombre_cliente?: SortOrder
     email_cliente?: SortOrder
-    telefono?: SortOrder
+    num_telefono?: SortOrder
     tipo_propiedad?: SortOrder
     nro_dpto?: SortOrder
     tipo_falla?: SortOrder
@@ -34859,7 +34859,7 @@ export namespace Prisma {
     NOT?: reclamoScalarWhereWithAggregatesInput | reclamoScalarWhereWithAggregatesInput[]
     nombre_cliente?: StringWithAggregatesFilter<"reclamo"> | string
     email_cliente?: StringWithAggregatesFilter<"reclamo"> | string
-    telefono?: StringWithAggregatesFilter<"reclamo"> | string
+    num_telefono?: StringWithAggregatesFilter<"reclamo"> | string
     tipo_propiedad?: StringWithAggregatesFilter<"reclamo"> | string
     nro_dpto?: StringWithAggregatesFilter<"reclamo"> | string
     tipo_falla?: StringWithAggregatesFilter<"reclamo"> | string
@@ -37162,7 +37162,7 @@ export namespace Prisma {
   export type reclamoCreateInput = {
     nombre_cliente: string
     email_cliente: string
-    telefono: string
+    num_telefono: string
     tipo_propiedad: string
     nro_dpto: string
     tipo_falla: string
@@ -37175,7 +37175,7 @@ export namespace Prisma {
   export type reclamoUncheckedCreateInput = {
     nombre_cliente: string
     email_cliente: string
-    telefono: string
+    num_telefono: string
     tipo_propiedad: string
     nro_dpto: string
     tipo_falla: string
@@ -37188,7 +37188,7 @@ export namespace Prisma {
   export type reclamoUpdateInput = {
     nombre_cliente?: StringFieldUpdateOperationsInput | string
     email_cliente?: StringFieldUpdateOperationsInput | string
-    telefono?: StringFieldUpdateOperationsInput | string
+    num_telefono?: StringFieldUpdateOperationsInput | string
     tipo_propiedad?: StringFieldUpdateOperationsInput | string
     nro_dpto?: StringFieldUpdateOperationsInput | string
     tipo_falla?: StringFieldUpdateOperationsInput | string
@@ -37201,7 +37201,7 @@ export namespace Prisma {
   export type reclamoUncheckedUpdateInput = {
     nombre_cliente?: StringFieldUpdateOperationsInput | string
     email_cliente?: StringFieldUpdateOperationsInput | string
-    telefono?: StringFieldUpdateOperationsInput | string
+    num_telefono?: StringFieldUpdateOperationsInput | string
     tipo_propiedad?: StringFieldUpdateOperationsInput | string
     nro_dpto?: StringFieldUpdateOperationsInput | string
     tipo_falla?: StringFieldUpdateOperationsInput | string
@@ -37214,7 +37214,7 @@ export namespace Prisma {
   export type reclamoCreateManyInput = {
     nombre_cliente: string
     email_cliente: string
-    telefono: string
+    num_telefono: string
     tipo_propiedad: string
     nro_dpto: string
     tipo_falla: string
@@ -37227,7 +37227,7 @@ export namespace Prisma {
   export type reclamoUpdateManyMutationInput = {
     nombre_cliente?: StringFieldUpdateOperationsInput | string
     email_cliente?: StringFieldUpdateOperationsInput | string
-    telefono?: StringFieldUpdateOperationsInput | string
+    num_telefono?: StringFieldUpdateOperationsInput | string
     tipo_propiedad?: StringFieldUpdateOperationsInput | string
     nro_dpto?: StringFieldUpdateOperationsInput | string
     tipo_falla?: StringFieldUpdateOperationsInput | string
@@ -37240,7 +37240,7 @@ export namespace Prisma {
   export type reclamoUncheckedUpdateManyInput = {
     nombre_cliente?: StringFieldUpdateOperationsInput | string
     email_cliente?: StringFieldUpdateOperationsInput | string
-    telefono?: StringFieldUpdateOperationsInput | string
+    num_telefono?: StringFieldUpdateOperationsInput | string
     tipo_propiedad?: StringFieldUpdateOperationsInput | string
     nro_dpto?: StringFieldUpdateOperationsInput | string
     tipo_falla?: StringFieldUpdateOperationsInput | string
@@ -38990,7 +38990,7 @@ export namespace Prisma {
   export type reclamoCountOrderByAggregateInput = {
     nombre_cliente?: SortOrder
     email_cliente?: SortOrder
-    telefono?: SortOrder
+    num_telefono?: SortOrder
     tipo_propiedad?: SortOrder
     nro_dpto?: SortOrder
     tipo_falla?: SortOrder
@@ -39003,7 +39003,7 @@ export namespace Prisma {
   export type reclamoMaxOrderByAggregateInput = {
     nombre_cliente?: SortOrder
     email_cliente?: SortOrder
-    telefono?: SortOrder
+    num_telefono?: SortOrder
     tipo_propiedad?: SortOrder
     nro_dpto?: SortOrder
     tipo_falla?: SortOrder
@@ -39016,7 +39016,7 @@ export namespace Prisma {
   export type reclamoMinOrderByAggregateInput = {
     nombre_cliente?: SortOrder
     email_cliente?: SortOrder
-    telefono?: SortOrder
+    num_telefono?: SortOrder
     tipo_propiedad?: SortOrder
     nro_dpto?: SortOrder
     tipo_falla?: SortOrder
