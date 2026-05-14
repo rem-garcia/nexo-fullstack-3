@@ -1,65 +1,149 @@
-import Image from "next/image";
+import Image from 'next/image'
 
-export default function Home() {
+export default function LandingPage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="min-h-screen bg-[#0f172a] text-white">
+
+      {/* Navbar */}
+      <nav className="flex items-center justify-between px-8 py-4 border-b border-slate-800">
+        <div className="flex items-center gap-3">
+          <Image
+            src="/nexo-logo.png"
+            alt="Logo Nexo"
+            width={130}
+            height={130}
+            className="rounded-lg"
+          />
+          
+        </div>
+        <a
+          href="https://nexo-dashboard-six.vercel.app/login"
+          className="px-5 py-2 bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium rounded-lg transition-colors"
+        >
+          Iniciar sesión
+        </a>
+      </nav>
+
+      {/* Hero */}
+      <section className="flex flex-col items-center justify-center text-center px-8 py-24">
+        <h1 className="text-5xl font-black mb-6 leading-tight">
+          Gestión de Visitas<br />
+          <span style={{
+            background: 'linear-gradient(135deg, #60a5fa, #818cf8)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text'
+          }}>
+            Postventa
+          </span>
+        </h1>
+        <p className="text-slate-400 text-lg max-w-xl mb-10">
+          Plataforma digital para gestionar reclamos, visitas técnicas y garantías
+          de propiedades en arriendo de manera eficiente y trazable.
+        </p>
+        <a
+          href="https://nexo-dashboard-six.vercel.app/login"
+          className="px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-lg transition-colors text-lg"
+        >
+          Comenzar ahora
+        </a>
+      </section>
+
+      {/* Características */}
+      <section className="px-8 py-16 border-t border-slate-800">
+        <h2 className="text-3xl font-bold text-center mb-12">¿Qué hace Nexo?</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
+            <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4">
+              <span className="text-2xl">📋</span>
+            </div>
+            <h3 className="font-semibold text-white mb-2">Gestión de Reclamos</h3>
+            <p className="text-slate-400 text-sm">
+              Digitaliza el proceso de reclamos postventa eliminando el uso de correos y hojas de cálculo.
+            </p>
+          </div>
+
+          <div className="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
+            <div className="w-12 h-12 bg-indigo-500/20 rounded-lg flex items-center justify-center mb-4">
+              <span className="text-2xl">🔧</span>
+            </div>
+            <h3 className="font-semibold text-white mb-2">Seguimiento Técnico</h3>
+            <p className="text-slate-400 text-sm">
+              Asigna técnicos, programa visitas y monitorea el estado de cada reclamo en tiempo real.
+            </p>
+          </div>
+
+          <div className="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
+            <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4">
+              <span className="text-2xl">🛡️</span>
+            </div>
+            <h3 className="font-semibold text-white mb-2">Control de Garantías</h3>
+            <p className="text-slate-400 text-sm">
+              Monitorea el semáforo de garantías y evita vencimientos con alertas automáticas.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Quiénes somos */}
+      <section className="px-8 py-16 border-t border-slate-800">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">¿Quiénes somos?</h2>
+          <p className="text-slate-400 text-lg leading-relaxed">
+            Nexo es una plataforma desarrollada para inmobiliarias que gestionan arriendos de
+            oficinas y departamentos. Nuestro objetivo es digitalizar y simplificar el proceso
+            postventa, dando trazabilidad completa a cada reclamo desde su registro hasta su
+            resolución confirmada.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Contacto */}
+      <section className="px-8 py-16 border-t border-slate-800">
+        <div className="max-w-xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4">Contáctanos</h2>
+          <p className="text-slate-400 mb-8">
+            ¿Tienes preguntas? Escríbenos y te responderemos a la brevedad.
+          </p>
+          <div className="bg-slate-800/50 rounded-xl p-8 border border-slate-700 text-left">
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-slate-300 mb-2">Nombre</label>
+                <input
+                  type="text"
+                  placeholder="Tu nombre"
+                  className="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-slate-300 mb-2">Correo electrónico</label>
+                <input
+                  type="email"
+                  placeholder="correo@ejemplo.com"
+                  className="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-slate-300 mb-2">Mensaje</label>
+                <textarea
+                  placeholder="¿En qué podemos ayudarte?"
+                  rows={4}
+                  className="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors resize-none"
+                />
+              </div>
+              <button className="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-lg transition-colors">
+                Enviar mensaje
+              </button>
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
-  );
+      </section>
+
+      {/* Footer */}
+      <footer className="px-8 py-6 border-t border-slate-800 text-center">
+        <p className="text-slate-500 text-sm">© 2026 Nexo. Todos los derechos reservados.</p>
+      </footer>
+
+    </main>
+  )
 }
