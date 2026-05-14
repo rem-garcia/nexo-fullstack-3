@@ -1,3 +1,4 @@
+'use client'
 import { type FieldValues, useController, type UseControllerProps } from "react-hook-form";
 
 interface SelectReclamosProps<T extends FieldValues> extends UseControllerProps<T> {

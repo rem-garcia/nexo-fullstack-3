@@ -6,3 +6,4 @@ export { default as InputReclamos } from "./components/InputReclamos";
 export { default as SelectReclamos } from "./components/SelectReclamos";
 export { default as TextAreaReclamos } from "./components/TextAreaReclamos";
 export { AuthImage } from "./components/AuthImage";
+export { DashboardLayout } from './components/DashboardLayout';
