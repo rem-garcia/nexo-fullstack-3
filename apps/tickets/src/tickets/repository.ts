@@ -19,7 +19,7 @@ export const ticketRepository = {
       data: {
         nombre_cliente: data.nombre_cliente,
         email_cliente: data.email_cliente,
-        telefono: data.telefono,
+        num_telefono: data.num_telefono,
         tipo_propiedad: data.tipo_propiedad,
         nro_dpto: data.nro_dpto,
         tipo_falla: data.tipo_falla,
