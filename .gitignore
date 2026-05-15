@@ -84,3 +84,6 @@ apps/**/src/generated/prisma
 # Windows thumbnail/cache
 Thumbs.db
 desktop.ini
+
+# archivos compilados de packages
+packages/*/dist
