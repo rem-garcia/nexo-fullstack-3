@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import * as reclamoService from "../../../src/service/reclamoServiceV2";
+import * as reclamoService from "../../../src/service/reclamoService";
 
 export const POST = async (req: Request) => {
     const body = await req.json();
