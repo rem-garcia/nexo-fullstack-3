@@ -165,6 +165,22 @@ export type profiles = $Result.DefaultSelection<Prisma.$profilesPayload>
  * This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
  */
 export type reclamo = $Result.DefaultSelection<Prisma.$reclamoPayload>
+/**
+ * Model confirmation_codes
+ * This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+ */
+export type confirmation_codes = $Result.DefaultSelection<Prisma.$confirmation_codesPayload>
+/**
+ * Model propiedades
+ * This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+ */
+export type propiedades = $Result.DefaultSelection<Prisma.$propiedadesPayload>
+/**
+ * Model tickets
+ * This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+ * This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+ */
+export type tickets = $Result.DefaultSelection<Prisma.$ticketsPayload>
 
 /**
  * Enums
@@ -656,6 +672,36 @@ export class PrismaClient<
     * ```
     */
   get reclamo(): Prisma.reclamoDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.confirmation_codes`: Exposes CRUD operations for the **confirmation_codes** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Confirmation_codes
+    * const confirmation_codes = await prisma.confirmation_codes.findMany()
+    * ```
+    */
+  get confirmation_codes(): Prisma.confirmation_codesDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.propiedades`: Exposes CRUD operations for the **propiedades** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Propiedades
+    * const propiedades = await prisma.propiedades.findMany()
+    * ```
+    */
+  get propiedades(): Prisma.propiedadesDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.tickets`: Exposes CRUD operations for the **tickets** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Tickets
+    * const tickets = await prisma.tickets.findMany()
+    * ```
+    */
+  get tickets(): Prisma.ticketsDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -1114,7 +1160,10 @@ export namespace Prisma {
     webauthn_challenges: 'webauthn_challenges',
     webauthn_credentials: 'webauthn_credentials',
     profiles: 'profiles',
-    reclamo: 'reclamo'
+    reclamo: 'reclamo',
+    confirmation_codes: 'confirmation_codes',
+    propiedades: 'propiedades',
+    tickets: 'tickets'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1130,7 +1179,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "audit_log_entries" | "custom_oauth_providers" | "flow_state" | "identities" | "instances" | "mfa_amr_claims" | "mfa_challenges" | "mfa_factors" | "oauth_authorizations" | "oauth_client_states" | "oauth_clients" | "oauth_consents" | "one_time_tokens" | "refresh_tokens" | "saml_providers" | "saml_relay_states" | "schema_migrations" | "sessions" | "sso_domains" | "sso_providers" | "users" | "webauthn_challenges" | "webauthn_credentials" | "profiles" | "reclamo"
+      modelProps: "audit_log_entries" | "custom_oauth_providers" | "flow_state" | "identities" | "instances" | "mfa_amr_claims" | "mfa_challenges" | "mfa_factors" | "oauth_authorizations" | "oauth_client_states" | "oauth_clients" | "oauth_consents" | "one_time_tokens" | "refresh_tokens" | "saml_providers" | "saml_relay_states" | "schema_migrations" | "sessions" | "sso_domains" | "sso_providers" | "users" | "webauthn_challenges" | "webauthn_credentials" | "profiles" | "reclamo" | "confirmation_codes" | "propiedades" | "tickets"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2984,6 +3033,228 @@ export namespace Prisma {
           }
         }
       }
+      confirmation_codes: {
+        payload: Prisma.$confirmation_codesPayload<ExtArgs>
+        fields: Prisma.confirmation_codesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.confirmation_codesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$confirmation_codesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.confirmation_codesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$confirmation_codesPayload>
+          }
+          findFirst: {
+            args: Prisma.confirmation_codesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$confirmation_codesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.confirmation_codesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$confirmation_codesPayload>
+          }
+          findMany: {
+            args: Prisma.confirmation_codesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$confirmation_codesPayload>[]
+          }
+          create: {
+            args: Prisma.confirmation_codesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$confirmation_codesPayload>
+          }
+          createMany: {
+            args: Prisma.confirmation_codesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.confirmation_codesCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$confirmation_codesPayload>[]
+          }
+          delete: {
+            args: Prisma.confirmation_codesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$confirmation_codesPayload>
+          }
+          update: {
+            args: Prisma.confirmation_codesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$confirmation_codesPayload>
+          }
+          deleteMany: {
+            args: Prisma.confirmation_codesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.confirmation_codesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.confirmation_codesUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$confirmation_codesPayload>[]
+          }
+          upsert: {
+            args: Prisma.confirmation_codesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$confirmation_codesPayload>
+          }
+          aggregate: {
+            args: Prisma.Confirmation_codesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateConfirmation_codes>
+          }
+          groupBy: {
+            args: Prisma.confirmation_codesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Confirmation_codesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.confirmation_codesCountArgs<ExtArgs>
+            result: $Utils.Optional<Confirmation_codesCountAggregateOutputType> | number
+          }
+        }
+      }
+      propiedades: {
+        payload: Prisma.$propiedadesPayload<ExtArgs>
+        fields: Prisma.propiedadesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.propiedadesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$propiedadesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.propiedadesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$propiedadesPayload>
+          }
+          findFirst: {
+            args: Prisma.propiedadesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$propiedadesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.propiedadesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$propiedadesPayload>
+          }
+          findMany: {
+            args: Prisma.propiedadesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$propiedadesPayload>[]
+          }
+          create: {
+            args: Prisma.propiedadesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$propiedadesPayload>
+          }
+          createMany: {
+            args: Prisma.propiedadesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.propiedadesCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$propiedadesPayload>[]
+          }
+          delete: {
+            args: Prisma.propiedadesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$propiedadesPayload>
+          }
+          update: {
+            args: Prisma.propiedadesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$propiedadesPayload>
+          }
+          deleteMany: {
+            args: Prisma.propiedadesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.propiedadesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.propiedadesUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$propiedadesPayload>[]
+          }
+          upsert: {
+            args: Prisma.propiedadesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$propiedadesPayload>
+          }
+          aggregate: {
+            args: Prisma.PropiedadesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePropiedades>
+          }
+          groupBy: {
+            args: Prisma.propiedadesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PropiedadesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.propiedadesCountArgs<ExtArgs>
+            result: $Utils.Optional<PropiedadesCountAggregateOutputType> | number
+          }
+        }
+      }
+      tickets: {
+        payload: Prisma.$ticketsPayload<ExtArgs>
+        fields: Prisma.ticketsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ticketsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ticketsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ticketsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ticketsPayload>
+          }
+          findFirst: {
+            args: Prisma.ticketsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ticketsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ticketsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ticketsPayload>
+          }
+          findMany: {
+            args: Prisma.ticketsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ticketsPayload>[]
+          }
+          create: {
+            args: Prisma.ticketsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ticketsPayload>
+          }
+          createMany: {
+            args: Prisma.ticketsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ticketsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ticketsPayload>[]
+          }
+          delete: {
+            args: Prisma.ticketsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ticketsPayload>
+          }
+          update: {
+            args: Prisma.ticketsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ticketsPayload>
+          }
+          deleteMany: {
+            args: Prisma.ticketsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ticketsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ticketsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ticketsPayload>[]
+          }
+          upsert: {
+            args: Prisma.ticketsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ticketsPayload>
+          }
+          aggregate: {
+            args: Prisma.TicketsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTickets>
+          }
+          groupBy: {
+            args: Prisma.ticketsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TicketsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ticketsCountArgs<ExtArgs>
+            result: $Utils.Optional<TicketsCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -3117,6 +3388,9 @@ export namespace Prisma {
     webauthn_credentials?: webauthn_credentialsOmit
     profiles?: profilesOmit
     reclamo?: reclamoOmit
+    confirmation_codes?: confirmation_codesOmit
+    propiedades?: propiedadesOmit
+    tickets?: ticketsOmit
   }
 
   /* Types for Logging */
@@ -3483,6 +3757,108 @@ export namespace Prisma {
    */
   export type UsersCountOutputTypeCountWebauthn_credentialsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: webauthn_credentialsWhereInput
+  }
+
+
+  /**
+   * Count Type ProfilesCountOutputType
+   */
+
+  export type ProfilesCountOutputType = {
+    tickets_tickets_coordinador_idToprofiles: number
+    tickets_tickets_tecnico_idToprofiles: number
+  }
+
+  export type ProfilesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tickets_tickets_coordinador_idToprofiles?: boolean | ProfilesCountOutputTypeCountTickets_tickets_coordinador_idToprofilesArgs
+    tickets_tickets_tecnico_idToprofiles?: boolean | ProfilesCountOutputTypeCountTickets_tickets_tecnico_idToprofilesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ProfilesCountOutputType without action
+   */
+  export type ProfilesCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfilesCountOutputType
+     */
+    select?: ProfilesCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ProfilesCountOutputType without action
+   */
+  export type ProfilesCountOutputTypeCountTickets_tickets_coordinador_idToprofilesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ticketsWhereInput
+  }
+
+  /**
+   * ProfilesCountOutputType without action
+   */
+  export type ProfilesCountOutputTypeCountTickets_tickets_tecnico_idToprofilesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ticketsWhereInput
+  }
+
+
+  /**
+   * Count Type ReclamoCountOutputType
+   */
+
+  export type ReclamoCountOutputType = {
+    tickets: number
+  }
+
+  export type ReclamoCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tickets?: boolean | ReclamoCountOutputTypeCountTicketsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ReclamoCountOutputType without action
+   */
+  export type ReclamoCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ReclamoCountOutputType
+     */
+    select?: ReclamoCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ReclamoCountOutputType without action
+   */
+  export type ReclamoCountOutputTypeCountTicketsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ticketsWhereInput
+  }
+
+
+  /**
+   * Count Type TicketsCountOutputType
+   */
+
+  export type TicketsCountOutputType = {
+    confirmation_codes: number
+  }
+
+  export type TicketsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    confirmation_codes?: boolean | TicketsCountOutputTypeCountConfirmation_codesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * TicketsCountOutputType without action
+   */
+  export type TicketsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TicketsCountOutputType
+     */
+    select?: TicketsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * TicketsCountOutputType without action
+   */
+  export type TicketsCountOutputTypeCountConfirmation_codesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: confirmation_codesWhereInput
   }
 
 
@@ -30095,6 +30471,9 @@ export namespace Prisma {
     created_at?: boolean
     updated_at?: boolean
     users?: boolean | usersDefaultArgs<ExtArgs>
+    tickets_tickets_coordinador_idToprofiles?: boolean | profiles$tickets_tickets_coordinador_idToprofilesArgs<ExtArgs>
+    tickets_tickets_tecnico_idToprofiles?: boolean | profiles$tickets_tickets_tecnico_idToprofilesArgs<ExtArgs>
+    _count?: boolean | ProfilesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["profiles"]>
 
   export type profilesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -30135,6 +30514,9 @@ export namespace Prisma {
   export type profilesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "full_name" | "email" | "phone" | "role" | "is_active" | "created_at" | "updated_at", ExtArgs["result"]["profiles"]>
   export type profilesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     users?: boolean | usersDefaultArgs<ExtArgs>
+    tickets_tickets_coordinador_idToprofiles?: boolean | profiles$tickets_tickets_coordinador_idToprofilesArgs<ExtArgs>
+    tickets_tickets_tecnico_idToprofiles?: boolean | profiles$tickets_tickets_tecnico_idToprofilesArgs<ExtArgs>
+    _count?: boolean | ProfilesCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type profilesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     users?: boolean | usersDefaultArgs<ExtArgs>
@@ -30147,6 +30529,8 @@ export namespace Prisma {
     name: "profiles"
     objects: {
       users: Prisma.$usersPayload<ExtArgs>
+      tickets_tickets_coordinador_idToprofiles: Prisma.$ticketsPayload<ExtArgs>[]
+      tickets_tickets_tecnico_idToprofiles: Prisma.$ticketsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -30552,6 +30936,8 @@ export namespace Prisma {
   export interface Prisma__profilesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     users<T extends usersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usersDefaultArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    tickets_tickets_coordinador_idToprofiles<T extends profiles$tickets_tickets_coordinador_idToprofilesArgs<ExtArgs> = {}>(args?: Subset<T, profiles$tickets_tickets_coordinador_idToprofilesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ticketsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    tickets_tickets_tecnico_idToprofiles<T extends profiles$tickets_tickets_tecnico_idToprofilesArgs<ExtArgs> = {}>(args?: Subset<T, profiles$tickets_tickets_tecnico_idToprofilesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ticketsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -30990,6 +31376,54 @@ export namespace Prisma {
   }
 
   /**
+   * profiles.tickets_tickets_coordinador_idToprofiles
+   */
+  export type profiles$tickets_tickets_coordinador_idToprofilesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tickets
+     */
+    select?: ticketsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tickets
+     */
+    omit?: ticketsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ticketsInclude<ExtArgs> | null
+    where?: ticketsWhereInput
+    orderBy?: ticketsOrderByWithRelationInput | ticketsOrderByWithRelationInput[]
+    cursor?: ticketsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TicketsScalarFieldEnum | TicketsScalarFieldEnum[]
+  }
+
+  /**
+   * profiles.tickets_tickets_tecnico_idToprofiles
+   */
+  export type profiles$tickets_tickets_tecnico_idToprofilesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tickets
+     */
+    select?: ticketsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tickets
+     */
+    omit?: ticketsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ticketsInclude<ExtArgs> | null
+    where?: ticketsWhereInput
+    orderBy?: ticketsOrderByWithRelationInput | ticketsOrderByWithRelationInput[]
+    cursor?: ticketsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TicketsScalarFieldEnum | TicketsScalarFieldEnum[]
+  }
+
+  /**
    * profiles without action
    */
   export type profilesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -31212,6 +31646,8 @@ export namespace Prisma {
     descripcion_falla?: boolean
     creado_en?: boolean
     id?: boolean
+    tickets?: boolean | reclamo$ticketsArgs<ExtArgs>
+    _count?: boolean | ReclamoCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["reclamo"]>
 
   export type reclamoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -31254,10 +31690,18 @@ export namespace Prisma {
   }
 
   export type reclamoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"nombre_cliente" | "email_cliente" | "num_telefono" | "tipo_propiedad" | "nro_dpto" | "tipo_falla" | "ubicacion_falla" | "descripcion_falla" | "creado_en" | "id", ExtArgs["result"]["reclamo"]>
+  export type reclamoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tickets?: boolean | reclamo$ticketsArgs<ExtArgs>
+    _count?: boolean | ReclamoCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type reclamoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type reclamoIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $reclamoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "reclamo"
-    objects: {}
+    objects: {
+      tickets: Prisma.$ticketsPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       nombre_cliente: string
       email_cliente: string
@@ -31663,6 +32107,7 @@ export namespace Prisma {
    */
   export interface Prisma__reclamoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    tickets<T extends reclamo$ticketsArgs<ExtArgs> = {}>(args?: Subset<T, reclamo$ticketsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ticketsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -31719,6 +32164,10 @@ export namespace Prisma {
      */
     omit?: reclamoOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: reclamoInclude<ExtArgs> | null
+    /**
      * Filter, which reclamo to fetch.
      */
     where: reclamoWhereUniqueInput
@@ -31737,6 +32186,10 @@ export namespace Prisma {
      */
     omit?: reclamoOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: reclamoInclude<ExtArgs> | null
+    /**
      * Filter, which reclamo to fetch.
      */
     where: reclamoWhereUniqueInput
@@ -31754,6 +32207,10 @@ export namespace Prisma {
      * Omit specific fields from the reclamo
      */
     omit?: reclamoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: reclamoInclude<ExtArgs> | null
     /**
      * Filter, which reclamo to fetch.
      */
@@ -31803,6 +32260,10 @@ export namespace Prisma {
      */
     omit?: reclamoOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: reclamoInclude<ExtArgs> | null
+    /**
      * Filter, which reclamo to fetch.
      */
     where?: reclamoWhereInput
@@ -31850,6 +32311,10 @@ export namespace Prisma {
      * Omit specific fields from the reclamo
      */
     omit?: reclamoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: reclamoInclude<ExtArgs> | null
     /**
      * Filter, which reclamos to fetch.
      */
@@ -31899,6 +32364,10 @@ export namespace Prisma {
      */
     omit?: reclamoOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: reclamoInclude<ExtArgs> | null
+    /**
      * The data needed to create a reclamo.
      */
     data: XOR<reclamoCreateInput, reclamoUncheckedCreateInput>
@@ -31946,6 +32415,10 @@ export namespace Prisma {
      * Omit specific fields from the reclamo
      */
     omit?: reclamoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: reclamoInclude<ExtArgs> | null
     /**
      * The data needed to update a reclamo.
      */
@@ -32013,6 +32486,10 @@ export namespace Prisma {
      */
     omit?: reclamoOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: reclamoInclude<ExtArgs> | null
+    /**
      * The filter to search for the reclamo to update in case it exists.
      */
     where: reclamoWhereUniqueInput
@@ -32039,6 +32516,10 @@ export namespace Prisma {
      */
     omit?: reclamoOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: reclamoInclude<ExtArgs> | null
+    /**
      * Filter which reclamo to delete.
      */
     where: reclamoWhereUniqueInput
@@ -32059,6 +32540,30 @@ export namespace Prisma {
   }
 
   /**
+   * reclamo.tickets
+   */
+  export type reclamo$ticketsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tickets
+     */
+    select?: ticketsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tickets
+     */
+    omit?: ticketsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ticketsInclude<ExtArgs> | null
+    where?: ticketsWhereInput
+    orderBy?: ticketsOrderByWithRelationInput | ticketsOrderByWithRelationInput[]
+    cursor?: ticketsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TicketsScalarFieldEnum | TicketsScalarFieldEnum[]
+  }
+
+  /**
    * reclamo without action
    */
   export type reclamoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -32070,6 +32575,3435 @@ export namespace Prisma {
      * Omit specific fields from the reclamo
      */
     omit?: reclamoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: reclamoInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model confirmation_codes
+   */
+
+  export type AggregateConfirmation_codes = {
+    _count: Confirmation_codesCountAggregateOutputType | null
+    _avg: Confirmation_codesAvgAggregateOutputType | null
+    _sum: Confirmation_codesSumAggregateOutputType | null
+    _min: Confirmation_codesMinAggregateOutputType | null
+    _max: Confirmation_codesMaxAggregateOutputType | null
+  }
+
+  export type Confirmation_codesAvgAggregateOutputType = {
+    attempts: number | null
+  }
+
+  export type Confirmation_codesSumAggregateOutputType = {
+    attempts: number | null
+  }
+
+  export type Confirmation_codesMinAggregateOutputType = {
+    id: string | null
+    ticket_id: string | null
+    code_hash: string | null
+    expires_at: Date | null
+    attempts: number | null
+    used: boolean | null
+    created_at: Date | null
+  }
+
+  export type Confirmation_codesMaxAggregateOutputType = {
+    id: string | null
+    ticket_id: string | null
+    code_hash: string | null
+    expires_at: Date | null
+    attempts: number | null
+    used: boolean | null
+    created_at: Date | null
+  }
+
+  export type Confirmation_codesCountAggregateOutputType = {
+    id: number
+    ticket_id: number
+    code_hash: number
+    expires_at: number
+    attempts: number
+    used: number
+    created_at: number
+    _all: number
+  }
+
+
+  export type Confirmation_codesAvgAggregateInputType = {
+    attempts?: true
+  }
+
+  export type Confirmation_codesSumAggregateInputType = {
+    attempts?: true
+  }
+
+  export type Confirmation_codesMinAggregateInputType = {
+    id?: true
+    ticket_id?: true
+    code_hash?: true
+    expires_at?: true
+    attempts?: true
+    used?: true
+    created_at?: true
+  }
+
+  export type Confirmation_codesMaxAggregateInputType = {
+    id?: true
+    ticket_id?: true
+    code_hash?: true
+    expires_at?: true
+    attempts?: true
+    used?: true
+    created_at?: true
+  }
+
+  export type Confirmation_codesCountAggregateInputType = {
+    id?: true
+    ticket_id?: true
+    code_hash?: true
+    expires_at?: true
+    attempts?: true
+    used?: true
+    created_at?: true
+    _all?: true
+  }
+
+  export type Confirmation_codesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which confirmation_codes to aggregate.
+     */
+    where?: confirmation_codesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of confirmation_codes to fetch.
+     */
+    orderBy?: confirmation_codesOrderByWithRelationInput | confirmation_codesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: confirmation_codesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` confirmation_codes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` confirmation_codes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned confirmation_codes
+    **/
+    _count?: true | Confirmation_codesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Confirmation_codesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Confirmation_codesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Confirmation_codesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Confirmation_codesMaxAggregateInputType
+  }
+
+  export type GetConfirmation_codesAggregateType<T extends Confirmation_codesAggregateArgs> = {
+        [P in keyof T & keyof AggregateConfirmation_codes]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateConfirmation_codes[P]>
+      : GetScalarType<T[P], AggregateConfirmation_codes[P]>
+  }
+
+
+
+
+  export type confirmation_codesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: confirmation_codesWhereInput
+    orderBy?: confirmation_codesOrderByWithAggregationInput | confirmation_codesOrderByWithAggregationInput[]
+    by: Confirmation_codesScalarFieldEnum[] | Confirmation_codesScalarFieldEnum
+    having?: confirmation_codesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Confirmation_codesCountAggregateInputType | true
+    _avg?: Confirmation_codesAvgAggregateInputType
+    _sum?: Confirmation_codesSumAggregateInputType
+    _min?: Confirmation_codesMinAggregateInputType
+    _max?: Confirmation_codesMaxAggregateInputType
+  }
+
+  export type Confirmation_codesGroupByOutputType = {
+    id: string
+    ticket_id: string
+    code_hash: string
+    expires_at: Date
+    attempts: number
+    used: boolean
+    created_at: Date
+    _count: Confirmation_codesCountAggregateOutputType | null
+    _avg: Confirmation_codesAvgAggregateOutputType | null
+    _sum: Confirmation_codesSumAggregateOutputType | null
+    _min: Confirmation_codesMinAggregateOutputType | null
+    _max: Confirmation_codesMaxAggregateOutputType | null
+  }
+
+  type GetConfirmation_codesGroupByPayload<T extends confirmation_codesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Confirmation_codesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Confirmation_codesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Confirmation_codesGroupByOutputType[P]>
+            : GetScalarType<T[P], Confirmation_codesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type confirmation_codesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    ticket_id?: boolean
+    code_hash?: boolean
+    expires_at?: boolean
+    attempts?: boolean
+    used?: boolean
+    created_at?: boolean
+    tickets?: boolean | ticketsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["confirmation_codes"]>
+
+  export type confirmation_codesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    ticket_id?: boolean
+    code_hash?: boolean
+    expires_at?: boolean
+    attempts?: boolean
+    used?: boolean
+    created_at?: boolean
+    tickets?: boolean | ticketsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["confirmation_codes"]>
+
+  export type confirmation_codesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    ticket_id?: boolean
+    code_hash?: boolean
+    expires_at?: boolean
+    attempts?: boolean
+    used?: boolean
+    created_at?: boolean
+    tickets?: boolean | ticketsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["confirmation_codes"]>
+
+  export type confirmation_codesSelectScalar = {
+    id?: boolean
+    ticket_id?: boolean
+    code_hash?: boolean
+    expires_at?: boolean
+    attempts?: boolean
+    used?: boolean
+    created_at?: boolean
+  }
+
+  export type confirmation_codesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "ticket_id" | "code_hash" | "expires_at" | "attempts" | "used" | "created_at", ExtArgs["result"]["confirmation_codes"]>
+  export type confirmation_codesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tickets?: boolean | ticketsDefaultArgs<ExtArgs>
+  }
+  export type confirmation_codesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tickets?: boolean | ticketsDefaultArgs<ExtArgs>
+  }
+  export type confirmation_codesIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tickets?: boolean | ticketsDefaultArgs<ExtArgs>
+  }
+
+  export type $confirmation_codesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "confirmation_codes"
+    objects: {
+      tickets: Prisma.$ticketsPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      ticket_id: string
+      code_hash: string
+      expires_at: Date
+      attempts: number
+      used: boolean
+      created_at: Date
+    }, ExtArgs["result"]["confirmation_codes"]>
+    composites: {}
+  }
+
+  type confirmation_codesGetPayload<S extends boolean | null | undefined | confirmation_codesDefaultArgs> = $Result.GetResult<Prisma.$confirmation_codesPayload, S>
+
+  type confirmation_codesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<confirmation_codesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Confirmation_codesCountAggregateInputType | true
+    }
+
+  export interface confirmation_codesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['confirmation_codes'], meta: { name: 'confirmation_codes' } }
+    /**
+     * Find zero or one Confirmation_codes that matches the filter.
+     * @param {confirmation_codesFindUniqueArgs} args - Arguments to find a Confirmation_codes
+     * @example
+     * // Get one Confirmation_codes
+     * const confirmation_codes = await prisma.confirmation_codes.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends confirmation_codesFindUniqueArgs>(args: SelectSubset<T, confirmation_codesFindUniqueArgs<ExtArgs>>): Prisma__confirmation_codesClient<$Result.GetResult<Prisma.$confirmation_codesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Confirmation_codes that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {confirmation_codesFindUniqueOrThrowArgs} args - Arguments to find a Confirmation_codes
+     * @example
+     * // Get one Confirmation_codes
+     * const confirmation_codes = await prisma.confirmation_codes.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends confirmation_codesFindUniqueOrThrowArgs>(args: SelectSubset<T, confirmation_codesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__confirmation_codesClient<$Result.GetResult<Prisma.$confirmation_codesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Confirmation_codes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {confirmation_codesFindFirstArgs} args - Arguments to find a Confirmation_codes
+     * @example
+     * // Get one Confirmation_codes
+     * const confirmation_codes = await prisma.confirmation_codes.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends confirmation_codesFindFirstArgs>(args?: SelectSubset<T, confirmation_codesFindFirstArgs<ExtArgs>>): Prisma__confirmation_codesClient<$Result.GetResult<Prisma.$confirmation_codesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Confirmation_codes that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {confirmation_codesFindFirstOrThrowArgs} args - Arguments to find a Confirmation_codes
+     * @example
+     * // Get one Confirmation_codes
+     * const confirmation_codes = await prisma.confirmation_codes.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends confirmation_codesFindFirstOrThrowArgs>(args?: SelectSubset<T, confirmation_codesFindFirstOrThrowArgs<ExtArgs>>): Prisma__confirmation_codesClient<$Result.GetResult<Prisma.$confirmation_codesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Confirmation_codes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {confirmation_codesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Confirmation_codes
+     * const confirmation_codes = await prisma.confirmation_codes.findMany()
+     * 
+     * // Get first 10 Confirmation_codes
+     * const confirmation_codes = await prisma.confirmation_codes.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const confirmation_codesWithIdOnly = await prisma.confirmation_codes.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends confirmation_codesFindManyArgs>(args?: SelectSubset<T, confirmation_codesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$confirmation_codesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Confirmation_codes.
+     * @param {confirmation_codesCreateArgs} args - Arguments to create a Confirmation_codes.
+     * @example
+     * // Create one Confirmation_codes
+     * const Confirmation_codes = await prisma.confirmation_codes.create({
+     *   data: {
+     *     // ... data to create a Confirmation_codes
+     *   }
+     * })
+     * 
+     */
+    create<T extends confirmation_codesCreateArgs>(args: SelectSubset<T, confirmation_codesCreateArgs<ExtArgs>>): Prisma__confirmation_codesClient<$Result.GetResult<Prisma.$confirmation_codesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Confirmation_codes.
+     * @param {confirmation_codesCreateManyArgs} args - Arguments to create many Confirmation_codes.
+     * @example
+     * // Create many Confirmation_codes
+     * const confirmation_codes = await prisma.confirmation_codes.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends confirmation_codesCreateManyArgs>(args?: SelectSubset<T, confirmation_codesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Confirmation_codes and returns the data saved in the database.
+     * @param {confirmation_codesCreateManyAndReturnArgs} args - Arguments to create many Confirmation_codes.
+     * @example
+     * // Create many Confirmation_codes
+     * const confirmation_codes = await prisma.confirmation_codes.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Confirmation_codes and only return the `id`
+     * const confirmation_codesWithIdOnly = await prisma.confirmation_codes.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends confirmation_codesCreateManyAndReturnArgs>(args?: SelectSubset<T, confirmation_codesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$confirmation_codesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Confirmation_codes.
+     * @param {confirmation_codesDeleteArgs} args - Arguments to delete one Confirmation_codes.
+     * @example
+     * // Delete one Confirmation_codes
+     * const Confirmation_codes = await prisma.confirmation_codes.delete({
+     *   where: {
+     *     // ... filter to delete one Confirmation_codes
+     *   }
+     * })
+     * 
+     */
+    delete<T extends confirmation_codesDeleteArgs>(args: SelectSubset<T, confirmation_codesDeleteArgs<ExtArgs>>): Prisma__confirmation_codesClient<$Result.GetResult<Prisma.$confirmation_codesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Confirmation_codes.
+     * @param {confirmation_codesUpdateArgs} args - Arguments to update one Confirmation_codes.
+     * @example
+     * // Update one Confirmation_codes
+     * const confirmation_codes = await prisma.confirmation_codes.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends confirmation_codesUpdateArgs>(args: SelectSubset<T, confirmation_codesUpdateArgs<ExtArgs>>): Prisma__confirmation_codesClient<$Result.GetResult<Prisma.$confirmation_codesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Confirmation_codes.
+     * @param {confirmation_codesDeleteManyArgs} args - Arguments to filter Confirmation_codes to delete.
+     * @example
+     * // Delete a few Confirmation_codes
+     * const { count } = await prisma.confirmation_codes.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends confirmation_codesDeleteManyArgs>(args?: SelectSubset<T, confirmation_codesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Confirmation_codes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {confirmation_codesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Confirmation_codes
+     * const confirmation_codes = await prisma.confirmation_codes.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends confirmation_codesUpdateManyArgs>(args: SelectSubset<T, confirmation_codesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Confirmation_codes and returns the data updated in the database.
+     * @param {confirmation_codesUpdateManyAndReturnArgs} args - Arguments to update many Confirmation_codes.
+     * @example
+     * // Update many Confirmation_codes
+     * const confirmation_codes = await prisma.confirmation_codes.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Confirmation_codes and only return the `id`
+     * const confirmation_codesWithIdOnly = await prisma.confirmation_codes.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends confirmation_codesUpdateManyAndReturnArgs>(args: SelectSubset<T, confirmation_codesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$confirmation_codesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Confirmation_codes.
+     * @param {confirmation_codesUpsertArgs} args - Arguments to update or create a Confirmation_codes.
+     * @example
+     * // Update or create a Confirmation_codes
+     * const confirmation_codes = await prisma.confirmation_codes.upsert({
+     *   create: {
+     *     // ... data to create a Confirmation_codes
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Confirmation_codes we want to update
+     *   }
+     * })
+     */
+    upsert<T extends confirmation_codesUpsertArgs>(args: SelectSubset<T, confirmation_codesUpsertArgs<ExtArgs>>): Prisma__confirmation_codesClient<$Result.GetResult<Prisma.$confirmation_codesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Confirmation_codes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {confirmation_codesCountArgs} args - Arguments to filter Confirmation_codes to count.
+     * @example
+     * // Count the number of Confirmation_codes
+     * const count = await prisma.confirmation_codes.count({
+     *   where: {
+     *     // ... the filter for the Confirmation_codes we want to count
+     *   }
+     * })
+    **/
+    count<T extends confirmation_codesCountArgs>(
+      args?: Subset<T, confirmation_codesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Confirmation_codesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Confirmation_codes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Confirmation_codesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Confirmation_codesAggregateArgs>(args: Subset<T, Confirmation_codesAggregateArgs>): Prisma.PrismaPromise<GetConfirmation_codesAggregateType<T>>
+
+    /**
+     * Group by Confirmation_codes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {confirmation_codesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends confirmation_codesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: confirmation_codesGroupByArgs['orderBy'] }
+        : { orderBy?: confirmation_codesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, confirmation_codesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetConfirmation_codesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the confirmation_codes model
+   */
+  readonly fields: confirmation_codesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for confirmation_codes.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__confirmation_codesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    tickets<T extends ticketsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ticketsDefaultArgs<ExtArgs>>): Prisma__ticketsClient<$Result.GetResult<Prisma.$ticketsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the confirmation_codes model
+   */
+  interface confirmation_codesFieldRefs {
+    readonly id: FieldRef<"confirmation_codes", 'String'>
+    readonly ticket_id: FieldRef<"confirmation_codes", 'String'>
+    readonly code_hash: FieldRef<"confirmation_codes", 'String'>
+    readonly expires_at: FieldRef<"confirmation_codes", 'DateTime'>
+    readonly attempts: FieldRef<"confirmation_codes", 'Int'>
+    readonly used: FieldRef<"confirmation_codes", 'Boolean'>
+    readonly created_at: FieldRef<"confirmation_codes", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * confirmation_codes findUnique
+   */
+  export type confirmation_codesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the confirmation_codes
+     */
+    select?: confirmation_codesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the confirmation_codes
+     */
+    omit?: confirmation_codesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: confirmation_codesInclude<ExtArgs> | null
+    /**
+     * Filter, which confirmation_codes to fetch.
+     */
+    where: confirmation_codesWhereUniqueInput
+  }
+
+  /**
+   * confirmation_codes findUniqueOrThrow
+   */
+  export type confirmation_codesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the confirmation_codes
+     */
+    select?: confirmation_codesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the confirmation_codes
+     */
+    omit?: confirmation_codesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: confirmation_codesInclude<ExtArgs> | null
+    /**
+     * Filter, which confirmation_codes to fetch.
+     */
+    where: confirmation_codesWhereUniqueInput
+  }
+
+  /**
+   * confirmation_codes findFirst
+   */
+  export type confirmation_codesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the confirmation_codes
+     */
+    select?: confirmation_codesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the confirmation_codes
+     */
+    omit?: confirmation_codesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: confirmation_codesInclude<ExtArgs> | null
+    /**
+     * Filter, which confirmation_codes to fetch.
+     */
+    where?: confirmation_codesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of confirmation_codes to fetch.
+     */
+    orderBy?: confirmation_codesOrderByWithRelationInput | confirmation_codesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for confirmation_codes.
+     */
+    cursor?: confirmation_codesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` confirmation_codes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` confirmation_codes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of confirmation_codes.
+     */
+    distinct?: Confirmation_codesScalarFieldEnum | Confirmation_codesScalarFieldEnum[]
+  }
+
+  /**
+   * confirmation_codes findFirstOrThrow
+   */
+  export type confirmation_codesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the confirmation_codes
+     */
+    select?: confirmation_codesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the confirmation_codes
+     */
+    omit?: confirmation_codesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: confirmation_codesInclude<ExtArgs> | null
+    /**
+     * Filter, which confirmation_codes to fetch.
+     */
+    where?: confirmation_codesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of confirmation_codes to fetch.
+     */
+    orderBy?: confirmation_codesOrderByWithRelationInput | confirmation_codesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for confirmation_codes.
+     */
+    cursor?: confirmation_codesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` confirmation_codes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` confirmation_codes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of confirmation_codes.
+     */
+    distinct?: Confirmation_codesScalarFieldEnum | Confirmation_codesScalarFieldEnum[]
+  }
+
+  /**
+   * confirmation_codes findMany
+   */
+  export type confirmation_codesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the confirmation_codes
+     */
+    select?: confirmation_codesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the confirmation_codes
+     */
+    omit?: confirmation_codesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: confirmation_codesInclude<ExtArgs> | null
+    /**
+     * Filter, which confirmation_codes to fetch.
+     */
+    where?: confirmation_codesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of confirmation_codes to fetch.
+     */
+    orderBy?: confirmation_codesOrderByWithRelationInput | confirmation_codesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing confirmation_codes.
+     */
+    cursor?: confirmation_codesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` confirmation_codes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` confirmation_codes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of confirmation_codes.
+     */
+    distinct?: Confirmation_codesScalarFieldEnum | Confirmation_codesScalarFieldEnum[]
+  }
+
+  /**
+   * confirmation_codes create
+   */
+  export type confirmation_codesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the confirmation_codes
+     */
+    select?: confirmation_codesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the confirmation_codes
+     */
+    omit?: confirmation_codesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: confirmation_codesInclude<ExtArgs> | null
+    /**
+     * The data needed to create a confirmation_codes.
+     */
+    data: XOR<confirmation_codesCreateInput, confirmation_codesUncheckedCreateInput>
+  }
+
+  /**
+   * confirmation_codes createMany
+   */
+  export type confirmation_codesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many confirmation_codes.
+     */
+    data: confirmation_codesCreateManyInput | confirmation_codesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * confirmation_codes createManyAndReturn
+   */
+  export type confirmation_codesCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the confirmation_codes
+     */
+    select?: confirmation_codesSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the confirmation_codes
+     */
+    omit?: confirmation_codesOmit<ExtArgs> | null
+    /**
+     * The data used to create many confirmation_codes.
+     */
+    data: confirmation_codesCreateManyInput | confirmation_codesCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: confirmation_codesIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * confirmation_codes update
+   */
+  export type confirmation_codesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the confirmation_codes
+     */
+    select?: confirmation_codesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the confirmation_codes
+     */
+    omit?: confirmation_codesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: confirmation_codesInclude<ExtArgs> | null
+    /**
+     * The data needed to update a confirmation_codes.
+     */
+    data: XOR<confirmation_codesUpdateInput, confirmation_codesUncheckedUpdateInput>
+    /**
+     * Choose, which confirmation_codes to update.
+     */
+    where: confirmation_codesWhereUniqueInput
+  }
+
+  /**
+   * confirmation_codes updateMany
+   */
+  export type confirmation_codesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update confirmation_codes.
+     */
+    data: XOR<confirmation_codesUpdateManyMutationInput, confirmation_codesUncheckedUpdateManyInput>
+    /**
+     * Filter which confirmation_codes to update
+     */
+    where?: confirmation_codesWhereInput
+    /**
+     * Limit how many confirmation_codes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * confirmation_codes updateManyAndReturn
+   */
+  export type confirmation_codesUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the confirmation_codes
+     */
+    select?: confirmation_codesSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the confirmation_codes
+     */
+    omit?: confirmation_codesOmit<ExtArgs> | null
+    /**
+     * The data used to update confirmation_codes.
+     */
+    data: XOR<confirmation_codesUpdateManyMutationInput, confirmation_codesUncheckedUpdateManyInput>
+    /**
+     * Filter which confirmation_codes to update
+     */
+    where?: confirmation_codesWhereInput
+    /**
+     * Limit how many confirmation_codes to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: confirmation_codesIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * confirmation_codes upsert
+   */
+  export type confirmation_codesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the confirmation_codes
+     */
+    select?: confirmation_codesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the confirmation_codes
+     */
+    omit?: confirmation_codesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: confirmation_codesInclude<ExtArgs> | null
+    /**
+     * The filter to search for the confirmation_codes to update in case it exists.
+     */
+    where: confirmation_codesWhereUniqueInput
+    /**
+     * In case the confirmation_codes found by the `where` argument doesn't exist, create a new confirmation_codes with this data.
+     */
+    create: XOR<confirmation_codesCreateInput, confirmation_codesUncheckedCreateInput>
+    /**
+     * In case the confirmation_codes was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<confirmation_codesUpdateInput, confirmation_codesUncheckedUpdateInput>
+  }
+
+  /**
+   * confirmation_codes delete
+   */
+  export type confirmation_codesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the confirmation_codes
+     */
+    select?: confirmation_codesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the confirmation_codes
+     */
+    omit?: confirmation_codesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: confirmation_codesInclude<ExtArgs> | null
+    /**
+     * Filter which confirmation_codes to delete.
+     */
+    where: confirmation_codesWhereUniqueInput
+  }
+
+  /**
+   * confirmation_codes deleteMany
+   */
+  export type confirmation_codesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which confirmation_codes to delete
+     */
+    where?: confirmation_codesWhereInput
+    /**
+     * Limit how many confirmation_codes to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * confirmation_codes without action
+   */
+  export type confirmation_codesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the confirmation_codes
+     */
+    select?: confirmation_codesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the confirmation_codes
+     */
+    omit?: confirmation_codesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: confirmation_codesInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model propiedades
+   */
+
+  export type AggregatePropiedades = {
+    _count: PropiedadesCountAggregateOutputType | null
+    _avg: PropiedadesAvgAggregateOutputType | null
+    _sum: PropiedadesSumAggregateOutputType | null
+    _min: PropiedadesMinAggregateOutputType | null
+    _max: PropiedadesMaxAggregateOutputType | null
+  }
+
+  export type PropiedadesAvgAggregateOutputType = {
+    piso: number | null
+    m2: number | null
+  }
+
+  export type PropiedadesSumAggregateOutputType = {
+    piso: number | null
+    m2: number | null
+  }
+
+  export type PropiedadesMinAggregateOutputType = {
+    id: string | null
+    codigo: string | null
+    tipo: string | null
+    direccion: string | null
+    sector: string | null
+    piso: number | null
+    unidad: string | null
+    torre: string | null
+    m2: number | null
+    garantia: string | null
+    creado_en: Date | null
+  }
+
+  export type PropiedadesMaxAggregateOutputType = {
+    id: string | null
+    codigo: string | null
+    tipo: string | null
+    direccion: string | null
+    sector: string | null
+    piso: number | null
+    unidad: string | null
+    torre: string | null
+    m2: number | null
+    garantia: string | null
+    creado_en: Date | null
+  }
+
+  export type PropiedadesCountAggregateOutputType = {
+    id: number
+    codigo: number
+    tipo: number
+    direccion: number
+    sector: number
+    piso: number
+    unidad: number
+    torre: number
+    m2: number
+    garantia: number
+    creado_en: number
+    _all: number
+  }
+
+
+  export type PropiedadesAvgAggregateInputType = {
+    piso?: true
+    m2?: true
+  }
+
+  export type PropiedadesSumAggregateInputType = {
+    piso?: true
+    m2?: true
+  }
+
+  export type PropiedadesMinAggregateInputType = {
+    id?: true
+    codigo?: true
+    tipo?: true
+    direccion?: true
+    sector?: true
+    piso?: true
+    unidad?: true
+    torre?: true
+    m2?: true
+    garantia?: true
+    creado_en?: true
+  }
+
+  export type PropiedadesMaxAggregateInputType = {
+    id?: true
+    codigo?: true
+    tipo?: true
+    direccion?: true
+    sector?: true
+    piso?: true
+    unidad?: true
+    torre?: true
+    m2?: true
+    garantia?: true
+    creado_en?: true
+  }
+
+  export type PropiedadesCountAggregateInputType = {
+    id?: true
+    codigo?: true
+    tipo?: true
+    direccion?: true
+    sector?: true
+    piso?: true
+    unidad?: true
+    torre?: true
+    m2?: true
+    garantia?: true
+    creado_en?: true
+    _all?: true
+  }
+
+  export type PropiedadesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which propiedades to aggregate.
+     */
+    where?: propiedadesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of propiedades to fetch.
+     */
+    orderBy?: propiedadesOrderByWithRelationInput | propiedadesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: propiedadesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` propiedades from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` propiedades.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned propiedades
+    **/
+    _count?: true | PropiedadesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PropiedadesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PropiedadesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PropiedadesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PropiedadesMaxAggregateInputType
+  }
+
+  export type GetPropiedadesAggregateType<T extends PropiedadesAggregateArgs> = {
+        [P in keyof T & keyof AggregatePropiedades]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePropiedades[P]>
+      : GetScalarType<T[P], AggregatePropiedades[P]>
+  }
+
+
+
+
+  export type propiedadesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: propiedadesWhereInput
+    orderBy?: propiedadesOrderByWithAggregationInput | propiedadesOrderByWithAggregationInput[]
+    by: PropiedadesScalarFieldEnum[] | PropiedadesScalarFieldEnum
+    having?: propiedadesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PropiedadesCountAggregateInputType | true
+    _avg?: PropiedadesAvgAggregateInputType
+    _sum?: PropiedadesSumAggregateInputType
+    _min?: PropiedadesMinAggregateInputType
+    _max?: PropiedadesMaxAggregateInputType
+  }
+
+  export type PropiedadesGroupByOutputType = {
+    id: string
+    codigo: string
+    tipo: string
+    direccion: string
+    sector: string
+    piso: number
+    unidad: string
+    torre: string
+    m2: number
+    garantia: string
+    creado_en: Date | null
+    _count: PropiedadesCountAggregateOutputType | null
+    _avg: PropiedadesAvgAggregateOutputType | null
+    _sum: PropiedadesSumAggregateOutputType | null
+    _min: PropiedadesMinAggregateOutputType | null
+    _max: PropiedadesMaxAggregateOutputType | null
+  }
+
+  type GetPropiedadesGroupByPayload<T extends propiedadesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PropiedadesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PropiedadesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PropiedadesGroupByOutputType[P]>
+            : GetScalarType<T[P], PropiedadesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type propiedadesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    codigo?: boolean
+    tipo?: boolean
+    direccion?: boolean
+    sector?: boolean
+    piso?: boolean
+    unidad?: boolean
+    torre?: boolean
+    m2?: boolean
+    garantia?: boolean
+    creado_en?: boolean
+  }, ExtArgs["result"]["propiedades"]>
+
+  export type propiedadesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    codigo?: boolean
+    tipo?: boolean
+    direccion?: boolean
+    sector?: boolean
+    piso?: boolean
+    unidad?: boolean
+    torre?: boolean
+    m2?: boolean
+    garantia?: boolean
+    creado_en?: boolean
+  }, ExtArgs["result"]["propiedades"]>
+
+  export type propiedadesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    codigo?: boolean
+    tipo?: boolean
+    direccion?: boolean
+    sector?: boolean
+    piso?: boolean
+    unidad?: boolean
+    torre?: boolean
+    m2?: boolean
+    garantia?: boolean
+    creado_en?: boolean
+  }, ExtArgs["result"]["propiedades"]>
+
+  export type propiedadesSelectScalar = {
+    id?: boolean
+    codigo?: boolean
+    tipo?: boolean
+    direccion?: boolean
+    sector?: boolean
+    piso?: boolean
+    unidad?: boolean
+    torre?: boolean
+    m2?: boolean
+    garantia?: boolean
+    creado_en?: boolean
+  }
+
+  export type propiedadesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "codigo" | "tipo" | "direccion" | "sector" | "piso" | "unidad" | "torre" | "m2" | "garantia" | "creado_en", ExtArgs["result"]["propiedades"]>
+
+  export type $propiedadesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "propiedades"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      codigo: string
+      tipo: string
+      direccion: string
+      sector: string
+      piso: number
+      unidad: string
+      torre: string
+      m2: number
+      garantia: string
+      creado_en: Date | null
+    }, ExtArgs["result"]["propiedades"]>
+    composites: {}
+  }
+
+  type propiedadesGetPayload<S extends boolean | null | undefined | propiedadesDefaultArgs> = $Result.GetResult<Prisma.$propiedadesPayload, S>
+
+  type propiedadesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<propiedadesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PropiedadesCountAggregateInputType | true
+    }
+
+  export interface propiedadesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['propiedades'], meta: { name: 'propiedades' } }
+    /**
+     * Find zero or one Propiedades that matches the filter.
+     * @param {propiedadesFindUniqueArgs} args - Arguments to find a Propiedades
+     * @example
+     * // Get one Propiedades
+     * const propiedades = await prisma.propiedades.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends propiedadesFindUniqueArgs>(args: SelectSubset<T, propiedadesFindUniqueArgs<ExtArgs>>): Prisma__propiedadesClient<$Result.GetResult<Prisma.$propiedadesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Propiedades that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {propiedadesFindUniqueOrThrowArgs} args - Arguments to find a Propiedades
+     * @example
+     * // Get one Propiedades
+     * const propiedades = await prisma.propiedades.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends propiedadesFindUniqueOrThrowArgs>(args: SelectSubset<T, propiedadesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__propiedadesClient<$Result.GetResult<Prisma.$propiedadesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Propiedades that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {propiedadesFindFirstArgs} args - Arguments to find a Propiedades
+     * @example
+     * // Get one Propiedades
+     * const propiedades = await prisma.propiedades.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends propiedadesFindFirstArgs>(args?: SelectSubset<T, propiedadesFindFirstArgs<ExtArgs>>): Prisma__propiedadesClient<$Result.GetResult<Prisma.$propiedadesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Propiedades that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {propiedadesFindFirstOrThrowArgs} args - Arguments to find a Propiedades
+     * @example
+     * // Get one Propiedades
+     * const propiedades = await prisma.propiedades.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends propiedadesFindFirstOrThrowArgs>(args?: SelectSubset<T, propiedadesFindFirstOrThrowArgs<ExtArgs>>): Prisma__propiedadesClient<$Result.GetResult<Prisma.$propiedadesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Propiedades that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {propiedadesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Propiedades
+     * const propiedades = await prisma.propiedades.findMany()
+     * 
+     * // Get first 10 Propiedades
+     * const propiedades = await prisma.propiedades.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const propiedadesWithIdOnly = await prisma.propiedades.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends propiedadesFindManyArgs>(args?: SelectSubset<T, propiedadesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$propiedadesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Propiedades.
+     * @param {propiedadesCreateArgs} args - Arguments to create a Propiedades.
+     * @example
+     * // Create one Propiedades
+     * const Propiedades = await prisma.propiedades.create({
+     *   data: {
+     *     // ... data to create a Propiedades
+     *   }
+     * })
+     * 
+     */
+    create<T extends propiedadesCreateArgs>(args: SelectSubset<T, propiedadesCreateArgs<ExtArgs>>): Prisma__propiedadesClient<$Result.GetResult<Prisma.$propiedadesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Propiedades.
+     * @param {propiedadesCreateManyArgs} args - Arguments to create many Propiedades.
+     * @example
+     * // Create many Propiedades
+     * const propiedades = await prisma.propiedades.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends propiedadesCreateManyArgs>(args?: SelectSubset<T, propiedadesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Propiedades and returns the data saved in the database.
+     * @param {propiedadesCreateManyAndReturnArgs} args - Arguments to create many Propiedades.
+     * @example
+     * // Create many Propiedades
+     * const propiedades = await prisma.propiedades.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Propiedades and only return the `id`
+     * const propiedadesWithIdOnly = await prisma.propiedades.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends propiedadesCreateManyAndReturnArgs>(args?: SelectSubset<T, propiedadesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$propiedadesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Propiedades.
+     * @param {propiedadesDeleteArgs} args - Arguments to delete one Propiedades.
+     * @example
+     * // Delete one Propiedades
+     * const Propiedades = await prisma.propiedades.delete({
+     *   where: {
+     *     // ... filter to delete one Propiedades
+     *   }
+     * })
+     * 
+     */
+    delete<T extends propiedadesDeleteArgs>(args: SelectSubset<T, propiedadesDeleteArgs<ExtArgs>>): Prisma__propiedadesClient<$Result.GetResult<Prisma.$propiedadesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Propiedades.
+     * @param {propiedadesUpdateArgs} args - Arguments to update one Propiedades.
+     * @example
+     * // Update one Propiedades
+     * const propiedades = await prisma.propiedades.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends propiedadesUpdateArgs>(args: SelectSubset<T, propiedadesUpdateArgs<ExtArgs>>): Prisma__propiedadesClient<$Result.GetResult<Prisma.$propiedadesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Propiedades.
+     * @param {propiedadesDeleteManyArgs} args - Arguments to filter Propiedades to delete.
+     * @example
+     * // Delete a few Propiedades
+     * const { count } = await prisma.propiedades.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends propiedadesDeleteManyArgs>(args?: SelectSubset<T, propiedadesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Propiedades.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {propiedadesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Propiedades
+     * const propiedades = await prisma.propiedades.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends propiedadesUpdateManyArgs>(args: SelectSubset<T, propiedadesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Propiedades and returns the data updated in the database.
+     * @param {propiedadesUpdateManyAndReturnArgs} args - Arguments to update many Propiedades.
+     * @example
+     * // Update many Propiedades
+     * const propiedades = await prisma.propiedades.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Propiedades and only return the `id`
+     * const propiedadesWithIdOnly = await prisma.propiedades.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends propiedadesUpdateManyAndReturnArgs>(args: SelectSubset<T, propiedadesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$propiedadesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Propiedades.
+     * @param {propiedadesUpsertArgs} args - Arguments to update or create a Propiedades.
+     * @example
+     * // Update or create a Propiedades
+     * const propiedades = await prisma.propiedades.upsert({
+     *   create: {
+     *     // ... data to create a Propiedades
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Propiedades we want to update
+     *   }
+     * })
+     */
+    upsert<T extends propiedadesUpsertArgs>(args: SelectSubset<T, propiedadesUpsertArgs<ExtArgs>>): Prisma__propiedadesClient<$Result.GetResult<Prisma.$propiedadesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Propiedades.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {propiedadesCountArgs} args - Arguments to filter Propiedades to count.
+     * @example
+     * // Count the number of Propiedades
+     * const count = await prisma.propiedades.count({
+     *   where: {
+     *     // ... the filter for the Propiedades we want to count
+     *   }
+     * })
+    **/
+    count<T extends propiedadesCountArgs>(
+      args?: Subset<T, propiedadesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PropiedadesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Propiedades.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PropiedadesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PropiedadesAggregateArgs>(args: Subset<T, PropiedadesAggregateArgs>): Prisma.PrismaPromise<GetPropiedadesAggregateType<T>>
+
+    /**
+     * Group by Propiedades.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {propiedadesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends propiedadesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: propiedadesGroupByArgs['orderBy'] }
+        : { orderBy?: propiedadesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, propiedadesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPropiedadesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the propiedades model
+   */
+  readonly fields: propiedadesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for propiedades.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__propiedadesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the propiedades model
+   */
+  interface propiedadesFieldRefs {
+    readonly id: FieldRef<"propiedades", 'String'>
+    readonly codigo: FieldRef<"propiedades", 'String'>
+    readonly tipo: FieldRef<"propiedades", 'String'>
+    readonly direccion: FieldRef<"propiedades", 'String'>
+    readonly sector: FieldRef<"propiedades", 'String'>
+    readonly piso: FieldRef<"propiedades", 'Int'>
+    readonly unidad: FieldRef<"propiedades", 'String'>
+    readonly torre: FieldRef<"propiedades", 'String'>
+    readonly m2: FieldRef<"propiedades", 'Int'>
+    readonly garantia: FieldRef<"propiedades", 'String'>
+    readonly creado_en: FieldRef<"propiedades", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * propiedades findUnique
+   */
+  export type propiedadesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the propiedades
+     */
+    select?: propiedadesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the propiedades
+     */
+    omit?: propiedadesOmit<ExtArgs> | null
+    /**
+     * Filter, which propiedades to fetch.
+     */
+    where: propiedadesWhereUniqueInput
+  }
+
+  /**
+   * propiedades findUniqueOrThrow
+   */
+  export type propiedadesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the propiedades
+     */
+    select?: propiedadesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the propiedades
+     */
+    omit?: propiedadesOmit<ExtArgs> | null
+    /**
+     * Filter, which propiedades to fetch.
+     */
+    where: propiedadesWhereUniqueInput
+  }
+
+  /**
+   * propiedades findFirst
+   */
+  export type propiedadesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the propiedades
+     */
+    select?: propiedadesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the propiedades
+     */
+    omit?: propiedadesOmit<ExtArgs> | null
+    /**
+     * Filter, which propiedades to fetch.
+     */
+    where?: propiedadesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of propiedades to fetch.
+     */
+    orderBy?: propiedadesOrderByWithRelationInput | propiedadesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for propiedades.
+     */
+    cursor?: propiedadesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` propiedades from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` propiedades.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of propiedades.
+     */
+    distinct?: PropiedadesScalarFieldEnum | PropiedadesScalarFieldEnum[]
+  }
+
+  /**
+   * propiedades findFirstOrThrow
+   */
+  export type propiedadesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the propiedades
+     */
+    select?: propiedadesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the propiedades
+     */
+    omit?: propiedadesOmit<ExtArgs> | null
+    /**
+     * Filter, which propiedades to fetch.
+     */
+    where?: propiedadesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of propiedades to fetch.
+     */
+    orderBy?: propiedadesOrderByWithRelationInput | propiedadesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for propiedades.
+     */
+    cursor?: propiedadesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` propiedades from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` propiedades.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of propiedades.
+     */
+    distinct?: PropiedadesScalarFieldEnum | PropiedadesScalarFieldEnum[]
+  }
+
+  /**
+   * propiedades findMany
+   */
+  export type propiedadesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the propiedades
+     */
+    select?: propiedadesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the propiedades
+     */
+    omit?: propiedadesOmit<ExtArgs> | null
+    /**
+     * Filter, which propiedades to fetch.
+     */
+    where?: propiedadesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of propiedades to fetch.
+     */
+    orderBy?: propiedadesOrderByWithRelationInput | propiedadesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing propiedades.
+     */
+    cursor?: propiedadesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` propiedades from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` propiedades.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of propiedades.
+     */
+    distinct?: PropiedadesScalarFieldEnum | PropiedadesScalarFieldEnum[]
+  }
+
+  /**
+   * propiedades create
+   */
+  export type propiedadesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the propiedades
+     */
+    select?: propiedadesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the propiedades
+     */
+    omit?: propiedadesOmit<ExtArgs> | null
+    /**
+     * The data needed to create a propiedades.
+     */
+    data: XOR<propiedadesCreateInput, propiedadesUncheckedCreateInput>
+  }
+
+  /**
+   * propiedades createMany
+   */
+  export type propiedadesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many propiedades.
+     */
+    data: propiedadesCreateManyInput | propiedadesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * propiedades createManyAndReturn
+   */
+  export type propiedadesCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the propiedades
+     */
+    select?: propiedadesSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the propiedades
+     */
+    omit?: propiedadesOmit<ExtArgs> | null
+    /**
+     * The data used to create many propiedades.
+     */
+    data: propiedadesCreateManyInput | propiedadesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * propiedades update
+   */
+  export type propiedadesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the propiedades
+     */
+    select?: propiedadesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the propiedades
+     */
+    omit?: propiedadesOmit<ExtArgs> | null
+    /**
+     * The data needed to update a propiedades.
+     */
+    data: XOR<propiedadesUpdateInput, propiedadesUncheckedUpdateInput>
+    /**
+     * Choose, which propiedades to update.
+     */
+    where: propiedadesWhereUniqueInput
+  }
+
+  /**
+   * propiedades updateMany
+   */
+  export type propiedadesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update propiedades.
+     */
+    data: XOR<propiedadesUpdateManyMutationInput, propiedadesUncheckedUpdateManyInput>
+    /**
+     * Filter which propiedades to update
+     */
+    where?: propiedadesWhereInput
+    /**
+     * Limit how many propiedades to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * propiedades updateManyAndReturn
+   */
+  export type propiedadesUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the propiedades
+     */
+    select?: propiedadesSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the propiedades
+     */
+    omit?: propiedadesOmit<ExtArgs> | null
+    /**
+     * The data used to update propiedades.
+     */
+    data: XOR<propiedadesUpdateManyMutationInput, propiedadesUncheckedUpdateManyInput>
+    /**
+     * Filter which propiedades to update
+     */
+    where?: propiedadesWhereInput
+    /**
+     * Limit how many propiedades to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * propiedades upsert
+   */
+  export type propiedadesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the propiedades
+     */
+    select?: propiedadesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the propiedades
+     */
+    omit?: propiedadesOmit<ExtArgs> | null
+    /**
+     * The filter to search for the propiedades to update in case it exists.
+     */
+    where: propiedadesWhereUniqueInput
+    /**
+     * In case the propiedades found by the `where` argument doesn't exist, create a new propiedades with this data.
+     */
+    create: XOR<propiedadesCreateInput, propiedadesUncheckedCreateInput>
+    /**
+     * In case the propiedades was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<propiedadesUpdateInput, propiedadesUncheckedUpdateInput>
+  }
+
+  /**
+   * propiedades delete
+   */
+  export type propiedadesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the propiedades
+     */
+    select?: propiedadesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the propiedades
+     */
+    omit?: propiedadesOmit<ExtArgs> | null
+    /**
+     * Filter which propiedades to delete.
+     */
+    where: propiedadesWhereUniqueInput
+  }
+
+  /**
+   * propiedades deleteMany
+   */
+  export type propiedadesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which propiedades to delete
+     */
+    where?: propiedadesWhereInput
+    /**
+     * Limit how many propiedades to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * propiedades without action
+   */
+  export type propiedadesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the propiedades
+     */
+    select?: propiedadesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the propiedades
+     */
+    omit?: propiedadesOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model tickets
+   */
+
+  export type AggregateTickets = {
+    _count: TicketsCountAggregateOutputType | null
+    _min: TicketsMinAggregateOutputType | null
+    _max: TicketsMaxAggregateOutputType | null
+  }
+
+  export type TicketsMinAggregateOutputType = {
+    id: string | null
+    reclamo_id: string | null
+    tecnico_id: string | null
+    coordinador_id: string | null
+    estado: string | null
+    notas: string | null
+    created_at: Date | null
+    updated_at: Date | null
+  }
+
+  export type TicketsMaxAggregateOutputType = {
+    id: string | null
+    reclamo_id: string | null
+    tecnico_id: string | null
+    coordinador_id: string | null
+    estado: string | null
+    notas: string | null
+    created_at: Date | null
+    updated_at: Date | null
+  }
+
+  export type TicketsCountAggregateOutputType = {
+    id: number
+    reclamo_id: number
+    tecnico_id: number
+    coordinador_id: number
+    estado: number
+    notas: number
+    created_at: number
+    updated_at: number
+    _all: number
+  }
+
+
+  export type TicketsMinAggregateInputType = {
+    id?: true
+    reclamo_id?: true
+    tecnico_id?: true
+    coordinador_id?: true
+    estado?: true
+    notas?: true
+    created_at?: true
+    updated_at?: true
+  }
+
+  export type TicketsMaxAggregateInputType = {
+    id?: true
+    reclamo_id?: true
+    tecnico_id?: true
+    coordinador_id?: true
+    estado?: true
+    notas?: true
+    created_at?: true
+    updated_at?: true
+  }
+
+  export type TicketsCountAggregateInputType = {
+    id?: true
+    reclamo_id?: true
+    tecnico_id?: true
+    coordinador_id?: true
+    estado?: true
+    notas?: true
+    created_at?: true
+    updated_at?: true
+    _all?: true
+  }
+
+  export type TicketsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which tickets to aggregate.
+     */
+    where?: ticketsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tickets to fetch.
+     */
+    orderBy?: ticketsOrderByWithRelationInput | ticketsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ticketsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tickets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tickets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned tickets
+    **/
+    _count?: true | TicketsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TicketsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TicketsMaxAggregateInputType
+  }
+
+  export type GetTicketsAggregateType<T extends TicketsAggregateArgs> = {
+        [P in keyof T & keyof AggregateTickets]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTickets[P]>
+      : GetScalarType<T[P], AggregateTickets[P]>
+  }
+
+
+
+
+  export type ticketsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ticketsWhereInput
+    orderBy?: ticketsOrderByWithAggregationInput | ticketsOrderByWithAggregationInput[]
+    by: TicketsScalarFieldEnum[] | TicketsScalarFieldEnum
+    having?: ticketsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TicketsCountAggregateInputType | true
+    _min?: TicketsMinAggregateInputType
+    _max?: TicketsMaxAggregateInputType
+  }
+
+  export type TicketsGroupByOutputType = {
+    id: string
+    reclamo_id: string
+    tecnico_id: string | null
+    coordinador_id: string | null
+    estado: string
+    notas: string | null
+    created_at: Date
+    updated_at: Date
+    _count: TicketsCountAggregateOutputType | null
+    _min: TicketsMinAggregateOutputType | null
+    _max: TicketsMaxAggregateOutputType | null
+  }
+
+  type GetTicketsGroupByPayload<T extends ticketsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TicketsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TicketsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TicketsGroupByOutputType[P]>
+            : GetScalarType<T[P], TicketsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ticketsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    reclamo_id?: boolean
+    tecnico_id?: boolean
+    coordinador_id?: boolean
+    estado?: boolean
+    notas?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    confirmation_codes?: boolean | tickets$confirmation_codesArgs<ExtArgs>
+    profiles_tickets_coordinador_idToprofiles?: boolean | tickets$profiles_tickets_coordinador_idToprofilesArgs<ExtArgs>
+    reclamo?: boolean | reclamoDefaultArgs<ExtArgs>
+    profiles_tickets_tecnico_idToprofiles?: boolean | tickets$profiles_tickets_tecnico_idToprofilesArgs<ExtArgs>
+    _count?: boolean | TicketsCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["tickets"]>
+
+  export type ticketsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    reclamo_id?: boolean
+    tecnico_id?: boolean
+    coordinador_id?: boolean
+    estado?: boolean
+    notas?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    profiles_tickets_coordinador_idToprofiles?: boolean | tickets$profiles_tickets_coordinador_idToprofilesArgs<ExtArgs>
+    reclamo?: boolean | reclamoDefaultArgs<ExtArgs>
+    profiles_tickets_tecnico_idToprofiles?: boolean | tickets$profiles_tickets_tecnico_idToprofilesArgs<ExtArgs>
+  }, ExtArgs["result"]["tickets"]>
+
+  export type ticketsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    reclamo_id?: boolean
+    tecnico_id?: boolean
+    coordinador_id?: boolean
+    estado?: boolean
+    notas?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    profiles_tickets_coordinador_idToprofiles?: boolean | tickets$profiles_tickets_coordinador_idToprofilesArgs<ExtArgs>
+    reclamo?: boolean | reclamoDefaultArgs<ExtArgs>
+    profiles_tickets_tecnico_idToprofiles?: boolean | tickets$profiles_tickets_tecnico_idToprofilesArgs<ExtArgs>
+  }, ExtArgs["result"]["tickets"]>
+
+  export type ticketsSelectScalar = {
+    id?: boolean
+    reclamo_id?: boolean
+    tecnico_id?: boolean
+    coordinador_id?: boolean
+    estado?: boolean
+    notas?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+  }
+
+  export type ticketsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "reclamo_id" | "tecnico_id" | "coordinador_id" | "estado" | "notas" | "created_at" | "updated_at", ExtArgs["result"]["tickets"]>
+  export type ticketsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    confirmation_codes?: boolean | tickets$confirmation_codesArgs<ExtArgs>
+    profiles_tickets_coordinador_idToprofiles?: boolean | tickets$profiles_tickets_coordinador_idToprofilesArgs<ExtArgs>
+    reclamo?: boolean | reclamoDefaultArgs<ExtArgs>
+    profiles_tickets_tecnico_idToprofiles?: boolean | tickets$profiles_tickets_tecnico_idToprofilesArgs<ExtArgs>
+    _count?: boolean | TicketsCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ticketsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profiles_tickets_coordinador_idToprofiles?: boolean | tickets$profiles_tickets_coordinador_idToprofilesArgs<ExtArgs>
+    reclamo?: boolean | reclamoDefaultArgs<ExtArgs>
+    profiles_tickets_tecnico_idToprofiles?: boolean | tickets$profiles_tickets_tecnico_idToprofilesArgs<ExtArgs>
+  }
+  export type ticketsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profiles_tickets_coordinador_idToprofiles?: boolean | tickets$profiles_tickets_coordinador_idToprofilesArgs<ExtArgs>
+    reclamo?: boolean | reclamoDefaultArgs<ExtArgs>
+    profiles_tickets_tecnico_idToprofiles?: boolean | tickets$profiles_tickets_tecnico_idToprofilesArgs<ExtArgs>
+  }
+
+  export type $ticketsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "tickets"
+    objects: {
+      confirmation_codes: Prisma.$confirmation_codesPayload<ExtArgs>[]
+      profiles_tickets_coordinador_idToprofiles: Prisma.$profilesPayload<ExtArgs> | null
+      reclamo: Prisma.$reclamoPayload<ExtArgs>
+      profiles_tickets_tecnico_idToprofiles: Prisma.$profilesPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      reclamo_id: string
+      tecnico_id: string | null
+      coordinador_id: string | null
+      estado: string
+      notas: string | null
+      created_at: Date
+      updated_at: Date
+    }, ExtArgs["result"]["tickets"]>
+    composites: {}
+  }
+
+  type ticketsGetPayload<S extends boolean | null | undefined | ticketsDefaultArgs> = $Result.GetResult<Prisma.$ticketsPayload, S>
+
+  type ticketsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ticketsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: TicketsCountAggregateInputType | true
+    }
+
+  export interface ticketsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['tickets'], meta: { name: 'tickets' } }
+    /**
+     * Find zero or one Tickets that matches the filter.
+     * @param {ticketsFindUniqueArgs} args - Arguments to find a Tickets
+     * @example
+     * // Get one Tickets
+     * const tickets = await prisma.tickets.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ticketsFindUniqueArgs>(args: SelectSubset<T, ticketsFindUniqueArgs<ExtArgs>>): Prisma__ticketsClient<$Result.GetResult<Prisma.$ticketsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Tickets that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ticketsFindUniqueOrThrowArgs} args - Arguments to find a Tickets
+     * @example
+     * // Get one Tickets
+     * const tickets = await prisma.tickets.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ticketsFindUniqueOrThrowArgs>(args: SelectSubset<T, ticketsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ticketsClient<$Result.GetResult<Prisma.$ticketsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Tickets that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ticketsFindFirstArgs} args - Arguments to find a Tickets
+     * @example
+     * // Get one Tickets
+     * const tickets = await prisma.tickets.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ticketsFindFirstArgs>(args?: SelectSubset<T, ticketsFindFirstArgs<ExtArgs>>): Prisma__ticketsClient<$Result.GetResult<Prisma.$ticketsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Tickets that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ticketsFindFirstOrThrowArgs} args - Arguments to find a Tickets
+     * @example
+     * // Get one Tickets
+     * const tickets = await prisma.tickets.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ticketsFindFirstOrThrowArgs>(args?: SelectSubset<T, ticketsFindFirstOrThrowArgs<ExtArgs>>): Prisma__ticketsClient<$Result.GetResult<Prisma.$ticketsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Tickets that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ticketsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Tickets
+     * const tickets = await prisma.tickets.findMany()
+     * 
+     * // Get first 10 Tickets
+     * const tickets = await prisma.tickets.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const ticketsWithIdOnly = await prisma.tickets.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ticketsFindManyArgs>(args?: SelectSubset<T, ticketsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ticketsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Tickets.
+     * @param {ticketsCreateArgs} args - Arguments to create a Tickets.
+     * @example
+     * // Create one Tickets
+     * const Tickets = await prisma.tickets.create({
+     *   data: {
+     *     // ... data to create a Tickets
+     *   }
+     * })
+     * 
+     */
+    create<T extends ticketsCreateArgs>(args: SelectSubset<T, ticketsCreateArgs<ExtArgs>>): Prisma__ticketsClient<$Result.GetResult<Prisma.$ticketsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Tickets.
+     * @param {ticketsCreateManyArgs} args - Arguments to create many Tickets.
+     * @example
+     * // Create many Tickets
+     * const tickets = await prisma.tickets.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ticketsCreateManyArgs>(args?: SelectSubset<T, ticketsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Tickets and returns the data saved in the database.
+     * @param {ticketsCreateManyAndReturnArgs} args - Arguments to create many Tickets.
+     * @example
+     * // Create many Tickets
+     * const tickets = await prisma.tickets.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Tickets and only return the `id`
+     * const ticketsWithIdOnly = await prisma.tickets.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ticketsCreateManyAndReturnArgs>(args?: SelectSubset<T, ticketsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ticketsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Tickets.
+     * @param {ticketsDeleteArgs} args - Arguments to delete one Tickets.
+     * @example
+     * // Delete one Tickets
+     * const Tickets = await prisma.tickets.delete({
+     *   where: {
+     *     // ... filter to delete one Tickets
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ticketsDeleteArgs>(args: SelectSubset<T, ticketsDeleteArgs<ExtArgs>>): Prisma__ticketsClient<$Result.GetResult<Prisma.$ticketsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Tickets.
+     * @param {ticketsUpdateArgs} args - Arguments to update one Tickets.
+     * @example
+     * // Update one Tickets
+     * const tickets = await prisma.tickets.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ticketsUpdateArgs>(args: SelectSubset<T, ticketsUpdateArgs<ExtArgs>>): Prisma__ticketsClient<$Result.GetResult<Prisma.$ticketsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Tickets.
+     * @param {ticketsDeleteManyArgs} args - Arguments to filter Tickets to delete.
+     * @example
+     * // Delete a few Tickets
+     * const { count } = await prisma.tickets.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ticketsDeleteManyArgs>(args?: SelectSubset<T, ticketsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Tickets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ticketsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Tickets
+     * const tickets = await prisma.tickets.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ticketsUpdateManyArgs>(args: SelectSubset<T, ticketsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Tickets and returns the data updated in the database.
+     * @param {ticketsUpdateManyAndReturnArgs} args - Arguments to update many Tickets.
+     * @example
+     * // Update many Tickets
+     * const tickets = await prisma.tickets.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Tickets and only return the `id`
+     * const ticketsWithIdOnly = await prisma.tickets.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ticketsUpdateManyAndReturnArgs>(args: SelectSubset<T, ticketsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ticketsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Tickets.
+     * @param {ticketsUpsertArgs} args - Arguments to update or create a Tickets.
+     * @example
+     * // Update or create a Tickets
+     * const tickets = await prisma.tickets.upsert({
+     *   create: {
+     *     // ... data to create a Tickets
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Tickets we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ticketsUpsertArgs>(args: SelectSubset<T, ticketsUpsertArgs<ExtArgs>>): Prisma__ticketsClient<$Result.GetResult<Prisma.$ticketsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Tickets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ticketsCountArgs} args - Arguments to filter Tickets to count.
+     * @example
+     * // Count the number of Tickets
+     * const count = await prisma.tickets.count({
+     *   where: {
+     *     // ... the filter for the Tickets we want to count
+     *   }
+     * })
+    **/
+    count<T extends ticketsCountArgs>(
+      args?: Subset<T, ticketsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TicketsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Tickets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TicketsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TicketsAggregateArgs>(args: Subset<T, TicketsAggregateArgs>): Prisma.PrismaPromise<GetTicketsAggregateType<T>>
+
+    /**
+     * Group by Tickets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ticketsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ticketsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ticketsGroupByArgs['orderBy'] }
+        : { orderBy?: ticketsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ticketsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTicketsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the tickets model
+   */
+  readonly fields: ticketsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for tickets.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ticketsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    confirmation_codes<T extends tickets$confirmation_codesArgs<ExtArgs> = {}>(args?: Subset<T, tickets$confirmation_codesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$confirmation_codesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    profiles_tickets_coordinador_idToprofiles<T extends tickets$profiles_tickets_coordinador_idToprofilesArgs<ExtArgs> = {}>(args?: Subset<T, tickets$profiles_tickets_coordinador_idToprofilesArgs<ExtArgs>>): Prisma__profilesClient<$Result.GetResult<Prisma.$profilesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    reclamo<T extends reclamoDefaultArgs<ExtArgs> = {}>(args?: Subset<T, reclamoDefaultArgs<ExtArgs>>): Prisma__reclamoClient<$Result.GetResult<Prisma.$reclamoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    profiles_tickets_tecnico_idToprofiles<T extends tickets$profiles_tickets_tecnico_idToprofilesArgs<ExtArgs> = {}>(args?: Subset<T, tickets$profiles_tickets_tecnico_idToprofilesArgs<ExtArgs>>): Prisma__profilesClient<$Result.GetResult<Prisma.$profilesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the tickets model
+   */
+  interface ticketsFieldRefs {
+    readonly id: FieldRef<"tickets", 'String'>
+    readonly reclamo_id: FieldRef<"tickets", 'String'>
+    readonly tecnico_id: FieldRef<"tickets", 'String'>
+    readonly coordinador_id: FieldRef<"tickets", 'String'>
+    readonly estado: FieldRef<"tickets", 'String'>
+    readonly notas: FieldRef<"tickets", 'String'>
+    readonly created_at: FieldRef<"tickets", 'DateTime'>
+    readonly updated_at: FieldRef<"tickets", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * tickets findUnique
+   */
+  export type ticketsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tickets
+     */
+    select?: ticketsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tickets
+     */
+    omit?: ticketsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ticketsInclude<ExtArgs> | null
+    /**
+     * Filter, which tickets to fetch.
+     */
+    where: ticketsWhereUniqueInput
+  }
+
+  /**
+   * tickets findUniqueOrThrow
+   */
+  export type ticketsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tickets
+     */
+    select?: ticketsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tickets
+     */
+    omit?: ticketsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ticketsInclude<ExtArgs> | null
+    /**
+     * Filter, which tickets to fetch.
+     */
+    where: ticketsWhereUniqueInput
+  }
+
+  /**
+   * tickets findFirst
+   */
+  export type ticketsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tickets
+     */
+    select?: ticketsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tickets
+     */
+    omit?: ticketsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ticketsInclude<ExtArgs> | null
+    /**
+     * Filter, which tickets to fetch.
+     */
+    where?: ticketsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tickets to fetch.
+     */
+    orderBy?: ticketsOrderByWithRelationInput | ticketsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for tickets.
+     */
+    cursor?: ticketsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tickets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tickets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of tickets.
+     */
+    distinct?: TicketsScalarFieldEnum | TicketsScalarFieldEnum[]
+  }
+
+  /**
+   * tickets findFirstOrThrow
+   */
+  export type ticketsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tickets
+     */
+    select?: ticketsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tickets
+     */
+    omit?: ticketsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ticketsInclude<ExtArgs> | null
+    /**
+     * Filter, which tickets to fetch.
+     */
+    where?: ticketsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tickets to fetch.
+     */
+    orderBy?: ticketsOrderByWithRelationInput | ticketsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for tickets.
+     */
+    cursor?: ticketsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tickets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tickets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of tickets.
+     */
+    distinct?: TicketsScalarFieldEnum | TicketsScalarFieldEnum[]
+  }
+
+  /**
+   * tickets findMany
+   */
+  export type ticketsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tickets
+     */
+    select?: ticketsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tickets
+     */
+    omit?: ticketsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ticketsInclude<ExtArgs> | null
+    /**
+     * Filter, which tickets to fetch.
+     */
+    where?: ticketsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tickets to fetch.
+     */
+    orderBy?: ticketsOrderByWithRelationInput | ticketsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing tickets.
+     */
+    cursor?: ticketsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tickets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tickets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of tickets.
+     */
+    distinct?: TicketsScalarFieldEnum | TicketsScalarFieldEnum[]
+  }
+
+  /**
+   * tickets create
+   */
+  export type ticketsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tickets
+     */
+    select?: ticketsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tickets
+     */
+    omit?: ticketsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ticketsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a tickets.
+     */
+    data: XOR<ticketsCreateInput, ticketsUncheckedCreateInput>
+  }
+
+  /**
+   * tickets createMany
+   */
+  export type ticketsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many tickets.
+     */
+    data: ticketsCreateManyInput | ticketsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * tickets createManyAndReturn
+   */
+  export type ticketsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tickets
+     */
+    select?: ticketsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the tickets
+     */
+    omit?: ticketsOmit<ExtArgs> | null
+    /**
+     * The data used to create many tickets.
+     */
+    data: ticketsCreateManyInput | ticketsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ticketsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * tickets update
+   */
+  export type ticketsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tickets
+     */
+    select?: ticketsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tickets
+     */
+    omit?: ticketsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ticketsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a tickets.
+     */
+    data: XOR<ticketsUpdateInput, ticketsUncheckedUpdateInput>
+    /**
+     * Choose, which tickets to update.
+     */
+    where: ticketsWhereUniqueInput
+  }
+
+  /**
+   * tickets updateMany
+   */
+  export type ticketsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update tickets.
+     */
+    data: XOR<ticketsUpdateManyMutationInput, ticketsUncheckedUpdateManyInput>
+    /**
+     * Filter which tickets to update
+     */
+    where?: ticketsWhereInput
+    /**
+     * Limit how many tickets to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * tickets updateManyAndReturn
+   */
+  export type ticketsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tickets
+     */
+    select?: ticketsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the tickets
+     */
+    omit?: ticketsOmit<ExtArgs> | null
+    /**
+     * The data used to update tickets.
+     */
+    data: XOR<ticketsUpdateManyMutationInput, ticketsUncheckedUpdateManyInput>
+    /**
+     * Filter which tickets to update
+     */
+    where?: ticketsWhereInput
+    /**
+     * Limit how many tickets to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ticketsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * tickets upsert
+   */
+  export type ticketsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tickets
+     */
+    select?: ticketsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tickets
+     */
+    omit?: ticketsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ticketsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the tickets to update in case it exists.
+     */
+    where: ticketsWhereUniqueInput
+    /**
+     * In case the tickets found by the `where` argument doesn't exist, create a new tickets with this data.
+     */
+    create: XOR<ticketsCreateInput, ticketsUncheckedCreateInput>
+    /**
+     * In case the tickets was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ticketsUpdateInput, ticketsUncheckedUpdateInput>
+  }
+
+  /**
+   * tickets delete
+   */
+  export type ticketsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tickets
+     */
+    select?: ticketsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tickets
+     */
+    omit?: ticketsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ticketsInclude<ExtArgs> | null
+    /**
+     * Filter which tickets to delete.
+     */
+    where: ticketsWhereUniqueInput
+  }
+
+  /**
+   * tickets deleteMany
+   */
+  export type ticketsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which tickets to delete
+     */
+    where?: ticketsWhereInput
+    /**
+     * Limit how many tickets to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * tickets.confirmation_codes
+   */
+  export type tickets$confirmation_codesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the confirmation_codes
+     */
+    select?: confirmation_codesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the confirmation_codes
+     */
+    omit?: confirmation_codesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: confirmation_codesInclude<ExtArgs> | null
+    where?: confirmation_codesWhereInput
+    orderBy?: confirmation_codesOrderByWithRelationInput | confirmation_codesOrderByWithRelationInput[]
+    cursor?: confirmation_codesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Confirmation_codesScalarFieldEnum | Confirmation_codesScalarFieldEnum[]
+  }
+
+  /**
+   * tickets.profiles_tickets_coordinador_idToprofiles
+   */
+  export type tickets$profiles_tickets_coordinador_idToprofilesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the profiles
+     */
+    select?: profilesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the profiles
+     */
+    omit?: profilesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: profilesInclude<ExtArgs> | null
+    where?: profilesWhereInput
+  }
+
+  /**
+   * tickets.profiles_tickets_tecnico_idToprofiles
+   */
+  export type tickets$profiles_tickets_tecnico_idToprofilesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the profiles
+     */
+    select?: profilesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the profiles
+     */
+    omit?: profilesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: profilesInclude<ExtArgs> | null
+    where?: profilesWhereInput
+  }
+
+  /**
+   * tickets without action
+   */
+  export type ticketsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tickets
+     */
+    select?: ticketsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tickets
+     */
+    omit?: ticketsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ticketsInclude<ExtArgs> | null
   }
 
 
@@ -32492,6 +36426,50 @@ export namespace Prisma {
   };
 
   export type ReclamoScalarFieldEnum = (typeof ReclamoScalarFieldEnum)[keyof typeof ReclamoScalarFieldEnum]
+
+
+  export const Confirmation_codesScalarFieldEnum: {
+    id: 'id',
+    ticket_id: 'ticket_id',
+    code_hash: 'code_hash',
+    expires_at: 'expires_at',
+    attempts: 'attempts',
+    used: 'used',
+    created_at: 'created_at'
+  };
+
+  export type Confirmation_codesScalarFieldEnum = (typeof Confirmation_codesScalarFieldEnum)[keyof typeof Confirmation_codesScalarFieldEnum]
+
+
+  export const PropiedadesScalarFieldEnum: {
+    id: 'id',
+    codigo: 'codigo',
+    tipo: 'tipo',
+    direccion: 'direccion',
+    sector: 'sector',
+    piso: 'piso',
+    unidad: 'unidad',
+    torre: 'torre',
+    m2: 'm2',
+    garantia: 'garantia',
+    creado_en: 'creado_en'
+  };
+
+  export type PropiedadesScalarFieldEnum = (typeof PropiedadesScalarFieldEnum)[keyof typeof PropiedadesScalarFieldEnum]
+
+
+  export const TicketsScalarFieldEnum: {
+    id: 'id',
+    reclamo_id: 'reclamo_id',
+    tecnico_id: 'tecnico_id',
+    coordinador_id: 'coordinador_id',
+    estado: 'estado',
+    notas: 'notas',
+    created_at: 'created_at',
+    updated_at: 'updated_at'
+  };
+
+  export type TicketsScalarFieldEnum = (typeof TicketsScalarFieldEnum)[keyof typeof TicketsScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -34735,6 +38713,8 @@ export namespace Prisma {
     created_at?: DateTimeFilter<"profiles"> | Date | string
     updated_at?: DateTimeFilter<"profiles"> | Date | string
     users?: XOR<UsersScalarRelationFilter, usersWhereInput>
+    tickets_tickets_coordinador_idToprofiles?: TicketsListRelationFilter
+    tickets_tickets_tecnico_idToprofiles?: TicketsListRelationFilter
   }
 
   export type profilesOrderByWithRelationInput = {
@@ -34747,6 +38727,8 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrder
     users?: usersOrderByWithRelationInput
+    tickets_tickets_coordinador_idToprofiles?: ticketsOrderByRelationAggregateInput
+    tickets_tickets_tecnico_idToprofiles?: ticketsOrderByRelationAggregateInput
   }
 
   export type profilesWhereUniqueInput = Prisma.AtLeast<{
@@ -34762,6 +38744,8 @@ export namespace Prisma {
     created_at?: DateTimeFilter<"profiles"> | Date | string
     updated_at?: DateTimeFilter<"profiles"> | Date | string
     users?: XOR<UsersScalarRelationFilter, usersWhereInput>
+    tickets_tickets_coordinador_idToprofiles?: TicketsListRelationFilter
+    tickets_tickets_tecnico_idToprofiles?: TicketsListRelationFilter
   }, "id" | "email">
 
   export type profilesOrderByWithAggregationInput = {
@@ -34806,6 +38790,7 @@ export namespace Prisma {
     descripcion_falla?: StringNullableFilter<"reclamo"> | string | null
     creado_en?: DateTimeFilter<"reclamo"> | Date | string
     id?: UuidFilter<"reclamo"> | string
+    tickets?: TicketsListRelationFilter
   }
 
   export type reclamoOrderByWithRelationInput = {
@@ -34819,6 +38804,7 @@ export namespace Prisma {
     descripcion_falla?: SortOrderInput | SortOrder
     creado_en?: SortOrder
     id?: SortOrder
+    tickets?: ticketsOrderByRelationAggregateInput
   }
 
   export type reclamoWhereUniqueInput = Prisma.AtLeast<{
@@ -34835,6 +38821,7 @@ export namespace Prisma {
     ubicacion_falla?: StringFilter<"reclamo"> | string
     descripcion_falla?: StringNullableFilter<"reclamo"> | string | null
     creado_en?: DateTimeFilter<"reclamo"> | Date | string
+    tickets?: TicketsListRelationFilter
   }, "id">
 
   export type reclamoOrderByWithAggregationInput = {
@@ -34867,6 +38854,236 @@ export namespace Prisma {
     descripcion_falla?: StringNullableWithAggregatesFilter<"reclamo"> | string | null
     creado_en?: DateTimeWithAggregatesFilter<"reclamo"> | Date | string
     id?: UuidWithAggregatesFilter<"reclamo"> | string
+  }
+
+  export type confirmation_codesWhereInput = {
+    AND?: confirmation_codesWhereInput | confirmation_codesWhereInput[]
+    OR?: confirmation_codesWhereInput[]
+    NOT?: confirmation_codesWhereInput | confirmation_codesWhereInput[]
+    id?: UuidFilter<"confirmation_codes"> | string
+    ticket_id?: UuidFilter<"confirmation_codes"> | string
+    code_hash?: StringFilter<"confirmation_codes"> | string
+    expires_at?: DateTimeFilter<"confirmation_codes"> | Date | string
+    attempts?: IntFilter<"confirmation_codes"> | number
+    used?: BoolFilter<"confirmation_codes"> | boolean
+    created_at?: DateTimeFilter<"confirmation_codes"> | Date | string
+    tickets?: XOR<TicketsScalarRelationFilter, ticketsWhereInput>
+  }
+
+  export type confirmation_codesOrderByWithRelationInput = {
+    id?: SortOrder
+    ticket_id?: SortOrder
+    code_hash?: SortOrder
+    expires_at?: SortOrder
+    attempts?: SortOrder
+    used?: SortOrder
+    created_at?: SortOrder
+    tickets?: ticketsOrderByWithRelationInput
+  }
+
+  export type confirmation_codesWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: confirmation_codesWhereInput | confirmation_codesWhereInput[]
+    OR?: confirmation_codesWhereInput[]
+    NOT?: confirmation_codesWhereInput | confirmation_codesWhereInput[]
+    ticket_id?: UuidFilter<"confirmation_codes"> | string
+    code_hash?: StringFilter<"confirmation_codes"> | string
+    expires_at?: DateTimeFilter<"confirmation_codes"> | Date | string
+    attempts?: IntFilter<"confirmation_codes"> | number
+    used?: BoolFilter<"confirmation_codes"> | boolean
+    created_at?: DateTimeFilter<"confirmation_codes"> | Date | string
+    tickets?: XOR<TicketsScalarRelationFilter, ticketsWhereInput>
+  }, "id">
+
+  export type confirmation_codesOrderByWithAggregationInput = {
+    id?: SortOrder
+    ticket_id?: SortOrder
+    code_hash?: SortOrder
+    expires_at?: SortOrder
+    attempts?: SortOrder
+    used?: SortOrder
+    created_at?: SortOrder
+    _count?: confirmation_codesCountOrderByAggregateInput
+    _avg?: confirmation_codesAvgOrderByAggregateInput
+    _max?: confirmation_codesMaxOrderByAggregateInput
+    _min?: confirmation_codesMinOrderByAggregateInput
+    _sum?: confirmation_codesSumOrderByAggregateInput
+  }
+
+  export type confirmation_codesScalarWhereWithAggregatesInput = {
+    AND?: confirmation_codesScalarWhereWithAggregatesInput | confirmation_codesScalarWhereWithAggregatesInput[]
+    OR?: confirmation_codesScalarWhereWithAggregatesInput[]
+    NOT?: confirmation_codesScalarWhereWithAggregatesInput | confirmation_codesScalarWhereWithAggregatesInput[]
+    id?: UuidWithAggregatesFilter<"confirmation_codes"> | string
+    ticket_id?: UuidWithAggregatesFilter<"confirmation_codes"> | string
+    code_hash?: StringWithAggregatesFilter<"confirmation_codes"> | string
+    expires_at?: DateTimeWithAggregatesFilter<"confirmation_codes"> | Date | string
+    attempts?: IntWithAggregatesFilter<"confirmation_codes"> | number
+    used?: BoolWithAggregatesFilter<"confirmation_codes"> | boolean
+    created_at?: DateTimeWithAggregatesFilter<"confirmation_codes"> | Date | string
+  }
+
+  export type propiedadesWhereInput = {
+    AND?: propiedadesWhereInput | propiedadesWhereInput[]
+    OR?: propiedadesWhereInput[]
+    NOT?: propiedadesWhereInput | propiedadesWhereInput[]
+    id?: UuidFilter<"propiedades"> | string
+    codigo?: StringFilter<"propiedades"> | string
+    tipo?: StringFilter<"propiedades"> | string
+    direccion?: StringFilter<"propiedades"> | string
+    sector?: StringFilter<"propiedades"> | string
+    piso?: IntFilter<"propiedades"> | number
+    unidad?: StringFilter<"propiedades"> | string
+    torre?: StringFilter<"propiedades"> | string
+    m2?: IntFilter<"propiedades"> | number
+    garantia?: StringFilter<"propiedades"> | string
+    creado_en?: DateTimeNullableFilter<"propiedades"> | Date | string | null
+  }
+
+  export type propiedadesOrderByWithRelationInput = {
+    id?: SortOrder
+    codigo?: SortOrder
+    tipo?: SortOrder
+    direccion?: SortOrder
+    sector?: SortOrder
+    piso?: SortOrder
+    unidad?: SortOrder
+    torre?: SortOrder
+    m2?: SortOrder
+    garantia?: SortOrder
+    creado_en?: SortOrderInput | SortOrder
+  }
+
+  export type propiedadesWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: propiedadesWhereInput | propiedadesWhereInput[]
+    OR?: propiedadesWhereInput[]
+    NOT?: propiedadesWhereInput | propiedadesWhereInput[]
+    codigo?: StringFilter<"propiedades"> | string
+    tipo?: StringFilter<"propiedades"> | string
+    direccion?: StringFilter<"propiedades"> | string
+    sector?: StringFilter<"propiedades"> | string
+    piso?: IntFilter<"propiedades"> | number
+    unidad?: StringFilter<"propiedades"> | string
+    torre?: StringFilter<"propiedades"> | string
+    m2?: IntFilter<"propiedades"> | number
+    garantia?: StringFilter<"propiedades"> | string
+    creado_en?: DateTimeNullableFilter<"propiedades"> | Date | string | null
+  }, "id">
+
+  export type propiedadesOrderByWithAggregationInput = {
+    id?: SortOrder
+    codigo?: SortOrder
+    tipo?: SortOrder
+    direccion?: SortOrder
+    sector?: SortOrder
+    piso?: SortOrder
+    unidad?: SortOrder
+    torre?: SortOrder
+    m2?: SortOrder
+    garantia?: SortOrder
+    creado_en?: SortOrderInput | SortOrder
+    _count?: propiedadesCountOrderByAggregateInput
+    _avg?: propiedadesAvgOrderByAggregateInput
+    _max?: propiedadesMaxOrderByAggregateInput
+    _min?: propiedadesMinOrderByAggregateInput
+    _sum?: propiedadesSumOrderByAggregateInput
+  }
+
+  export type propiedadesScalarWhereWithAggregatesInput = {
+    AND?: propiedadesScalarWhereWithAggregatesInput | propiedadesScalarWhereWithAggregatesInput[]
+    OR?: propiedadesScalarWhereWithAggregatesInput[]
+    NOT?: propiedadesScalarWhereWithAggregatesInput | propiedadesScalarWhereWithAggregatesInput[]
+    id?: UuidWithAggregatesFilter<"propiedades"> | string
+    codigo?: StringWithAggregatesFilter<"propiedades"> | string
+    tipo?: StringWithAggregatesFilter<"propiedades"> | string
+    direccion?: StringWithAggregatesFilter<"propiedades"> | string
+    sector?: StringWithAggregatesFilter<"propiedades"> | string
+    piso?: IntWithAggregatesFilter<"propiedades"> | number
+    unidad?: StringWithAggregatesFilter<"propiedades"> | string
+    torre?: StringWithAggregatesFilter<"propiedades"> | string
+    m2?: IntWithAggregatesFilter<"propiedades"> | number
+    garantia?: StringWithAggregatesFilter<"propiedades"> | string
+    creado_en?: DateTimeNullableWithAggregatesFilter<"propiedades"> | Date | string | null
+  }
+
+  export type ticketsWhereInput = {
+    AND?: ticketsWhereInput | ticketsWhereInput[]
+    OR?: ticketsWhereInput[]
+    NOT?: ticketsWhereInput | ticketsWhereInput[]
+    id?: UuidFilter<"tickets"> | string
+    reclamo_id?: UuidFilter<"tickets"> | string
+    tecnico_id?: UuidNullableFilter<"tickets"> | string | null
+    coordinador_id?: UuidNullableFilter<"tickets"> | string | null
+    estado?: StringFilter<"tickets"> | string
+    notas?: StringNullableFilter<"tickets"> | string | null
+    created_at?: DateTimeFilter<"tickets"> | Date | string
+    updated_at?: DateTimeFilter<"tickets"> | Date | string
+    confirmation_codes?: Confirmation_codesListRelationFilter
+    profiles_tickets_coordinador_idToprofiles?: XOR<ProfilesNullableScalarRelationFilter, profilesWhereInput> | null
+    reclamo?: XOR<ReclamoScalarRelationFilter, reclamoWhereInput>
+    profiles_tickets_tecnico_idToprofiles?: XOR<ProfilesNullableScalarRelationFilter, profilesWhereInput> | null
+  }
+
+  export type ticketsOrderByWithRelationInput = {
+    id?: SortOrder
+    reclamo_id?: SortOrder
+    tecnico_id?: SortOrderInput | SortOrder
+    coordinador_id?: SortOrderInput | SortOrder
+    estado?: SortOrder
+    notas?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    confirmation_codes?: confirmation_codesOrderByRelationAggregateInput
+    profiles_tickets_coordinador_idToprofiles?: profilesOrderByWithRelationInput
+    reclamo?: reclamoOrderByWithRelationInput
+    profiles_tickets_tecnico_idToprofiles?: profilesOrderByWithRelationInput
+  }
+
+  export type ticketsWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ticketsWhereInput | ticketsWhereInput[]
+    OR?: ticketsWhereInput[]
+    NOT?: ticketsWhereInput | ticketsWhereInput[]
+    reclamo_id?: UuidFilter<"tickets"> | string
+    tecnico_id?: UuidNullableFilter<"tickets"> | string | null
+    coordinador_id?: UuidNullableFilter<"tickets"> | string | null
+    estado?: StringFilter<"tickets"> | string
+    notas?: StringNullableFilter<"tickets"> | string | null
+    created_at?: DateTimeFilter<"tickets"> | Date | string
+    updated_at?: DateTimeFilter<"tickets"> | Date | string
+    confirmation_codes?: Confirmation_codesListRelationFilter
+    profiles_tickets_coordinador_idToprofiles?: XOR<ProfilesNullableScalarRelationFilter, profilesWhereInput> | null
+    reclamo?: XOR<ReclamoScalarRelationFilter, reclamoWhereInput>
+    profiles_tickets_tecnico_idToprofiles?: XOR<ProfilesNullableScalarRelationFilter, profilesWhereInput> | null
+  }, "id">
+
+  export type ticketsOrderByWithAggregationInput = {
+    id?: SortOrder
+    reclamo_id?: SortOrder
+    tecnico_id?: SortOrderInput | SortOrder
+    coordinador_id?: SortOrderInput | SortOrder
+    estado?: SortOrder
+    notas?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    _count?: ticketsCountOrderByAggregateInput
+    _max?: ticketsMaxOrderByAggregateInput
+    _min?: ticketsMinOrderByAggregateInput
+  }
+
+  export type ticketsScalarWhereWithAggregatesInput = {
+    AND?: ticketsScalarWhereWithAggregatesInput | ticketsScalarWhereWithAggregatesInput[]
+    OR?: ticketsScalarWhereWithAggregatesInput[]
+    NOT?: ticketsScalarWhereWithAggregatesInput | ticketsScalarWhereWithAggregatesInput[]
+    id?: UuidWithAggregatesFilter<"tickets"> | string
+    reclamo_id?: UuidWithAggregatesFilter<"tickets"> | string
+    tecnico_id?: UuidNullableWithAggregatesFilter<"tickets"> | string | null
+    coordinador_id?: UuidNullableWithAggregatesFilter<"tickets"> | string | null
+    estado?: StringWithAggregatesFilter<"tickets"> | string
+    notas?: StringNullableWithAggregatesFilter<"tickets"> | string | null
+    created_at?: DateTimeWithAggregatesFilter<"tickets"> | Date | string
+    updated_at?: DateTimeWithAggregatesFilter<"tickets"> | Date | string
   }
 
   export type audit_log_entriesCreateInput = {
@@ -37092,6 +41309,8 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     users: usersCreateNestedOneWithoutProfilesInput
+    tickets_tickets_coordinador_idToprofiles?: ticketsCreateNestedManyWithoutProfiles_tickets_coordinador_idToprofilesInput
+    tickets_tickets_tecnico_idToprofiles?: ticketsCreateNestedManyWithoutProfiles_tickets_tecnico_idToprofilesInput
   }
 
   export type profilesUncheckedCreateInput = {
@@ -37103,6 +41322,8 @@ export namespace Prisma {
     is_active?: boolean
     created_at?: Date | string
     updated_at?: Date | string
+    tickets_tickets_coordinador_idToprofiles?: ticketsUncheckedCreateNestedManyWithoutProfiles_tickets_coordinador_idToprofilesInput
+    tickets_tickets_tecnico_idToprofiles?: ticketsUncheckedCreateNestedManyWithoutProfiles_tickets_tecnico_idToprofilesInput
   }
 
   export type profilesUpdateInput = {
@@ -37114,6 +41335,8 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     users?: usersUpdateOneRequiredWithoutProfilesNestedInput
+    tickets_tickets_coordinador_idToprofiles?: ticketsUpdateManyWithoutProfiles_tickets_coordinador_idToprofilesNestedInput
+    tickets_tickets_tecnico_idToprofiles?: ticketsUpdateManyWithoutProfiles_tickets_tecnico_idToprofilesNestedInput
   }
 
   export type profilesUncheckedUpdateInput = {
@@ -37125,6 +41348,8 @@ export namespace Prisma {
     is_active?: BoolFieldUpdateOperationsInput | boolean
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    tickets_tickets_coordinador_idToprofiles?: ticketsUncheckedUpdateManyWithoutProfiles_tickets_coordinador_idToprofilesNestedInput
+    tickets_tickets_tecnico_idToprofiles?: ticketsUncheckedUpdateManyWithoutProfiles_tickets_tecnico_idToprofilesNestedInput
   }
 
   export type profilesCreateManyInput = {
@@ -37170,6 +41395,7 @@ export namespace Prisma {
     descripcion_falla?: string | null
     creado_en?: Date | string
     id?: string
+    tickets?: ticketsCreateNestedManyWithoutReclamoInput
   }
 
   export type reclamoUncheckedCreateInput = {
@@ -37183,6 +41409,7 @@ export namespace Prisma {
     descripcion_falla?: string | null
     creado_en?: Date | string
     id?: string
+    tickets?: ticketsUncheckedCreateNestedManyWithoutReclamoInput
   }
 
   export type reclamoUpdateInput = {
@@ -37196,6 +41423,7 @@ export namespace Prisma {
     descripcion_falla?: NullableStringFieldUpdateOperationsInput | string | null
     creado_en?: DateTimeFieldUpdateOperationsInput | Date | string
     id?: StringFieldUpdateOperationsInput | string
+    tickets?: ticketsUpdateManyWithoutReclamoNestedInput
   }
 
   export type reclamoUncheckedUpdateInput = {
@@ -37209,6 +41437,7 @@ export namespace Prisma {
     descripcion_falla?: NullableStringFieldUpdateOperationsInput | string | null
     creado_en?: DateTimeFieldUpdateOperationsInput | Date | string
     id?: StringFieldUpdateOperationsInput | string
+    tickets?: ticketsUncheckedUpdateManyWithoutReclamoNestedInput
   }
 
   export type reclamoCreateManyInput = {
@@ -37248,6 +41477,251 @@ export namespace Prisma {
     descripcion_falla?: NullableStringFieldUpdateOperationsInput | string | null
     creado_en?: DateTimeFieldUpdateOperationsInput | Date | string
     id?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type confirmation_codesCreateInput = {
+    id?: string
+    code_hash: string
+    expires_at: Date | string
+    attempts?: number
+    used?: boolean
+    created_at?: Date | string
+    tickets: ticketsCreateNestedOneWithoutConfirmation_codesInput
+  }
+
+  export type confirmation_codesUncheckedCreateInput = {
+    id?: string
+    ticket_id: string
+    code_hash: string
+    expires_at: Date | string
+    attempts?: number
+    used?: boolean
+    created_at?: Date | string
+  }
+
+  export type confirmation_codesUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code_hash?: StringFieldUpdateOperationsInput | string
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    attempts?: IntFieldUpdateOperationsInput | number
+    used?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    tickets?: ticketsUpdateOneRequiredWithoutConfirmation_codesNestedInput
+  }
+
+  export type confirmation_codesUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    ticket_id?: StringFieldUpdateOperationsInput | string
+    code_hash?: StringFieldUpdateOperationsInput | string
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    attempts?: IntFieldUpdateOperationsInput | number
+    used?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type confirmation_codesCreateManyInput = {
+    id?: string
+    ticket_id: string
+    code_hash: string
+    expires_at: Date | string
+    attempts?: number
+    used?: boolean
+    created_at?: Date | string
+  }
+
+  export type confirmation_codesUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code_hash?: StringFieldUpdateOperationsInput | string
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    attempts?: IntFieldUpdateOperationsInput | number
+    used?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type confirmation_codesUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    ticket_id?: StringFieldUpdateOperationsInput | string
+    code_hash?: StringFieldUpdateOperationsInput | string
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    attempts?: IntFieldUpdateOperationsInput | number
+    used?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type propiedadesCreateInput = {
+    id?: string
+    codigo: string
+    tipo: string
+    direccion: string
+    sector: string
+    piso: number
+    unidad: string
+    torre: string
+    m2: number
+    garantia: string
+    creado_en?: Date | string | null
+  }
+
+  export type propiedadesUncheckedCreateInput = {
+    id?: string
+    codigo: string
+    tipo: string
+    direccion: string
+    sector: string
+    piso: number
+    unidad: string
+    torre: string
+    m2: number
+    garantia: string
+    creado_en?: Date | string | null
+  }
+
+  export type propiedadesUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    codigo?: StringFieldUpdateOperationsInput | string
+    tipo?: StringFieldUpdateOperationsInput | string
+    direccion?: StringFieldUpdateOperationsInput | string
+    sector?: StringFieldUpdateOperationsInput | string
+    piso?: IntFieldUpdateOperationsInput | number
+    unidad?: StringFieldUpdateOperationsInput | string
+    torre?: StringFieldUpdateOperationsInput | string
+    m2?: IntFieldUpdateOperationsInput | number
+    garantia?: StringFieldUpdateOperationsInput | string
+    creado_en?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type propiedadesUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    codigo?: StringFieldUpdateOperationsInput | string
+    tipo?: StringFieldUpdateOperationsInput | string
+    direccion?: StringFieldUpdateOperationsInput | string
+    sector?: StringFieldUpdateOperationsInput | string
+    piso?: IntFieldUpdateOperationsInput | number
+    unidad?: StringFieldUpdateOperationsInput | string
+    torre?: StringFieldUpdateOperationsInput | string
+    m2?: IntFieldUpdateOperationsInput | number
+    garantia?: StringFieldUpdateOperationsInput | string
+    creado_en?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type propiedadesCreateManyInput = {
+    id?: string
+    codigo: string
+    tipo: string
+    direccion: string
+    sector: string
+    piso: number
+    unidad: string
+    torre: string
+    m2: number
+    garantia: string
+    creado_en?: Date | string | null
+  }
+
+  export type propiedadesUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    codigo?: StringFieldUpdateOperationsInput | string
+    tipo?: StringFieldUpdateOperationsInput | string
+    direccion?: StringFieldUpdateOperationsInput | string
+    sector?: StringFieldUpdateOperationsInput | string
+    piso?: IntFieldUpdateOperationsInput | number
+    unidad?: StringFieldUpdateOperationsInput | string
+    torre?: StringFieldUpdateOperationsInput | string
+    m2?: IntFieldUpdateOperationsInput | number
+    garantia?: StringFieldUpdateOperationsInput | string
+    creado_en?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type propiedadesUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    codigo?: StringFieldUpdateOperationsInput | string
+    tipo?: StringFieldUpdateOperationsInput | string
+    direccion?: StringFieldUpdateOperationsInput | string
+    sector?: StringFieldUpdateOperationsInput | string
+    piso?: IntFieldUpdateOperationsInput | number
+    unidad?: StringFieldUpdateOperationsInput | string
+    torre?: StringFieldUpdateOperationsInput | string
+    m2?: IntFieldUpdateOperationsInput | number
+    garantia?: StringFieldUpdateOperationsInput | string
+    creado_en?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type ticketsCreateInput = {
+    id?: string
+    estado?: string
+    notas?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    confirmation_codes?: confirmation_codesCreateNestedManyWithoutTicketsInput
+    profiles_tickets_coordinador_idToprofiles?: profilesCreateNestedOneWithoutTickets_tickets_coordinador_idToprofilesInput
+    reclamo: reclamoCreateNestedOneWithoutTicketsInput
+    profiles_tickets_tecnico_idToprofiles?: profilesCreateNestedOneWithoutTickets_tickets_tecnico_idToprofilesInput
+  }
+
+  export type ticketsUncheckedCreateInput = {
+    id?: string
+    reclamo_id: string
+    tecnico_id?: string | null
+    coordinador_id?: string | null
+    estado?: string
+    notas?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    confirmation_codes?: confirmation_codesUncheckedCreateNestedManyWithoutTicketsInput
+  }
+
+  export type ticketsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    estado?: StringFieldUpdateOperationsInput | string
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    confirmation_codes?: confirmation_codesUpdateManyWithoutTicketsNestedInput
+    profiles_tickets_coordinador_idToprofiles?: profilesUpdateOneWithoutTickets_tickets_coordinador_idToprofilesNestedInput
+    reclamo?: reclamoUpdateOneRequiredWithoutTicketsNestedInput
+    profiles_tickets_tecnico_idToprofiles?: profilesUpdateOneWithoutTickets_tickets_tecnico_idToprofilesNestedInput
+  }
+
+  export type ticketsUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    reclamo_id?: StringFieldUpdateOperationsInput | string
+    tecnico_id?: NullableStringFieldUpdateOperationsInput | string | null
+    coordinador_id?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: StringFieldUpdateOperationsInput | string
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    confirmation_codes?: confirmation_codesUncheckedUpdateManyWithoutTicketsNestedInput
+  }
+
+  export type ticketsCreateManyInput = {
+    id?: string
+    reclamo_id: string
+    tecnico_id?: string | null
+    coordinador_id?: string | null
+    estado?: string
+    notas?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type ticketsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    estado?: StringFieldUpdateOperationsInput | string
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ticketsUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    reclamo_id?: StringFieldUpdateOperationsInput | string
+    tecnico_id?: NullableStringFieldUpdateOperationsInput | string | null
+    coordinador_id?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: StringFieldUpdateOperationsInput | string
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UuidNullableFilter<$PrismaModel = never> = {
@@ -38954,6 +43428,16 @@ export namespace Prisma {
     _max?: NestedBytesFilter<$PrismaModel>
   }
 
+  export type TicketsListRelationFilter = {
+    every?: ticketsWhereInput
+    some?: ticketsWhereInput
+    none?: ticketsWhereInput
+  }
+
+  export type ticketsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type profilesCountOrderByAggregateInput = {
     id?: SortOrder
     full_name?: SortOrder
@@ -39024,6 +43508,176 @@ export namespace Prisma {
     descripcion_falla?: SortOrder
     creado_en?: SortOrder
     id?: SortOrder
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type TicketsScalarRelationFilter = {
+    is?: ticketsWhereInput
+    isNot?: ticketsWhereInput
+  }
+
+  export type confirmation_codesCountOrderByAggregateInput = {
+    id?: SortOrder
+    ticket_id?: SortOrder
+    code_hash?: SortOrder
+    expires_at?: SortOrder
+    attempts?: SortOrder
+    used?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type confirmation_codesAvgOrderByAggregateInput = {
+    attempts?: SortOrder
+  }
+
+  export type confirmation_codesMaxOrderByAggregateInput = {
+    id?: SortOrder
+    ticket_id?: SortOrder
+    code_hash?: SortOrder
+    expires_at?: SortOrder
+    attempts?: SortOrder
+    used?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type confirmation_codesMinOrderByAggregateInput = {
+    id?: SortOrder
+    ticket_id?: SortOrder
+    code_hash?: SortOrder
+    expires_at?: SortOrder
+    attempts?: SortOrder
+    used?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type confirmation_codesSumOrderByAggregateInput = {
+    attempts?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type propiedadesCountOrderByAggregateInput = {
+    id?: SortOrder
+    codigo?: SortOrder
+    tipo?: SortOrder
+    direccion?: SortOrder
+    sector?: SortOrder
+    piso?: SortOrder
+    unidad?: SortOrder
+    torre?: SortOrder
+    m2?: SortOrder
+    garantia?: SortOrder
+    creado_en?: SortOrder
+  }
+
+  export type propiedadesAvgOrderByAggregateInput = {
+    piso?: SortOrder
+    m2?: SortOrder
+  }
+
+  export type propiedadesMaxOrderByAggregateInput = {
+    id?: SortOrder
+    codigo?: SortOrder
+    tipo?: SortOrder
+    direccion?: SortOrder
+    sector?: SortOrder
+    piso?: SortOrder
+    unidad?: SortOrder
+    torre?: SortOrder
+    m2?: SortOrder
+    garantia?: SortOrder
+    creado_en?: SortOrder
+  }
+
+  export type propiedadesMinOrderByAggregateInput = {
+    id?: SortOrder
+    codigo?: SortOrder
+    tipo?: SortOrder
+    direccion?: SortOrder
+    sector?: SortOrder
+    piso?: SortOrder
+    unidad?: SortOrder
+    torre?: SortOrder
+    m2?: SortOrder
+    garantia?: SortOrder
+    creado_en?: SortOrder
+  }
+
+  export type propiedadesSumOrderByAggregateInput = {
+    piso?: SortOrder
+    m2?: SortOrder
+  }
+
+  export type Confirmation_codesListRelationFilter = {
+    every?: confirmation_codesWhereInput
+    some?: confirmation_codesWhereInput
+    none?: confirmation_codesWhereInput
+  }
+
+  export type ReclamoScalarRelationFilter = {
+    is?: reclamoWhereInput
+    isNot?: reclamoWhereInput
+  }
+
+  export type confirmation_codesOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ticketsCountOrderByAggregateInput = {
+    id?: SortOrder
+    reclamo_id?: SortOrder
+    tecnico_id?: SortOrder
+    coordinador_id?: SortOrder
+    estado?: SortOrder
+    notas?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type ticketsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    reclamo_id?: SortOrder
+    tecnico_id?: SortOrder
+    coordinador_id?: SortOrder
+    estado?: SortOrder
+    notas?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type ticketsMinOrderByAggregateInput = {
+    id?: SortOrder
+    reclamo_id?: SortOrder
+    tecnico_id?: SortOrder
+    coordinador_id?: SortOrder
+    estado?: SortOrder
+    notas?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
@@ -40188,12 +44842,248 @@ export namespace Prisma {
     connect?: usersWhereUniqueInput
   }
 
+  export type ticketsCreateNestedManyWithoutProfiles_tickets_coordinador_idToprofilesInput = {
+    create?: XOR<ticketsCreateWithoutProfiles_tickets_coordinador_idToprofilesInput, ticketsUncheckedCreateWithoutProfiles_tickets_coordinador_idToprofilesInput> | ticketsCreateWithoutProfiles_tickets_coordinador_idToprofilesInput[] | ticketsUncheckedCreateWithoutProfiles_tickets_coordinador_idToprofilesInput[]
+    connectOrCreate?: ticketsCreateOrConnectWithoutProfiles_tickets_coordinador_idToprofilesInput | ticketsCreateOrConnectWithoutProfiles_tickets_coordinador_idToprofilesInput[]
+    createMany?: ticketsCreateManyProfiles_tickets_coordinador_idToprofilesInputEnvelope
+    connect?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+  }
+
+  export type ticketsCreateNestedManyWithoutProfiles_tickets_tecnico_idToprofilesInput = {
+    create?: XOR<ticketsCreateWithoutProfiles_tickets_tecnico_idToprofilesInput, ticketsUncheckedCreateWithoutProfiles_tickets_tecnico_idToprofilesInput> | ticketsCreateWithoutProfiles_tickets_tecnico_idToprofilesInput[] | ticketsUncheckedCreateWithoutProfiles_tickets_tecnico_idToprofilesInput[]
+    connectOrCreate?: ticketsCreateOrConnectWithoutProfiles_tickets_tecnico_idToprofilesInput | ticketsCreateOrConnectWithoutProfiles_tickets_tecnico_idToprofilesInput[]
+    createMany?: ticketsCreateManyProfiles_tickets_tecnico_idToprofilesInputEnvelope
+    connect?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+  }
+
+  export type ticketsUncheckedCreateNestedManyWithoutProfiles_tickets_coordinador_idToprofilesInput = {
+    create?: XOR<ticketsCreateWithoutProfiles_tickets_coordinador_idToprofilesInput, ticketsUncheckedCreateWithoutProfiles_tickets_coordinador_idToprofilesInput> | ticketsCreateWithoutProfiles_tickets_coordinador_idToprofilesInput[] | ticketsUncheckedCreateWithoutProfiles_tickets_coordinador_idToprofilesInput[]
+    connectOrCreate?: ticketsCreateOrConnectWithoutProfiles_tickets_coordinador_idToprofilesInput | ticketsCreateOrConnectWithoutProfiles_tickets_coordinador_idToprofilesInput[]
+    createMany?: ticketsCreateManyProfiles_tickets_coordinador_idToprofilesInputEnvelope
+    connect?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+  }
+
+  export type ticketsUncheckedCreateNestedManyWithoutProfiles_tickets_tecnico_idToprofilesInput = {
+    create?: XOR<ticketsCreateWithoutProfiles_tickets_tecnico_idToprofilesInput, ticketsUncheckedCreateWithoutProfiles_tickets_tecnico_idToprofilesInput> | ticketsCreateWithoutProfiles_tickets_tecnico_idToprofilesInput[] | ticketsUncheckedCreateWithoutProfiles_tickets_tecnico_idToprofilesInput[]
+    connectOrCreate?: ticketsCreateOrConnectWithoutProfiles_tickets_tecnico_idToprofilesInput | ticketsCreateOrConnectWithoutProfiles_tickets_tecnico_idToprofilesInput[]
+    createMany?: ticketsCreateManyProfiles_tickets_tecnico_idToprofilesInputEnvelope
+    connect?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+  }
+
   export type usersUpdateOneRequiredWithoutProfilesNestedInput = {
     create?: XOR<usersCreateWithoutProfilesInput, usersUncheckedCreateWithoutProfilesInput>
     connectOrCreate?: usersCreateOrConnectWithoutProfilesInput
     upsert?: usersUpsertWithoutProfilesInput
     connect?: usersWhereUniqueInput
     update?: XOR<XOR<usersUpdateToOneWithWhereWithoutProfilesInput, usersUpdateWithoutProfilesInput>, usersUncheckedUpdateWithoutProfilesInput>
+  }
+
+  export type ticketsUpdateManyWithoutProfiles_tickets_coordinador_idToprofilesNestedInput = {
+    create?: XOR<ticketsCreateWithoutProfiles_tickets_coordinador_idToprofilesInput, ticketsUncheckedCreateWithoutProfiles_tickets_coordinador_idToprofilesInput> | ticketsCreateWithoutProfiles_tickets_coordinador_idToprofilesInput[] | ticketsUncheckedCreateWithoutProfiles_tickets_coordinador_idToprofilesInput[]
+    connectOrCreate?: ticketsCreateOrConnectWithoutProfiles_tickets_coordinador_idToprofilesInput | ticketsCreateOrConnectWithoutProfiles_tickets_coordinador_idToprofilesInput[]
+    upsert?: ticketsUpsertWithWhereUniqueWithoutProfiles_tickets_coordinador_idToprofilesInput | ticketsUpsertWithWhereUniqueWithoutProfiles_tickets_coordinador_idToprofilesInput[]
+    createMany?: ticketsCreateManyProfiles_tickets_coordinador_idToprofilesInputEnvelope
+    set?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+    disconnect?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+    delete?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+    connect?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+    update?: ticketsUpdateWithWhereUniqueWithoutProfiles_tickets_coordinador_idToprofilesInput | ticketsUpdateWithWhereUniqueWithoutProfiles_tickets_coordinador_idToprofilesInput[]
+    updateMany?: ticketsUpdateManyWithWhereWithoutProfiles_tickets_coordinador_idToprofilesInput | ticketsUpdateManyWithWhereWithoutProfiles_tickets_coordinador_idToprofilesInput[]
+    deleteMany?: ticketsScalarWhereInput | ticketsScalarWhereInput[]
+  }
+
+  export type ticketsUpdateManyWithoutProfiles_tickets_tecnico_idToprofilesNestedInput = {
+    create?: XOR<ticketsCreateWithoutProfiles_tickets_tecnico_idToprofilesInput, ticketsUncheckedCreateWithoutProfiles_tickets_tecnico_idToprofilesInput> | ticketsCreateWithoutProfiles_tickets_tecnico_idToprofilesInput[] | ticketsUncheckedCreateWithoutProfiles_tickets_tecnico_idToprofilesInput[]
+    connectOrCreate?: ticketsCreateOrConnectWithoutProfiles_tickets_tecnico_idToprofilesInput | ticketsCreateOrConnectWithoutProfiles_tickets_tecnico_idToprofilesInput[]
+    upsert?: ticketsUpsertWithWhereUniqueWithoutProfiles_tickets_tecnico_idToprofilesInput | ticketsUpsertWithWhereUniqueWithoutProfiles_tickets_tecnico_idToprofilesInput[]
+    createMany?: ticketsCreateManyProfiles_tickets_tecnico_idToprofilesInputEnvelope
+    set?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+    disconnect?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+    delete?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+    connect?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+    update?: ticketsUpdateWithWhereUniqueWithoutProfiles_tickets_tecnico_idToprofilesInput | ticketsUpdateWithWhereUniqueWithoutProfiles_tickets_tecnico_idToprofilesInput[]
+    updateMany?: ticketsUpdateManyWithWhereWithoutProfiles_tickets_tecnico_idToprofilesInput | ticketsUpdateManyWithWhereWithoutProfiles_tickets_tecnico_idToprofilesInput[]
+    deleteMany?: ticketsScalarWhereInput | ticketsScalarWhereInput[]
+  }
+
+  export type ticketsUncheckedUpdateManyWithoutProfiles_tickets_coordinador_idToprofilesNestedInput = {
+    create?: XOR<ticketsCreateWithoutProfiles_tickets_coordinador_idToprofilesInput, ticketsUncheckedCreateWithoutProfiles_tickets_coordinador_idToprofilesInput> | ticketsCreateWithoutProfiles_tickets_coordinador_idToprofilesInput[] | ticketsUncheckedCreateWithoutProfiles_tickets_coordinador_idToprofilesInput[]
+    connectOrCreate?: ticketsCreateOrConnectWithoutProfiles_tickets_coordinador_idToprofilesInput | ticketsCreateOrConnectWithoutProfiles_tickets_coordinador_idToprofilesInput[]
+    upsert?: ticketsUpsertWithWhereUniqueWithoutProfiles_tickets_coordinador_idToprofilesInput | ticketsUpsertWithWhereUniqueWithoutProfiles_tickets_coordinador_idToprofilesInput[]
+    createMany?: ticketsCreateManyProfiles_tickets_coordinador_idToprofilesInputEnvelope
+    set?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+    disconnect?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+    delete?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+    connect?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+    update?: ticketsUpdateWithWhereUniqueWithoutProfiles_tickets_coordinador_idToprofilesInput | ticketsUpdateWithWhereUniqueWithoutProfiles_tickets_coordinador_idToprofilesInput[]
+    updateMany?: ticketsUpdateManyWithWhereWithoutProfiles_tickets_coordinador_idToprofilesInput | ticketsUpdateManyWithWhereWithoutProfiles_tickets_coordinador_idToprofilesInput[]
+    deleteMany?: ticketsScalarWhereInput | ticketsScalarWhereInput[]
+  }
+
+  export type ticketsUncheckedUpdateManyWithoutProfiles_tickets_tecnico_idToprofilesNestedInput = {
+    create?: XOR<ticketsCreateWithoutProfiles_tickets_tecnico_idToprofilesInput, ticketsUncheckedCreateWithoutProfiles_tickets_tecnico_idToprofilesInput> | ticketsCreateWithoutProfiles_tickets_tecnico_idToprofilesInput[] | ticketsUncheckedCreateWithoutProfiles_tickets_tecnico_idToprofilesInput[]
+    connectOrCreate?: ticketsCreateOrConnectWithoutProfiles_tickets_tecnico_idToprofilesInput | ticketsCreateOrConnectWithoutProfiles_tickets_tecnico_idToprofilesInput[]
+    upsert?: ticketsUpsertWithWhereUniqueWithoutProfiles_tickets_tecnico_idToprofilesInput | ticketsUpsertWithWhereUniqueWithoutProfiles_tickets_tecnico_idToprofilesInput[]
+    createMany?: ticketsCreateManyProfiles_tickets_tecnico_idToprofilesInputEnvelope
+    set?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+    disconnect?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+    delete?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+    connect?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+    update?: ticketsUpdateWithWhereUniqueWithoutProfiles_tickets_tecnico_idToprofilesInput | ticketsUpdateWithWhereUniqueWithoutProfiles_tickets_tecnico_idToprofilesInput[]
+    updateMany?: ticketsUpdateManyWithWhereWithoutProfiles_tickets_tecnico_idToprofilesInput | ticketsUpdateManyWithWhereWithoutProfiles_tickets_tecnico_idToprofilesInput[]
+    deleteMany?: ticketsScalarWhereInput | ticketsScalarWhereInput[]
+  }
+
+  export type ticketsCreateNestedManyWithoutReclamoInput = {
+    create?: XOR<ticketsCreateWithoutReclamoInput, ticketsUncheckedCreateWithoutReclamoInput> | ticketsCreateWithoutReclamoInput[] | ticketsUncheckedCreateWithoutReclamoInput[]
+    connectOrCreate?: ticketsCreateOrConnectWithoutReclamoInput | ticketsCreateOrConnectWithoutReclamoInput[]
+    createMany?: ticketsCreateManyReclamoInputEnvelope
+    connect?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+  }
+
+  export type ticketsUncheckedCreateNestedManyWithoutReclamoInput = {
+    create?: XOR<ticketsCreateWithoutReclamoInput, ticketsUncheckedCreateWithoutReclamoInput> | ticketsCreateWithoutReclamoInput[] | ticketsUncheckedCreateWithoutReclamoInput[]
+    connectOrCreate?: ticketsCreateOrConnectWithoutReclamoInput | ticketsCreateOrConnectWithoutReclamoInput[]
+    createMany?: ticketsCreateManyReclamoInputEnvelope
+    connect?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+  }
+
+  export type ticketsUpdateManyWithoutReclamoNestedInput = {
+    create?: XOR<ticketsCreateWithoutReclamoInput, ticketsUncheckedCreateWithoutReclamoInput> | ticketsCreateWithoutReclamoInput[] | ticketsUncheckedCreateWithoutReclamoInput[]
+    connectOrCreate?: ticketsCreateOrConnectWithoutReclamoInput | ticketsCreateOrConnectWithoutReclamoInput[]
+    upsert?: ticketsUpsertWithWhereUniqueWithoutReclamoInput | ticketsUpsertWithWhereUniqueWithoutReclamoInput[]
+    createMany?: ticketsCreateManyReclamoInputEnvelope
+    set?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+    disconnect?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+    delete?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+    connect?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+    update?: ticketsUpdateWithWhereUniqueWithoutReclamoInput | ticketsUpdateWithWhereUniqueWithoutReclamoInput[]
+    updateMany?: ticketsUpdateManyWithWhereWithoutReclamoInput | ticketsUpdateManyWithWhereWithoutReclamoInput[]
+    deleteMany?: ticketsScalarWhereInput | ticketsScalarWhereInput[]
+  }
+
+  export type ticketsUncheckedUpdateManyWithoutReclamoNestedInput = {
+    create?: XOR<ticketsCreateWithoutReclamoInput, ticketsUncheckedCreateWithoutReclamoInput> | ticketsCreateWithoutReclamoInput[] | ticketsUncheckedCreateWithoutReclamoInput[]
+    connectOrCreate?: ticketsCreateOrConnectWithoutReclamoInput | ticketsCreateOrConnectWithoutReclamoInput[]
+    upsert?: ticketsUpsertWithWhereUniqueWithoutReclamoInput | ticketsUpsertWithWhereUniqueWithoutReclamoInput[]
+    createMany?: ticketsCreateManyReclamoInputEnvelope
+    set?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+    disconnect?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+    delete?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+    connect?: ticketsWhereUniqueInput | ticketsWhereUniqueInput[]
+    update?: ticketsUpdateWithWhereUniqueWithoutReclamoInput | ticketsUpdateWithWhereUniqueWithoutReclamoInput[]
+    updateMany?: ticketsUpdateManyWithWhereWithoutReclamoInput | ticketsUpdateManyWithWhereWithoutReclamoInput[]
+    deleteMany?: ticketsScalarWhereInput | ticketsScalarWhereInput[]
+  }
+
+  export type ticketsCreateNestedOneWithoutConfirmation_codesInput = {
+    create?: XOR<ticketsCreateWithoutConfirmation_codesInput, ticketsUncheckedCreateWithoutConfirmation_codesInput>
+    connectOrCreate?: ticketsCreateOrConnectWithoutConfirmation_codesInput
+    connect?: ticketsWhereUniqueInput
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type ticketsUpdateOneRequiredWithoutConfirmation_codesNestedInput = {
+    create?: XOR<ticketsCreateWithoutConfirmation_codesInput, ticketsUncheckedCreateWithoutConfirmation_codesInput>
+    connectOrCreate?: ticketsCreateOrConnectWithoutConfirmation_codesInput
+    upsert?: ticketsUpsertWithoutConfirmation_codesInput
+    connect?: ticketsWhereUniqueInput
+    update?: XOR<XOR<ticketsUpdateToOneWithWhereWithoutConfirmation_codesInput, ticketsUpdateWithoutConfirmation_codesInput>, ticketsUncheckedUpdateWithoutConfirmation_codesInput>
+  }
+
+  export type confirmation_codesCreateNestedManyWithoutTicketsInput = {
+    create?: XOR<confirmation_codesCreateWithoutTicketsInput, confirmation_codesUncheckedCreateWithoutTicketsInput> | confirmation_codesCreateWithoutTicketsInput[] | confirmation_codesUncheckedCreateWithoutTicketsInput[]
+    connectOrCreate?: confirmation_codesCreateOrConnectWithoutTicketsInput | confirmation_codesCreateOrConnectWithoutTicketsInput[]
+    createMany?: confirmation_codesCreateManyTicketsInputEnvelope
+    connect?: confirmation_codesWhereUniqueInput | confirmation_codesWhereUniqueInput[]
+  }
+
+  export type profilesCreateNestedOneWithoutTickets_tickets_coordinador_idToprofilesInput = {
+    create?: XOR<profilesCreateWithoutTickets_tickets_coordinador_idToprofilesInput, profilesUncheckedCreateWithoutTickets_tickets_coordinador_idToprofilesInput>
+    connectOrCreate?: profilesCreateOrConnectWithoutTickets_tickets_coordinador_idToprofilesInput
+    connect?: profilesWhereUniqueInput
+  }
+
+  export type reclamoCreateNestedOneWithoutTicketsInput = {
+    create?: XOR<reclamoCreateWithoutTicketsInput, reclamoUncheckedCreateWithoutTicketsInput>
+    connectOrCreate?: reclamoCreateOrConnectWithoutTicketsInput
+    connect?: reclamoWhereUniqueInput
+  }
+
+  export type profilesCreateNestedOneWithoutTickets_tickets_tecnico_idToprofilesInput = {
+    create?: XOR<profilesCreateWithoutTickets_tickets_tecnico_idToprofilesInput, profilesUncheckedCreateWithoutTickets_tickets_tecnico_idToprofilesInput>
+    connectOrCreate?: profilesCreateOrConnectWithoutTickets_tickets_tecnico_idToprofilesInput
+    connect?: profilesWhereUniqueInput
+  }
+
+  export type confirmation_codesUncheckedCreateNestedManyWithoutTicketsInput = {
+    create?: XOR<confirmation_codesCreateWithoutTicketsInput, confirmation_codesUncheckedCreateWithoutTicketsInput> | confirmation_codesCreateWithoutTicketsInput[] | confirmation_codesUncheckedCreateWithoutTicketsInput[]
+    connectOrCreate?: confirmation_codesCreateOrConnectWithoutTicketsInput | confirmation_codesCreateOrConnectWithoutTicketsInput[]
+    createMany?: confirmation_codesCreateManyTicketsInputEnvelope
+    connect?: confirmation_codesWhereUniqueInput | confirmation_codesWhereUniqueInput[]
+  }
+
+  export type confirmation_codesUpdateManyWithoutTicketsNestedInput = {
+    create?: XOR<confirmation_codesCreateWithoutTicketsInput, confirmation_codesUncheckedCreateWithoutTicketsInput> | confirmation_codesCreateWithoutTicketsInput[] | confirmation_codesUncheckedCreateWithoutTicketsInput[]
+    connectOrCreate?: confirmation_codesCreateOrConnectWithoutTicketsInput | confirmation_codesCreateOrConnectWithoutTicketsInput[]
+    upsert?: confirmation_codesUpsertWithWhereUniqueWithoutTicketsInput | confirmation_codesUpsertWithWhereUniqueWithoutTicketsInput[]
+    createMany?: confirmation_codesCreateManyTicketsInputEnvelope
+    set?: confirmation_codesWhereUniqueInput | confirmation_codesWhereUniqueInput[]
+    disconnect?: confirmation_codesWhereUniqueInput | confirmation_codesWhereUniqueInput[]
+    delete?: confirmation_codesWhereUniqueInput | confirmation_codesWhereUniqueInput[]
+    connect?: confirmation_codesWhereUniqueInput | confirmation_codesWhereUniqueInput[]
+    update?: confirmation_codesUpdateWithWhereUniqueWithoutTicketsInput | confirmation_codesUpdateWithWhereUniqueWithoutTicketsInput[]
+    updateMany?: confirmation_codesUpdateManyWithWhereWithoutTicketsInput | confirmation_codesUpdateManyWithWhereWithoutTicketsInput[]
+    deleteMany?: confirmation_codesScalarWhereInput | confirmation_codesScalarWhereInput[]
+  }
+
+  export type profilesUpdateOneWithoutTickets_tickets_coordinador_idToprofilesNestedInput = {
+    create?: XOR<profilesCreateWithoutTickets_tickets_coordinador_idToprofilesInput, profilesUncheckedCreateWithoutTickets_tickets_coordinador_idToprofilesInput>
+    connectOrCreate?: profilesCreateOrConnectWithoutTickets_tickets_coordinador_idToprofilesInput
+    upsert?: profilesUpsertWithoutTickets_tickets_coordinador_idToprofilesInput
+    disconnect?: profilesWhereInput | boolean
+    delete?: profilesWhereInput | boolean
+    connect?: profilesWhereUniqueInput
+    update?: XOR<XOR<profilesUpdateToOneWithWhereWithoutTickets_tickets_coordinador_idToprofilesInput, profilesUpdateWithoutTickets_tickets_coordinador_idToprofilesInput>, profilesUncheckedUpdateWithoutTickets_tickets_coordinador_idToprofilesInput>
+  }
+
+  export type reclamoUpdateOneRequiredWithoutTicketsNestedInput = {
+    create?: XOR<reclamoCreateWithoutTicketsInput, reclamoUncheckedCreateWithoutTicketsInput>
+    connectOrCreate?: reclamoCreateOrConnectWithoutTicketsInput
+    upsert?: reclamoUpsertWithoutTicketsInput
+    connect?: reclamoWhereUniqueInput
+    update?: XOR<XOR<reclamoUpdateToOneWithWhereWithoutTicketsInput, reclamoUpdateWithoutTicketsInput>, reclamoUncheckedUpdateWithoutTicketsInput>
+  }
+
+  export type profilesUpdateOneWithoutTickets_tickets_tecnico_idToprofilesNestedInput = {
+    create?: XOR<profilesCreateWithoutTickets_tickets_tecnico_idToprofilesInput, profilesUncheckedCreateWithoutTickets_tickets_tecnico_idToprofilesInput>
+    connectOrCreate?: profilesCreateOrConnectWithoutTickets_tickets_tecnico_idToprofilesInput
+    upsert?: profilesUpsertWithoutTickets_tickets_tecnico_idToprofilesInput
+    disconnect?: profilesWhereInput | boolean
+    delete?: profilesWhereInput | boolean
+    connect?: profilesWhereUniqueInput
+    update?: XOR<XOR<profilesUpdateToOneWithWhereWithoutTickets_tickets_tecnico_idToprofilesInput, profilesUpdateWithoutTickets_tickets_tecnico_idToprofilesInput>, profilesUncheckedUpdateWithoutTickets_tickets_tecnico_idToprofilesInput>
+  }
+
+  export type confirmation_codesUncheckedUpdateManyWithoutTicketsNestedInput = {
+    create?: XOR<confirmation_codesCreateWithoutTicketsInput, confirmation_codesUncheckedCreateWithoutTicketsInput> | confirmation_codesCreateWithoutTicketsInput[] | confirmation_codesUncheckedCreateWithoutTicketsInput[]
+    connectOrCreate?: confirmation_codesCreateOrConnectWithoutTicketsInput | confirmation_codesCreateOrConnectWithoutTicketsInput[]
+    upsert?: confirmation_codesUpsertWithWhereUniqueWithoutTicketsInput | confirmation_codesUpsertWithWhereUniqueWithoutTicketsInput[]
+    createMany?: confirmation_codesCreateManyTicketsInputEnvelope
+    set?: confirmation_codesWhereUniqueInput | confirmation_codesWhereUniqueInput[]
+    disconnect?: confirmation_codesWhereUniqueInput | confirmation_codesWhereUniqueInput[]
+    delete?: confirmation_codesWhereUniqueInput | confirmation_codesWhereUniqueInput[]
+    connect?: confirmation_codesWhereUniqueInput | confirmation_codesWhereUniqueInput[]
+    update?: confirmation_codesUpdateWithWhereUniqueWithoutTicketsInput | confirmation_codesUpdateWithWhereUniqueWithoutTicketsInput[]
+    updateMany?: confirmation_codesUpdateManyWithWhereWithoutTicketsInput | confirmation_codesUpdateManyWithWhereWithoutTicketsInput[]
+    deleteMany?: confirmation_codesScalarWhereInput | confirmation_codesScalarWhereInput[]
   }
 
   export type NestedUuidNullableFilter<$PrismaModel = never> = {
@@ -40712,6 +45602,22 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedBytesFilter<$PrismaModel>
     _max?: NestedBytesFilter<$PrismaModel>
+  }
+
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type saml_relay_statesCreateWithoutFlow_stateInput = {
@@ -43623,6 +48529,8 @@ export namespace Prisma {
     is_active?: boolean
     created_at?: Date | string
     updated_at?: Date | string
+    tickets_tickets_coordinador_idToprofiles?: ticketsCreateNestedManyWithoutProfiles_tickets_coordinador_idToprofilesInput
+    tickets_tickets_tecnico_idToprofiles?: ticketsCreateNestedManyWithoutProfiles_tickets_tecnico_idToprofilesInput
   }
 
   export type profilesUncheckedCreateWithoutUsersInput = {
@@ -43633,6 +48541,8 @@ export namespace Prisma {
     is_active?: boolean
     created_at?: Date | string
     updated_at?: Date | string
+    tickets_tickets_coordinador_idToprofiles?: ticketsUncheckedCreateNestedManyWithoutProfiles_tickets_coordinador_idToprofilesInput
+    tickets_tickets_tecnico_idToprofiles?: ticketsUncheckedCreateNestedManyWithoutProfiles_tickets_tecnico_idToprofilesInput
   }
 
   export type profilesCreateOrConnectWithoutUsersInput = {
@@ -43866,6 +48776,8 @@ export namespace Prisma {
     is_active?: BoolFieldUpdateOperationsInput | boolean
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    tickets_tickets_coordinador_idToprofiles?: ticketsUpdateManyWithoutProfiles_tickets_coordinador_idToprofilesNestedInput
+    tickets_tickets_tecnico_idToprofiles?: ticketsUpdateManyWithoutProfiles_tickets_tecnico_idToprofilesNestedInput
   }
 
   export type profilesUncheckedUpdateWithoutUsersInput = {
@@ -43876,6 +48788,8 @@ export namespace Prisma {
     is_active?: BoolFieldUpdateOperationsInput | boolean
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    tickets_tickets_coordinador_idToprofiles?: ticketsUncheckedUpdateManyWithoutProfiles_tickets_coordinador_idToprofilesNestedInput
+    tickets_tickets_tecnico_idToprofiles?: ticketsUncheckedUpdateManyWithoutProfiles_tickets_tecnico_idToprofilesNestedInput
   }
 
   export type usersCreateWithoutWebauthn_challengesInput = {
@@ -44375,6 +49289,70 @@ export namespace Prisma {
     create: XOR<usersCreateWithoutProfilesInput, usersUncheckedCreateWithoutProfilesInput>
   }
 
+  export type ticketsCreateWithoutProfiles_tickets_coordinador_idToprofilesInput = {
+    id?: string
+    estado?: string
+    notas?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    confirmation_codes?: confirmation_codesCreateNestedManyWithoutTicketsInput
+    reclamo: reclamoCreateNestedOneWithoutTicketsInput
+    profiles_tickets_tecnico_idToprofiles?: profilesCreateNestedOneWithoutTickets_tickets_tecnico_idToprofilesInput
+  }
+
+  export type ticketsUncheckedCreateWithoutProfiles_tickets_coordinador_idToprofilesInput = {
+    id?: string
+    reclamo_id: string
+    tecnico_id?: string | null
+    estado?: string
+    notas?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    confirmation_codes?: confirmation_codesUncheckedCreateNestedManyWithoutTicketsInput
+  }
+
+  export type ticketsCreateOrConnectWithoutProfiles_tickets_coordinador_idToprofilesInput = {
+    where: ticketsWhereUniqueInput
+    create: XOR<ticketsCreateWithoutProfiles_tickets_coordinador_idToprofilesInput, ticketsUncheckedCreateWithoutProfiles_tickets_coordinador_idToprofilesInput>
+  }
+
+  export type ticketsCreateManyProfiles_tickets_coordinador_idToprofilesInputEnvelope = {
+    data: ticketsCreateManyProfiles_tickets_coordinador_idToprofilesInput | ticketsCreateManyProfiles_tickets_coordinador_idToprofilesInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ticketsCreateWithoutProfiles_tickets_tecnico_idToprofilesInput = {
+    id?: string
+    estado?: string
+    notas?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    confirmation_codes?: confirmation_codesCreateNestedManyWithoutTicketsInput
+    profiles_tickets_coordinador_idToprofiles?: profilesCreateNestedOneWithoutTickets_tickets_coordinador_idToprofilesInput
+    reclamo: reclamoCreateNestedOneWithoutTicketsInput
+  }
+
+  export type ticketsUncheckedCreateWithoutProfiles_tickets_tecnico_idToprofilesInput = {
+    id?: string
+    reclamo_id: string
+    coordinador_id?: string | null
+    estado?: string
+    notas?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    confirmation_codes?: confirmation_codesUncheckedCreateNestedManyWithoutTicketsInput
+  }
+
+  export type ticketsCreateOrConnectWithoutProfiles_tickets_tecnico_idToprofilesInput = {
+    where: ticketsWhereUniqueInput
+    create: XOR<ticketsCreateWithoutProfiles_tickets_tecnico_idToprofilesInput, ticketsUncheckedCreateWithoutProfiles_tickets_tecnico_idToprofilesInput>
+  }
+
+  export type ticketsCreateManyProfiles_tickets_tecnico_idToprofilesInputEnvelope = {
+    data: ticketsCreateManyProfiles_tickets_tecnico_idToprofilesInput | ticketsCreateManyProfiles_tickets_tecnico_idToprofilesInput[]
+    skipDuplicates?: boolean
+  }
+
   export type usersUpsertWithoutProfilesInput = {
     update: XOR<usersUpdateWithoutProfilesInput, usersUncheckedUpdateWithoutProfilesInput>
     create: XOR<usersCreateWithoutProfilesInput, usersUncheckedCreateWithoutProfilesInput>
@@ -44476,6 +49454,413 @@ export namespace Prisma {
     sessions?: sessionsUncheckedUpdateManyWithoutUsersNestedInput
     webauthn_challenges?: webauthn_challengesUncheckedUpdateManyWithoutUsersNestedInput
     webauthn_credentials?: webauthn_credentialsUncheckedUpdateManyWithoutUsersNestedInput
+  }
+
+  export type ticketsUpsertWithWhereUniqueWithoutProfiles_tickets_coordinador_idToprofilesInput = {
+    where: ticketsWhereUniqueInput
+    update: XOR<ticketsUpdateWithoutProfiles_tickets_coordinador_idToprofilesInput, ticketsUncheckedUpdateWithoutProfiles_tickets_coordinador_idToprofilesInput>
+    create: XOR<ticketsCreateWithoutProfiles_tickets_coordinador_idToprofilesInput, ticketsUncheckedCreateWithoutProfiles_tickets_coordinador_idToprofilesInput>
+  }
+
+  export type ticketsUpdateWithWhereUniqueWithoutProfiles_tickets_coordinador_idToprofilesInput = {
+    where: ticketsWhereUniqueInput
+    data: XOR<ticketsUpdateWithoutProfiles_tickets_coordinador_idToprofilesInput, ticketsUncheckedUpdateWithoutProfiles_tickets_coordinador_idToprofilesInput>
+  }
+
+  export type ticketsUpdateManyWithWhereWithoutProfiles_tickets_coordinador_idToprofilesInput = {
+    where: ticketsScalarWhereInput
+    data: XOR<ticketsUpdateManyMutationInput, ticketsUncheckedUpdateManyWithoutProfiles_tickets_coordinador_idToprofilesInput>
+  }
+
+  export type ticketsScalarWhereInput = {
+    AND?: ticketsScalarWhereInput | ticketsScalarWhereInput[]
+    OR?: ticketsScalarWhereInput[]
+    NOT?: ticketsScalarWhereInput | ticketsScalarWhereInput[]
+    id?: UuidFilter<"tickets"> | string
+    reclamo_id?: UuidFilter<"tickets"> | string
+    tecnico_id?: UuidNullableFilter<"tickets"> | string | null
+    coordinador_id?: UuidNullableFilter<"tickets"> | string | null
+    estado?: StringFilter<"tickets"> | string
+    notas?: StringNullableFilter<"tickets"> | string | null
+    created_at?: DateTimeFilter<"tickets"> | Date | string
+    updated_at?: DateTimeFilter<"tickets"> | Date | string
+  }
+
+  export type ticketsUpsertWithWhereUniqueWithoutProfiles_tickets_tecnico_idToprofilesInput = {
+    where: ticketsWhereUniqueInput
+    update: XOR<ticketsUpdateWithoutProfiles_tickets_tecnico_idToprofilesInput, ticketsUncheckedUpdateWithoutProfiles_tickets_tecnico_idToprofilesInput>
+    create: XOR<ticketsCreateWithoutProfiles_tickets_tecnico_idToprofilesInput, ticketsUncheckedCreateWithoutProfiles_tickets_tecnico_idToprofilesInput>
+  }
+
+  export type ticketsUpdateWithWhereUniqueWithoutProfiles_tickets_tecnico_idToprofilesInput = {
+    where: ticketsWhereUniqueInput
+    data: XOR<ticketsUpdateWithoutProfiles_tickets_tecnico_idToprofilesInput, ticketsUncheckedUpdateWithoutProfiles_tickets_tecnico_idToprofilesInput>
+  }
+
+  export type ticketsUpdateManyWithWhereWithoutProfiles_tickets_tecnico_idToprofilesInput = {
+    where: ticketsScalarWhereInput
+    data: XOR<ticketsUpdateManyMutationInput, ticketsUncheckedUpdateManyWithoutProfiles_tickets_tecnico_idToprofilesInput>
+  }
+
+  export type ticketsCreateWithoutReclamoInput = {
+    id?: string
+    estado?: string
+    notas?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    confirmation_codes?: confirmation_codesCreateNestedManyWithoutTicketsInput
+    profiles_tickets_coordinador_idToprofiles?: profilesCreateNestedOneWithoutTickets_tickets_coordinador_idToprofilesInput
+    profiles_tickets_tecnico_idToprofiles?: profilesCreateNestedOneWithoutTickets_tickets_tecnico_idToprofilesInput
+  }
+
+  export type ticketsUncheckedCreateWithoutReclamoInput = {
+    id?: string
+    tecnico_id?: string | null
+    coordinador_id?: string | null
+    estado?: string
+    notas?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    confirmation_codes?: confirmation_codesUncheckedCreateNestedManyWithoutTicketsInput
+  }
+
+  export type ticketsCreateOrConnectWithoutReclamoInput = {
+    where: ticketsWhereUniqueInput
+    create: XOR<ticketsCreateWithoutReclamoInput, ticketsUncheckedCreateWithoutReclamoInput>
+  }
+
+  export type ticketsCreateManyReclamoInputEnvelope = {
+    data: ticketsCreateManyReclamoInput | ticketsCreateManyReclamoInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ticketsUpsertWithWhereUniqueWithoutReclamoInput = {
+    where: ticketsWhereUniqueInput
+    update: XOR<ticketsUpdateWithoutReclamoInput, ticketsUncheckedUpdateWithoutReclamoInput>
+    create: XOR<ticketsCreateWithoutReclamoInput, ticketsUncheckedCreateWithoutReclamoInput>
+  }
+
+  export type ticketsUpdateWithWhereUniqueWithoutReclamoInput = {
+    where: ticketsWhereUniqueInput
+    data: XOR<ticketsUpdateWithoutReclamoInput, ticketsUncheckedUpdateWithoutReclamoInput>
+  }
+
+  export type ticketsUpdateManyWithWhereWithoutReclamoInput = {
+    where: ticketsScalarWhereInput
+    data: XOR<ticketsUpdateManyMutationInput, ticketsUncheckedUpdateManyWithoutReclamoInput>
+  }
+
+  export type ticketsCreateWithoutConfirmation_codesInput = {
+    id?: string
+    estado?: string
+    notas?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    profiles_tickets_coordinador_idToprofiles?: profilesCreateNestedOneWithoutTickets_tickets_coordinador_idToprofilesInput
+    reclamo: reclamoCreateNestedOneWithoutTicketsInput
+    profiles_tickets_tecnico_idToprofiles?: profilesCreateNestedOneWithoutTickets_tickets_tecnico_idToprofilesInput
+  }
+
+  export type ticketsUncheckedCreateWithoutConfirmation_codesInput = {
+    id?: string
+    reclamo_id: string
+    tecnico_id?: string | null
+    coordinador_id?: string | null
+    estado?: string
+    notas?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type ticketsCreateOrConnectWithoutConfirmation_codesInput = {
+    where: ticketsWhereUniqueInput
+    create: XOR<ticketsCreateWithoutConfirmation_codesInput, ticketsUncheckedCreateWithoutConfirmation_codesInput>
+  }
+
+  export type ticketsUpsertWithoutConfirmation_codesInput = {
+    update: XOR<ticketsUpdateWithoutConfirmation_codesInput, ticketsUncheckedUpdateWithoutConfirmation_codesInput>
+    create: XOR<ticketsCreateWithoutConfirmation_codesInput, ticketsUncheckedCreateWithoutConfirmation_codesInput>
+    where?: ticketsWhereInput
+  }
+
+  export type ticketsUpdateToOneWithWhereWithoutConfirmation_codesInput = {
+    where?: ticketsWhereInput
+    data: XOR<ticketsUpdateWithoutConfirmation_codesInput, ticketsUncheckedUpdateWithoutConfirmation_codesInput>
+  }
+
+  export type ticketsUpdateWithoutConfirmation_codesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    estado?: StringFieldUpdateOperationsInput | string
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    profiles_tickets_coordinador_idToprofiles?: profilesUpdateOneWithoutTickets_tickets_coordinador_idToprofilesNestedInput
+    reclamo?: reclamoUpdateOneRequiredWithoutTicketsNestedInput
+    profiles_tickets_tecnico_idToprofiles?: profilesUpdateOneWithoutTickets_tickets_tecnico_idToprofilesNestedInput
+  }
+
+  export type ticketsUncheckedUpdateWithoutConfirmation_codesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    reclamo_id?: StringFieldUpdateOperationsInput | string
+    tecnico_id?: NullableStringFieldUpdateOperationsInput | string | null
+    coordinador_id?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: StringFieldUpdateOperationsInput | string
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type confirmation_codesCreateWithoutTicketsInput = {
+    id?: string
+    code_hash: string
+    expires_at: Date | string
+    attempts?: number
+    used?: boolean
+    created_at?: Date | string
+  }
+
+  export type confirmation_codesUncheckedCreateWithoutTicketsInput = {
+    id?: string
+    code_hash: string
+    expires_at: Date | string
+    attempts?: number
+    used?: boolean
+    created_at?: Date | string
+  }
+
+  export type confirmation_codesCreateOrConnectWithoutTicketsInput = {
+    where: confirmation_codesWhereUniqueInput
+    create: XOR<confirmation_codesCreateWithoutTicketsInput, confirmation_codesUncheckedCreateWithoutTicketsInput>
+  }
+
+  export type confirmation_codesCreateManyTicketsInputEnvelope = {
+    data: confirmation_codesCreateManyTicketsInput | confirmation_codesCreateManyTicketsInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type profilesCreateWithoutTickets_tickets_coordinador_idToprofilesInput = {
+    full_name: string
+    email: string
+    phone?: string | null
+    role: string
+    is_active?: boolean
+    created_at?: Date | string
+    updated_at?: Date | string
+    users: usersCreateNestedOneWithoutProfilesInput
+    tickets_tickets_tecnico_idToprofiles?: ticketsCreateNestedManyWithoutProfiles_tickets_tecnico_idToprofilesInput
+  }
+
+  export type profilesUncheckedCreateWithoutTickets_tickets_coordinador_idToprofilesInput = {
+    id: string
+    full_name: string
+    email: string
+    phone?: string | null
+    role: string
+    is_active?: boolean
+    created_at?: Date | string
+    updated_at?: Date | string
+    tickets_tickets_tecnico_idToprofiles?: ticketsUncheckedCreateNestedManyWithoutProfiles_tickets_tecnico_idToprofilesInput
+  }
+
+  export type profilesCreateOrConnectWithoutTickets_tickets_coordinador_idToprofilesInput = {
+    where: profilesWhereUniqueInput
+    create: XOR<profilesCreateWithoutTickets_tickets_coordinador_idToprofilesInput, profilesUncheckedCreateWithoutTickets_tickets_coordinador_idToprofilesInput>
+  }
+
+  export type reclamoCreateWithoutTicketsInput = {
+    nombre_cliente: string
+    email_cliente: string
+    num_telefono: string
+    tipo_propiedad: string
+    nro_dpto: string
+    tipo_falla: string
+    ubicacion_falla: string
+    descripcion_falla?: string | null
+    creado_en?: Date | string
+    id?: string
+  }
+
+  export type reclamoUncheckedCreateWithoutTicketsInput = {
+    nombre_cliente: string
+    email_cliente: string
+    num_telefono: string
+    tipo_propiedad: string
+    nro_dpto: string
+    tipo_falla: string
+    ubicacion_falla: string
+    descripcion_falla?: string | null
+    creado_en?: Date | string
+    id?: string
+  }
+
+  export type reclamoCreateOrConnectWithoutTicketsInput = {
+    where: reclamoWhereUniqueInput
+    create: XOR<reclamoCreateWithoutTicketsInput, reclamoUncheckedCreateWithoutTicketsInput>
+  }
+
+  export type profilesCreateWithoutTickets_tickets_tecnico_idToprofilesInput = {
+    full_name: string
+    email: string
+    phone?: string | null
+    role: string
+    is_active?: boolean
+    created_at?: Date | string
+    updated_at?: Date | string
+    users: usersCreateNestedOneWithoutProfilesInput
+    tickets_tickets_coordinador_idToprofiles?: ticketsCreateNestedManyWithoutProfiles_tickets_coordinador_idToprofilesInput
+  }
+
+  export type profilesUncheckedCreateWithoutTickets_tickets_tecnico_idToprofilesInput = {
+    id: string
+    full_name: string
+    email: string
+    phone?: string | null
+    role: string
+    is_active?: boolean
+    created_at?: Date | string
+    updated_at?: Date | string
+    tickets_tickets_coordinador_idToprofiles?: ticketsUncheckedCreateNestedManyWithoutProfiles_tickets_coordinador_idToprofilesInput
+  }
+
+  export type profilesCreateOrConnectWithoutTickets_tickets_tecnico_idToprofilesInput = {
+    where: profilesWhereUniqueInput
+    create: XOR<profilesCreateWithoutTickets_tickets_tecnico_idToprofilesInput, profilesUncheckedCreateWithoutTickets_tickets_tecnico_idToprofilesInput>
+  }
+
+  export type confirmation_codesUpsertWithWhereUniqueWithoutTicketsInput = {
+    where: confirmation_codesWhereUniqueInput
+    update: XOR<confirmation_codesUpdateWithoutTicketsInput, confirmation_codesUncheckedUpdateWithoutTicketsInput>
+    create: XOR<confirmation_codesCreateWithoutTicketsInput, confirmation_codesUncheckedCreateWithoutTicketsInput>
+  }
+
+  export type confirmation_codesUpdateWithWhereUniqueWithoutTicketsInput = {
+    where: confirmation_codesWhereUniqueInput
+    data: XOR<confirmation_codesUpdateWithoutTicketsInput, confirmation_codesUncheckedUpdateWithoutTicketsInput>
+  }
+
+  export type confirmation_codesUpdateManyWithWhereWithoutTicketsInput = {
+    where: confirmation_codesScalarWhereInput
+    data: XOR<confirmation_codesUpdateManyMutationInput, confirmation_codesUncheckedUpdateManyWithoutTicketsInput>
+  }
+
+  export type confirmation_codesScalarWhereInput = {
+    AND?: confirmation_codesScalarWhereInput | confirmation_codesScalarWhereInput[]
+    OR?: confirmation_codesScalarWhereInput[]
+    NOT?: confirmation_codesScalarWhereInput | confirmation_codesScalarWhereInput[]
+    id?: UuidFilter<"confirmation_codes"> | string
+    ticket_id?: UuidFilter<"confirmation_codes"> | string
+    code_hash?: StringFilter<"confirmation_codes"> | string
+    expires_at?: DateTimeFilter<"confirmation_codes"> | Date | string
+    attempts?: IntFilter<"confirmation_codes"> | number
+    used?: BoolFilter<"confirmation_codes"> | boolean
+    created_at?: DateTimeFilter<"confirmation_codes"> | Date | string
+  }
+
+  export type profilesUpsertWithoutTickets_tickets_coordinador_idToprofilesInput = {
+    update: XOR<profilesUpdateWithoutTickets_tickets_coordinador_idToprofilesInput, profilesUncheckedUpdateWithoutTickets_tickets_coordinador_idToprofilesInput>
+    create: XOR<profilesCreateWithoutTickets_tickets_coordinador_idToprofilesInput, profilesUncheckedCreateWithoutTickets_tickets_coordinador_idToprofilesInput>
+    where?: profilesWhereInput
+  }
+
+  export type profilesUpdateToOneWithWhereWithoutTickets_tickets_coordinador_idToprofilesInput = {
+    where?: profilesWhereInput
+    data: XOR<profilesUpdateWithoutTickets_tickets_coordinador_idToprofilesInput, profilesUncheckedUpdateWithoutTickets_tickets_coordinador_idToprofilesInput>
+  }
+
+  export type profilesUpdateWithoutTickets_tickets_coordinador_idToprofilesInput = {
+    full_name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    is_active?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    users?: usersUpdateOneRequiredWithoutProfilesNestedInput
+    tickets_tickets_tecnico_idToprofiles?: ticketsUpdateManyWithoutProfiles_tickets_tecnico_idToprofilesNestedInput
+  }
+
+  export type profilesUncheckedUpdateWithoutTickets_tickets_coordinador_idToprofilesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    full_name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    is_active?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    tickets_tickets_tecnico_idToprofiles?: ticketsUncheckedUpdateManyWithoutProfiles_tickets_tecnico_idToprofilesNestedInput
+  }
+
+  export type reclamoUpsertWithoutTicketsInput = {
+    update: XOR<reclamoUpdateWithoutTicketsInput, reclamoUncheckedUpdateWithoutTicketsInput>
+    create: XOR<reclamoCreateWithoutTicketsInput, reclamoUncheckedCreateWithoutTicketsInput>
+    where?: reclamoWhereInput
+  }
+
+  export type reclamoUpdateToOneWithWhereWithoutTicketsInput = {
+    where?: reclamoWhereInput
+    data: XOR<reclamoUpdateWithoutTicketsInput, reclamoUncheckedUpdateWithoutTicketsInput>
+  }
+
+  export type reclamoUpdateWithoutTicketsInput = {
+    nombre_cliente?: StringFieldUpdateOperationsInput | string
+    email_cliente?: StringFieldUpdateOperationsInput | string
+    num_telefono?: StringFieldUpdateOperationsInput | string
+    tipo_propiedad?: StringFieldUpdateOperationsInput | string
+    nro_dpto?: StringFieldUpdateOperationsInput | string
+    tipo_falla?: StringFieldUpdateOperationsInput | string
+    ubicacion_falla?: StringFieldUpdateOperationsInput | string
+    descripcion_falla?: NullableStringFieldUpdateOperationsInput | string | null
+    creado_en?: DateTimeFieldUpdateOperationsInput | Date | string
+    id?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type reclamoUncheckedUpdateWithoutTicketsInput = {
+    nombre_cliente?: StringFieldUpdateOperationsInput | string
+    email_cliente?: StringFieldUpdateOperationsInput | string
+    num_telefono?: StringFieldUpdateOperationsInput | string
+    tipo_propiedad?: StringFieldUpdateOperationsInput | string
+    nro_dpto?: StringFieldUpdateOperationsInput | string
+    tipo_falla?: StringFieldUpdateOperationsInput | string
+    ubicacion_falla?: StringFieldUpdateOperationsInput | string
+    descripcion_falla?: NullableStringFieldUpdateOperationsInput | string | null
+    creado_en?: DateTimeFieldUpdateOperationsInput | Date | string
+    id?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type profilesUpsertWithoutTickets_tickets_tecnico_idToprofilesInput = {
+    update: XOR<profilesUpdateWithoutTickets_tickets_tecnico_idToprofilesInput, profilesUncheckedUpdateWithoutTickets_tickets_tecnico_idToprofilesInput>
+    create: XOR<profilesCreateWithoutTickets_tickets_tecnico_idToprofilesInput, profilesUncheckedCreateWithoutTickets_tickets_tecnico_idToprofilesInput>
+    where?: profilesWhereInput
+  }
+
+  export type profilesUpdateToOneWithWhereWithoutTickets_tickets_tecnico_idToprofilesInput = {
+    where?: profilesWhereInput
+    data: XOR<profilesUpdateWithoutTickets_tickets_tecnico_idToprofilesInput, profilesUncheckedUpdateWithoutTickets_tickets_tecnico_idToprofilesInput>
+  }
+
+  export type profilesUpdateWithoutTickets_tickets_tecnico_idToprofilesInput = {
+    full_name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    is_active?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    users?: usersUpdateOneRequiredWithoutProfilesNestedInput
+    tickets_tickets_coordinador_idToprofiles?: ticketsUpdateManyWithoutProfiles_tickets_coordinador_idToprofilesNestedInput
+  }
+
+  export type profilesUncheckedUpdateWithoutTickets_tickets_tecnico_idToprofilesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    full_name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: StringFieldUpdateOperationsInput | string
+    is_active?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    tickets_tickets_coordinador_idToprofiles?: ticketsUncheckedUpdateManyWithoutProfiles_tickets_coordinador_idToprofilesNestedInput
   }
 
   export type saml_relay_statesCreateManyFlow_stateInput = {
@@ -45334,6 +50719,168 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     last_used_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type ticketsCreateManyProfiles_tickets_coordinador_idToprofilesInput = {
+    id?: string
+    reclamo_id: string
+    tecnico_id?: string | null
+    estado?: string
+    notas?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type ticketsCreateManyProfiles_tickets_tecnico_idToprofilesInput = {
+    id?: string
+    reclamo_id: string
+    coordinador_id?: string | null
+    estado?: string
+    notas?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type ticketsUpdateWithoutProfiles_tickets_coordinador_idToprofilesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    estado?: StringFieldUpdateOperationsInput | string
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    confirmation_codes?: confirmation_codesUpdateManyWithoutTicketsNestedInput
+    reclamo?: reclamoUpdateOneRequiredWithoutTicketsNestedInput
+    profiles_tickets_tecnico_idToprofiles?: profilesUpdateOneWithoutTickets_tickets_tecnico_idToprofilesNestedInput
+  }
+
+  export type ticketsUncheckedUpdateWithoutProfiles_tickets_coordinador_idToprofilesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    reclamo_id?: StringFieldUpdateOperationsInput | string
+    tecnico_id?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: StringFieldUpdateOperationsInput | string
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    confirmation_codes?: confirmation_codesUncheckedUpdateManyWithoutTicketsNestedInput
+  }
+
+  export type ticketsUncheckedUpdateManyWithoutProfiles_tickets_coordinador_idToprofilesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    reclamo_id?: StringFieldUpdateOperationsInput | string
+    tecnico_id?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: StringFieldUpdateOperationsInput | string
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ticketsUpdateWithoutProfiles_tickets_tecnico_idToprofilesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    estado?: StringFieldUpdateOperationsInput | string
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    confirmation_codes?: confirmation_codesUpdateManyWithoutTicketsNestedInput
+    profiles_tickets_coordinador_idToprofiles?: profilesUpdateOneWithoutTickets_tickets_coordinador_idToprofilesNestedInput
+    reclamo?: reclamoUpdateOneRequiredWithoutTicketsNestedInput
+  }
+
+  export type ticketsUncheckedUpdateWithoutProfiles_tickets_tecnico_idToprofilesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    reclamo_id?: StringFieldUpdateOperationsInput | string
+    coordinador_id?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: StringFieldUpdateOperationsInput | string
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    confirmation_codes?: confirmation_codesUncheckedUpdateManyWithoutTicketsNestedInput
+  }
+
+  export type ticketsUncheckedUpdateManyWithoutProfiles_tickets_tecnico_idToprofilesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    reclamo_id?: StringFieldUpdateOperationsInput | string
+    coordinador_id?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: StringFieldUpdateOperationsInput | string
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ticketsCreateManyReclamoInput = {
+    id?: string
+    tecnico_id?: string | null
+    coordinador_id?: string | null
+    estado?: string
+    notas?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type ticketsUpdateWithoutReclamoInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    estado?: StringFieldUpdateOperationsInput | string
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    confirmation_codes?: confirmation_codesUpdateManyWithoutTicketsNestedInput
+    profiles_tickets_coordinador_idToprofiles?: profilesUpdateOneWithoutTickets_tickets_coordinador_idToprofilesNestedInput
+    profiles_tickets_tecnico_idToprofiles?: profilesUpdateOneWithoutTickets_tickets_tecnico_idToprofilesNestedInput
+  }
+
+  export type ticketsUncheckedUpdateWithoutReclamoInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tecnico_id?: NullableStringFieldUpdateOperationsInput | string | null
+    coordinador_id?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: StringFieldUpdateOperationsInput | string
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    confirmation_codes?: confirmation_codesUncheckedUpdateManyWithoutTicketsNestedInput
+  }
+
+  export type ticketsUncheckedUpdateManyWithoutReclamoInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tecnico_id?: NullableStringFieldUpdateOperationsInput | string | null
+    coordinador_id?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: StringFieldUpdateOperationsInput | string
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type confirmation_codesCreateManyTicketsInput = {
+    id?: string
+    code_hash: string
+    expires_at: Date | string
+    attempts?: number
+    used?: boolean
+    created_at?: Date | string
+  }
+
+  export type confirmation_codesUpdateWithoutTicketsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code_hash?: StringFieldUpdateOperationsInput | string
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    attempts?: IntFieldUpdateOperationsInput | number
+    used?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type confirmation_codesUncheckedUpdateWithoutTicketsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code_hash?: StringFieldUpdateOperationsInput | string
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    attempts?: IntFieldUpdateOperationsInput | number
+    used?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type confirmation_codesUncheckedUpdateManyWithoutTicketsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    code_hash?: StringFieldUpdateOperationsInput | string
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    attempts?: IntFieldUpdateOperationsInput | number
+    used?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

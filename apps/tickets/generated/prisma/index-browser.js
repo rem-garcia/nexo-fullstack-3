@@ -452,6 +452,41 @@ exports.Prisma.ReclamoScalarFieldEnum = {
   id: 'id'
 };
 
+exports.Prisma.Confirmation_codesScalarFieldEnum = {
+  id: 'id',
+  ticket_id: 'ticket_id',
+  code_hash: 'code_hash',
+  expires_at: 'expires_at',
+  attempts: 'attempts',
+  used: 'used',
+  created_at: 'created_at'
+};
+
+exports.Prisma.PropiedadesScalarFieldEnum = {
+  id: 'id',
+  codigo: 'codigo',
+  tipo: 'tipo',
+  direccion: 'direccion',
+  sector: 'sector',
+  piso: 'piso',
+  unidad: 'unidad',
+  torre: 'torre',
+  m2: 'm2',
+  garantia: 'garantia',
+  creado_en: 'creado_en'
+};
+
+exports.Prisma.TicketsScalarFieldEnum = {
+  id: 'id',
+  reclamo_id: 'reclamo_id',
+  tecnico_id: 'tecnico_id',
+  coordinador_id: 'coordinador_id',
+  estado: 'estado',
+  notas: 'notas',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -558,7 +593,10 @@ exports.Prisma.ModelName = {
   webauthn_challenges: 'webauthn_challenges',
   webauthn_credentials: 'webauthn_credentials',
   profiles: 'profiles',
-  reclamo: 'reclamo'
+  reclamo: 'reclamo',
+  confirmation_codes: 'confirmation_codes',
+  propiedades: 'propiedades',
+  tickets: 'tickets'
 };
 
 /**

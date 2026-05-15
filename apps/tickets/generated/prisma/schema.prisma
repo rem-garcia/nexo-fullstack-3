@@ -500,15 +500,17 @@ model webauthn_credentials {
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model profiles {
-  id         String   @id @db.Uuid
-  full_name  String
-  email      String   @unique
-  phone      String?
-  role       String
-  is_active  Boolean  @default(true)
-  created_at DateTime @default(now()) @db.Timestamptz(6)
-  updated_at DateTime @default(now()) @db.Timestamptz(6)
-  users      users    @relation(fields: [id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  id                                       String    @id @db.Uuid
+  full_name                                String
+  email                                    String    @unique
+  phone                                    String?
+  role                                     String
+  is_active                                Boolean   @default(true)
+  created_at                               DateTime  @default(now()) @db.Timestamptz(6)
+  updated_at                               DateTime  @default(now()) @db.Timestamptz(6)
+  users                                    users     @relation(fields: [id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  tickets_tickets_coordinador_idToprofiles tickets[] @relation("tickets_coordinador_idToprofiles")
+  tickets_tickets_tecnico_idToprofiles     tickets[] @relation("tickets_tecnico_idToprofiles")
 
   @@schema("public")
 }
@@ -516,16 +518,67 @@ model profiles {
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model reclamo {
-  nombre_cliente    String   @db.VarChar
-  email_cliente     String   @db.VarChar
-  num_telefono      String   @db.VarChar
-  tipo_propiedad    String   @db.VarChar
-  nro_dpto          String   @db.VarChar
-  tipo_falla        String   @db.VarChar
-  ubicacion_falla   String   @db.VarChar
+  nombre_cliente    String    @db.VarChar
+  email_cliente     String    @db.VarChar
+  num_telefono      String    @db.VarChar
+  tipo_propiedad    String    @db.VarChar
+  nro_dpto          String    @db.VarChar
+  tipo_falla        String    @db.VarChar
+  ubicacion_falla   String    @db.VarChar
   descripcion_falla String?
-  creado_en         DateTime @default(now()) @db.Timestamptz(6)
-  id                String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  creado_en         DateTime  @default(now()) @db.Timestamptz(6)
+  id                String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tickets           tickets[]
+
+  @@schema("public")
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model confirmation_codes {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  ticket_id  String   @db.Uuid
+  code_hash  String
+  expires_at DateTime @db.Timestamptz(6)
+  attempts   Int      @default(0)
+  used       Boolean  @default(false)
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  tickets    tickets  @relation(fields: [ticket_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@schema("public")
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model propiedades {
+  id        String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  codigo    String    @db.VarChar
+  tipo      String    @db.VarChar
+  direccion String    @db.VarChar
+  sector    String    @db.VarChar
+  piso      Int
+  unidad    String    @db.VarChar
+  torre     String    @db.VarChar
+  m2        Int
+  garantia  String    @db.VarChar
+  creado_en DateTime? @default(now()) @db.Timestamptz(6)
+
+  @@schema("public")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model tickets {
+  id                                        String               @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  reclamo_id                                String               @db.Uuid
+  tecnico_id                                String?              @db.Uuid
+  coordinador_id                            String?              @db.Uuid
+  estado                                    String               @default("pendiente")
+  notas                                     String?
+  created_at                                DateTime             @default(now()) @db.Timestamptz(6)
+  updated_at                                DateTime             @default(now()) @db.Timestamptz(6)
+  confirmation_codes                        confirmation_codes[]
+  profiles_tickets_coordinador_idToprofiles profiles?            @relation("tickets_coordinador_idToprofiles", fields: [coordinador_id], references: [id], onUpdate: NoAction)
+  reclamo                                   reclamo              @relation(fields: [reclamo_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  profiles_tickets_tecnico_idToprofiles     profiles?            @relation("tickets_tecnico_idToprofiles", fields: [tecnico_id], references: [id], onUpdate: NoAction)
 
   @@schema("public")
 }
