@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
 
     if (action === 'reset-password') {
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: `${process.env.NEXT_PUBLIC_DASHBOARD_URL}api//auth/callback`
+    redirectTo: `${process.env.NEXT_PUBLIC_DASHBOARD_URL}/api/auth/callback`
   })
   if (error) return NextResponse.json({ error: error.message }, { status: 400 })
   return NextResponse.json({ message: 'Correo enviado' }, { status: 200 })
