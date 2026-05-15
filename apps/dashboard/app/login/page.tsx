@@ -90,12 +90,14 @@ export default function LoginPage() {
   return (
     
     <main className="min-h-screen flex overflow-hidden">
+       <div className="hidden md:block w-2/5">
        <a
           href="https://nexo-landing-xi.vercel.app"
           className="px-5 py-2 bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium rounded-lg transition-colors"
         >
           Volver al Inicio
         </a>
+        </div>
       <div className="relative w-full flex">
 
         <div className={`
