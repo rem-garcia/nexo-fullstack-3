@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import { createBrowserClient } from '@supabase/ssr'
 
 export default function ResetPasswordPage() {
   const router = useRouter()
@@ -10,6 +11,20 @@ export default function ResetPasswordPage() {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
+  const [ready, setReady] = useState(false)
+
+  const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  )
+
+  useEffect(() => {
+    supabase.auth.onAuthStateChange(async (event, session) => {
+      if (event === 'PASSWORD_RECOVERY') {
+        setReady(true)
+      }
+    })
+  }, [])
 
   async function handleReset() {
     if (password !== confirm) {
@@ -24,16 +39,10 @@ export default function ResetPasswordPage() {
     setLoading(true)
     setError('')
 
-    const res = await fetch('/api/auth/update-password', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ password })
-    })
+    const { error } = await supabase.auth.updateUser({ password })
 
-    const data = await res.json()
-
-    if (!res.ok) {
-      setError(data.error)
+    if (error) {
+      setError(error.message)
       setLoading(false)
       return
     }
@@ -57,6 +66,10 @@ export default function ResetPasswordPage() {
             </div>
             <p className="text-white font-medium">Contraseña actualizada</p>
             <p className="text-slate-400 text-sm mt-1">Redirigiendo al login...</p>
+          </div>
+        ) : !ready ? (
+          <div className="text-center">
+            <p className="text-slate-400 text-sm">Verificando enlace...</p>
           </div>
         ) : (
           <div className="space-y-4">
