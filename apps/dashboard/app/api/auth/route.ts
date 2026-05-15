@@ -22,6 +22,20 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ message: 'Sesión cerrada' }, { status: 200 })
     }
 
+    if (action === 'reset-password') {
+      console.log('Sending reset email to:', email)
+      console.log('RedirectTo:', `${process.env.NEXT_PUBLIC_DASHBOARD_URL}/reset-password`)
+
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${process.env.NEXT_PUBLIC_DASHBOARD_URL}/reset-password`
+      })
+
+      console.log('Reset error:', error)
+
+      if (error) return NextResponse.json({ error: error.message }, { status: 400 })
+      return NextResponse.json({ message: 'Correo enviado' }, { status: 200 })
+    }
+
     return NextResponse.json({ error: 'Acción no válida' }, { status: 400 })
   } catch {
     return NextResponse.json({ error: 'Error interno' }, { status: 500 })
