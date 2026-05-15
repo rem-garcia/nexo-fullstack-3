@@ -1,14 +1,13 @@
 import { ReclamoSchema } from "@nexo/schemas";
-import * as reclamoRepository from "../repository/reclamoRepository";
+import * as reclamoRepository from "../repository/reclamoRepositoryV2";
 
-export const crearReclamo = (payload: unknown) => {
-    // Siguiendo la logica del patron Controller-Service-Repository, aca se implementa
-    // la logica de negocio de la app. Por ejemplo, aca se aplican las validaciones del
-    // esquema Zod que tambien son aplicadas en el frontend
-    const dataValid = ReclamoSchema.safeParse(payload);
+export const crearReclamo = async (payload: unknown) => {
+    const payloadParsed = ReclamoSchema.safeParse(payload);
 
+    if(!payloadParsed.success) {
+        throw payloadParsed.error.issues?.[0]?.message;
+        //throw payloadParsed.error;
+    }
 
-    // Si se validan correctamente los datos a enviar, se aplica el metodo para insertar datos en
-    // la tabla 'reclamo' que esta en Supabase
-    reclamoRepository.createReclamo(dataValid.data!);
+    return reclamoRepository.createReclamo(payloadParsed.data);
 };

@@ -1,19 +1,14 @@
-import { ReclamoType } from "@nexo/schemas";
-import { supabase } from "../lib/supabase";
-import { toSnakeCase } from "../lib/toSnakeCase";
+import { prisma } from "../lib/prisma";
+import { reclamoCreateInput } from "../generated/prisma/models";
 
-// Metodo para crear reclamos
-export const createReclamo = async (payloadReclamo: ReclamoType) => {
-
-    const insertData = toSnakeCase(payloadReclamo);
-
-    const { error } = await supabase
-        .from("reclamo")
-        .insert(insertData)
-        .select("id")
-        .limit(1);
-        
-    if(error) {
-        throw error;
-    }
+export const createReclamo = (data: reclamoCreateInput) => {
+    return prisma.reclamo.create({ data });
 };
+
+export const getReclamoById = (id: string) => {
+    return prisma.reclamo.findUnique({ where: { id } });
+}
+
+export const deleteReclamo = (id: string) => {
+    return prisma.reclamo.delete({ where: { id } });
+}
