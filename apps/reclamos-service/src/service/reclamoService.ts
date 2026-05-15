@@ -1,5 +1,5 @@
 import { ReclamoSchema } from "@nexo/schemas";
-import * as reclamoRepository from "../repository/reclamoRepositoryV2";
+import * as reclamoRepository from "../repository/reclamoRepository";
 
 export const crearReclamo = async (payload: unknown) => {
     const payloadParsed = ReclamoSchema.safeParse(payload);
