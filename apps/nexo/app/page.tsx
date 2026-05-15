@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { ContactForm } from './components/ContactForm'
 
 export default function LandingPage() {
   return (
@@ -105,37 +106,7 @@ export default function LandingPage() {
           <p className="text-slate-400 mb-8">
             ¿Tienes preguntas? Escríbenos y te responderemos a la brevedad.
           </p>
-          <div className="bg-slate-800/50 rounded-xl p-8 border border-slate-700 text-left">
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-slate-300 mb-2">Nombre</label>
-                <input
-                  type="text"
-                  placeholder="Tu nombre"
-                  className="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-slate-300 mb-2">Correo electrónico</label>
-                <input
-                  type="email"
-                  placeholder="correo@ejemplo.com"
-                  className="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-slate-300 mb-2">Mensaje</label>
-                <textarea
-                  placeholder="¿En qué podemos ayudarte?"
-                  rows={4}
-                  className="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors resize-none"
-                />
-              </div>
-              <button className="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-lg transition-colors">
-                Enviar mensaje
-              </button>
-            </div>
-          </div>
+          <ContactForm />
         </div>
       </section>
 
@@ -147,3 +118,4 @@ export default function LandingPage() {
     </main>
   )
 }
+            
