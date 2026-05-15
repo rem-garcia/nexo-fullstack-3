@@ -1,3 +1,4 @@
+'use client'
 import { HTMLInputTypeAttribute } from "react";
 import { FieldValues, useController, UseControllerProps } from "react-hook-form";
 
