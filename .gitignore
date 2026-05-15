@@ -51,6 +51,9 @@ next-env.d.ts
 # turborepo
 .turbo
 
+# prisma
+apps/**/src/generated/prisma
+
 # Editores de texto
 # VS Code
 .vscode/
