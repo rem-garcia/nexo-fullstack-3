@@ -8,13 +8,15 @@
   "type": "commonjs",
   "main": "index.js",
  "scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  "dev": "turbo dev",
-  "dev:nexo": "npm --workspace=@nexo/nexo run dev",
-  "dev:reclamos": "npm --workspace=@nexo/reclamos-postventa run dev",
-  "dev:bff": "npm --workspace=@nexo/bff run dev",
-  "dev:reclamos-service": "npm --workspace=@nexo/reclamos-service run dev"
-},
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "turbo dev",
+    "dev:nexo": "npm --workspace=@nexo/nexo run dev",
+    "dev:auth": "npm --workspace=@nexo/auth-app run dev",
+    "dev:reclamos": "npm --workspace=@nexo/reclamos-postventa run dev",
+    "dev:tickets": "npm --workspace=@nexo/tickets run dev",
+    "dev:dashboard": "npm --workspace=@nexo/dashboard run dev",
+    "dev:reclamos-service": "npm --workspace=@nexo/reclamos-service run dev"
+  },
   "workspaces": [
     "packages/*",
     "apps/*"
