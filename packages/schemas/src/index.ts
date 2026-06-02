@@ -1,1 +1,1 @@
-export { ReclamoSchema, ReclamoType } from "./reclamo";
+export { ReclamoSchema, type ReclamoType } from "./reclamo";
