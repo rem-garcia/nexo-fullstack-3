@@ -49,7 +49,7 @@ export default function Home() {
 
     const onSubmitForm: SubmitHandler<ReclamoType> = async (data) => {
         try {
-            const response = await fetch("http://localhost:3003/api/reclamos", {
+            const response = await fetch("https://nexo-reclamos-service.vercel.app/api/reclamos", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)
