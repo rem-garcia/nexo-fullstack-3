@@ -1,17 +1,8 @@
-import { createClient } from '@supabase/supabase-js'
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-)
-
 export default async function PropiedadesPage() {
-  const { data: propiedades, error } = await supabase
-    .from('propiedades')
-    .select('*')
-    .order('creado_en', { ascending: false })
-
-  if (error) console.error(error)
+  const res = await fetch(process.env.NEXT_PUBLIC_PROPIEDADES_API_URL!, {
+    cache: 'no-store'
+  })
+  const propiedades = await res.json()
 
   const getGarantiaColor = (garantia: string) => {
     if (garantia === 'Activa') return 'bg-emerald-100 text-emerald-700'
@@ -26,7 +17,7 @@ export default async function PropiedadesPage() {
           <h1 className="text-2xl font-bold text-gray-900">Propiedades</h1>
           <p className="text-gray-500 mt-1">{propiedades?.length ?? 0} propiedades registradas</p>
         </div>
-       <a href="/dashboard/admin/propiedades/nueva"
+        <a href="/dashboard/admin/propiedades/nueva"
           className="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-500 transition-colors">
           + Nueva propiedad
         </a>
@@ -38,11 +29,11 @@ export default async function PropiedadesPage() {
         <button className="bg-white text-gray-600 border border-gray-200 px-4 py-1.5 rounded-full text-sm hover:bg-gray-50">Garantía activa</button>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {propiedades?.map((p) => (
+        {propiedades?.map((p: any) => (
           <div key={p.id} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition">
             <div className="flex justify-between items-start mb-4">
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                <i className="fa-solid fa-building text-green-600 text-xl"></i>
+                <span className="text-green-600 text-xl">🏢</span>
               </div>
               <span className={`text-xs font-medium px-2 py-1 rounded-full ${getGarantiaColor(p.garantia)}`}>
                 {p.garantia}
@@ -54,13 +45,10 @@ export default async function PropiedadesPage() {
             <p className="text-gray-400 text-xs mb-4">📍 {p.sector}</p>
             <div className="flex gap-4 text-xs text-gray-500 border-t border-gray-100 pt-4 mb-4">
               <span>🏢 Piso {p.piso}</span>
-              <span>📐 {p.m2} m²</span>
               <span>🏗️ {p.torre}</span>
             </div>
-            
-             <a  href={`/dashboard/admin/propiedades/${p.id}`}
-              className="text-green-600 text-sm font-medium hover:text-green-500 transition-colors"
-            >
+            <a href={`/dashboard/admin/propiedades/${p.id}`}
+              className="text-green-600 text-sm font-medium hover:text-green-500 transition-colors">
               Ver detalles →
             </a>
           </div>
