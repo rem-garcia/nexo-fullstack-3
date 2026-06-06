@@ -18,6 +18,10 @@ const resetSchema = z.object({
 type LoginInput = z.infer<typeof loginSchema>
 type ResetInput = z.infer<typeof resetSchema>
 
+// Backend de auth (API REST). El frontend NUNCA toca Supabase: solo hace fetch
+// a este endpoint y guarda el JWT que devuelve.
+const AUTH_API = process.env.NEXT_PUBLIC_AUTH_API_URL!
+
 export default function LoginPage() {
   const [showReset, setShowReset] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
@@ -44,7 +48,7 @@ export default function LoginPage() {
     setIsLoading(true)
     setError(null)
     try {
-      const response = await fetch('/api/auth', {
+      const response = await fetch(AUTH_API, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'login', ...data })
@@ -54,6 +58,12 @@ export default function LoginPage() {
         setError(result.error)
         return
       }
+      // Guarda el JWT en una cookie first-party del propio dashboard. El
+      // servidor (Server Components) la lee y la reenvía al backend como
+      // `Authorization: Bearer`. Es first-party, así que funciona en capa
+      // gratuita sin dominio propio (no son cookies de terceros).
+      const secure = window.location.protocol === 'https:' ? '; secure' : ''
+      document.cookie = `nexo_token=${result.access_token}; path=/; max-age=${60 * 60 * 8}; samesite=lax${secure}`
       window.location.href = '/dashboard'
     } catch {
       setError('Error de conexión. Intenta nuevamente.')
@@ -66,10 +76,14 @@ export default function LoginPage() {
     setIsLoading(true)
     setError(null)
     try {
-      const response = await fetch('/api/auth', {
+      const response = await fetch(AUTH_API, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'reset-password', ...data })
+        body: JSON.stringify({
+          action: 'reset-request',
+          email: data.email,
+          redirectTo: `${window.location.origin}/reset-password`
+        })
       })
       if (!response.ok) {
         setError('No se pudo enviar el correo. Intenta nuevamente.')

@@ -1,20 +1,7 @@
-import { getSupabaseClient } from '@/lib/supabase'
-import { redirect } from 'next/navigation'
+import { requireRole } from '@/lib/session'
 
 export default async function TicketsPage() {
-  const supabase = await getSupabaseClient()
-  const { data: { user } } = await supabase.auth.getUser()
-  if (!user) redirect('/login')
-
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('role')
-    .eq('id', user.id)
-    .single()
-
-  if (!['admin', 'super_admin', 'coordinador'].includes(profile?.role ?? '')) {
-    redirect('/dashboard')
-  }
+  await requireRole(['admin', 'super_admin', 'coordinador'])
 
   // Obtener reclamos
   const reclamosRes = await fetch(
