@@ -1,7 +1,10 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-const ORIGIN = 'http://localhost:3002'; // URL frontend local. Cambiar a URL publico de Vercel.
+const ORIGIN = [
+    'http://localhost:3002',
+    'https://nexo-reclamos-postventa.vercel.app'
+]
 
 export function proxy(req: NextRequest) {
   // Responder rápido a preflight
