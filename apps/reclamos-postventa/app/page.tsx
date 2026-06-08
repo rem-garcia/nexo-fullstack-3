@@ -1,16 +1,18 @@
 'use client';
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ReclamoSchema, ReclamoType } from "@nexo/schemas";
+import { ReclamoSchema, type ReclamoType } from "@nexo/schemas";
 import { InputReclamos, SelectReclamos, SidebarMenu, TextAreaReclamos } from "@nexo/ui";
 import { useState } from "react";
 import { type SubmitHandler, useForm } from "react-hook-form";
 
 export default function Home() {
     const [openSidebar, setOpenSidebar] = useState(false);
+    const [serverError, setServerError] = useState<string | null>(null);
+    const [successMsg, setSuccessMsg] = useState<string | null>(null);
 
     // Elementos de react-hook-form para validacion de formularios
-    const { formState: { errors }, handleSubmit, control } = useForm<ReclamoType>({
+    const { formState: { errors }, handleSubmit, control, reset } = useForm<ReclamoType>({
 
         // Resolver para usar el esquema de Zod en la validacion del formulario
         resolver: zodResolver(ReclamoSchema),
@@ -35,8 +37,44 @@ export default function Home() {
         setOpenSidebar(!openSidebar);
     };
 
-    const onSubmitForm: SubmitHandler<ReclamoType> = (data) => {
-        console.log(data);
+    const handleSuccess = () => {
+        setSuccessMsg("Reclamo enviado exitosamente")
+         reset();                      // Se reinician los valores del formulario
+
+        setTimeout(
+            () => setSuccessMsg(null),
+            2000                       // 2 segundos de duracion
+        );
+    };
+
+    const onSubmitForm: SubmitHandler<ReclamoType> = async (data) => {
+        try {
+            const response = await fetch("https://nexo-reclamos-service.vercel.app/api/reclamos", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+
+            const json = await response.json().catch(() => ({}));
+
+            // Mostrar mensajes de error si status code no es 200 y se sale de la funcion
+            if(!response.ok) {
+                const msg = (json && (json.error || json.message)) || `Error ${response.status}`;
+                setServerError(String(msg));
+
+                return;
+            }
+
+            // Si datos fueron enviados exitosamente, se muestra mensaje de exito y se reinicia el formulario.
+            if(serverError) {
+                setServerError(null);
+            }
+
+            handleSuccess();
+            
+        } catch(err: any) {
+            setServerError(err?.message ?? "Error en el servidor");
+        }
     };
 
     // Datos dummy. Despues se obtendran desde el backend
@@ -176,6 +214,10 @@ export default function Home() {
                     >
                         Enviar reclamo
                     </button>
+
+                    { serverError && (<p className="mt-3 text-sm text-red-500">Error: {serverError}</p>)  }
+
+                    { successMsg && (<p className="mt-3 text-sm text-green-600">{ successMsg }</p>) }
                 </form>
             </main>
         </div>
