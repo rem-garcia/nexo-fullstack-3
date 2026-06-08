@@ -27,7 +27,7 @@ export const DELETE = async (req: NextRequest, { params }: { params: Promise<{ i
     try {
         await reclamoService.eliminarReclamo(id);
 
-        return NextResponse.json(null, { status: 204 });
+        return new NextResponse(null, { status: 204 });
     } catch(err: any) {
         const errorMsg = err?.message ?? "Error al eliminar el reclamo"; 
 
