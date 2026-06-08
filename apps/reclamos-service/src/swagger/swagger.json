@@ -1,0 +1,229 @@
+{
+    "openapi": "3.0.4",
+    "info": {
+        "title": "Reclamos Service API",
+        "description": "Reclamos Service es la API que opera como backend de la vista de 'Reclamos Postventa' de la plataforma Nexo",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/reclamos": {
+            "get": {
+                "tags": [
+                    "Reclamos"
+                ],
+                "summary": "Regresa todos los reclamos registrados",
+                "description": "Se obtiene una lista con todos los reclamos",
+                "responses": {
+                    "200": {
+                        "description": "Se han encontrado todos los reclamos.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/reclamo"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "No existen reclamos registrados."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Reclamos"
+                ],
+                "summary": "Registrar un nuevo reclamo.",
+                "description": "Se registra un nuevo reclamo.",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/reclamoInput"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "El reclamo se ha registrado exitosamente.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/reclamo"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "No se pudo registrar el reclamo."
+                    }
+                }
+            }
+        },
+        "/api/reclamos/{id}": {
+            "get": {
+                "tags": [
+                    "Reclamos"
+                ],
+                "summary": "Obtener un reclamo.",
+                "description": "Se obtiene un reclamo por su ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "El reclamo se encontró exitosamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/reclamo"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Reclamo no encontrado."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Reclamos"
+                ],
+                "summary": "Eliminar un reclamo.",
+                "description": "Se elimina un reclamo a partir de su ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "El reclamo se ha eliminado exitosamente"
+                    },
+                    "404": {
+                        "description": "Reclamo no encontrado."
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "reclamo": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "example": "32faa4ee-1a5a-4742-ab7b-22a227ac4a1b"
+                    },
+                    "nombreCliente": {
+                        "type": "string"
+                    },
+                    "emailCliente": {
+                        "type": "string",
+                        "format": "email",
+                        "example": "hola@mail.com"
+                    },
+                    "numTelefono": {
+                        "type": "string",
+                        "example": "+56912345678"
+                    },
+                    "tipoPropiedad": {
+                        "type": "string"
+                    },
+                    "nroDpto": {
+                        "type": "string",
+                        "example": "A901"
+                    },
+                    "tipoFalla": {
+                        "type": "string"
+                    },
+                    "ubicacionFalla": {
+                        "type": "string"
+                    },
+                    "descripcionFalla": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "creadoEn": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "required": [
+                    "nombreCliente",
+                    "emailCliente",
+                    "numTelefono",
+                    "tipoPropiedad",
+                    "numDpto",
+                    "tipoFalla",
+                    "ubicacionFalla"
+                ]
+            },
+            "reclamoInput": {
+                "type": "object",
+                "properties": {
+                    "nombreCliente": {
+                        "type": "string"
+                    },
+                    "emailCliente": {
+                        "type": "string",
+                        "format": "email",
+                        "example": "hola@mail.com"
+                    },
+                    "numTelefono": {
+                        "type": "string",
+                        "example": "+56912345678"
+                    },
+                    "tipoPropiedad": {
+                        "type": "string"
+                    },
+                    "nroDpto": {
+                        "type": "string",
+                        "example": "A901"
+                    },
+                    "tipoFalla": {
+                        "type": "string"
+                    },
+                    "ubicacionFalla": {
+                        "type": "string"
+                    },
+                    "descripcionFalla": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "nombreCliente",
+                    "emailCliente",
+                    "numTelefono",
+                    "tipoPropiedad",
+                    "numDpto",
+                    "tipoFalla",
+                    "ubicacionFalla"
+                ]
+            }
+        }
+    }
+}
