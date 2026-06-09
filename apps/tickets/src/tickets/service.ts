@@ -1,16 +1,38 @@
 import { ticketRepository } from './repository'
-import { CreateTicketDto } from './model'
+import { CreateTicketDto, UpdateTicketDto, CreateReclamoDto } from './model'
 
 export const ticketService = {
-  getAll: async () => {
-    return ticketRepository.findAll()
+  // Reclamos
+  getAllReclamos: async () => {
+    return ticketRepository.findAllReclamos()
   },
 
-  getById: async (id: string) => {
-    return ticketRepository.findById(id)
+  getReclamoById: async (id: string) => {
+    return ticketRepository.findReclamoById(id)
   },
 
-  create: async (data: CreateTicketDto) => {
-    return ticketRepository.create(data)
+  createReclamo: async (data: CreateReclamoDto) => {
+    return ticketRepository.createReclamo(data)
+  },
+
+  // Tickets
+  getAllTickets: async () => {
+    return ticketRepository.findAllTickets()
+  },
+
+  getTicketById: async (id: string) => {
+    return ticketRepository.findTicketById(id)
+  },
+
+  getTicketsByTecnico: async (tecnico_id: string) => {
+    return ticketRepository.findTicketsByTecnico(tecnico_id)
+  },
+
+  createTicket: async (data: CreateTicketDto) => {
+    return ticketRepository.createTicket(data)
+  },
+
+  updateTicket: async (id: string, data: UpdateTicketDto) => {
+    return ticketRepository.updateTicket(id, data)
   }
 }

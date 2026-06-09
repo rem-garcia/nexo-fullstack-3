@@ -1,18 +1,8 @@
-import { getSupabaseClient } from '@/lib/supabase'
 import { redirect } from 'next/navigation'
+import { requireProfile } from '@/lib/session'
 
-export default async function DashboardPage() {
-  const supabase = await getSupabaseClient()
-  const { data: { user } } = await supabase.auth.getUser()
-  if (!user) redirect('/login')
-
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('role')
-    .eq('id', user.id)
-    .single()
-
-  if (!profile) redirect('/login')
+export default async function HomePage() {
+  const profile = await requireProfile()
 
   switch (profile.role) {
     case 'admin':

@@ -18,31 +18,40 @@
 
 ## 2. Integración con el Backend
 
-El frontend consume el backend de Supabase directamente usando el SDK oficial `@supabase/supabase-js`.
+**El frontend NUNCA toca Supabase.** Solo el backend (API REST) accede a Supabase.
+El frontend (dashboard) únicamente hace `fetch` a los backends desplegados como
+proyectos separados en Vercel:
 
-### Cliente de Supabase
-
-```typescript
-// src/lib/supabase/client.ts
-import { createBrowserClient } from '@supabase/ssr'
-
-export function createClient() {
-  return createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  )
-}
+```
+Frontend (apps/dashboard)        Backend API REST              Supabase
+login-page.tsx     ──fetch──►    apps/auth   /api/auth    ──►  Auth
+dashboard pages    ──fetch──►    apps/auth   /api/users   ──►  profiles
+                   ──fetch──►    apps/tickets/api/tickets ──►  reclamo/tickets
 ```
 
-### Variables de entorno requeridas
+### Autenticación con Bearer token (JWT)
+
+Como cada app es un proyecto Vercel distinto (orígenes `*.vercel.app` diferentes)
+y no hay dominio propio, no se pueden usar cookies de sesión compartidas (serían
+cookies de terceros, bloqueadas por Safari/Firefox). Por eso la sesión viaja como
+**Bearer token**:
+
+1. `login` → el backend `/api/auth` valida contra Supabase y devuelve el `access_token`.
+2. El dashboard guarda el token en una cookie *first-party* (`nexo_token`).
+3. Los Server Components leen esa cookie y la reenvían al backend como
+   `Authorization: Bearer <token>` (ver `lib/session.ts`).
+4. El backend valida el JWT (`supabase.auth.getUser(token)`) y consulta `profiles`.
+
+### Variables de entorno del frontend (sin claves de Supabase)
 
 ```bash
-NEXT_PUBLIC_SUPABASE_URL=https://<project-ref>.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=<anon-key>
+NEXT_PUBLIC_AUTH_API_URL=https://nexo-auth.vercel.app/api/auth
+NEXT_PUBLIC_USERS_API_URL=https://nexo-auth.vercel.app/api/users
+NEXT_PUBLIC_TICKETS_API_URL=https://nexo-tickets.vercel.app/api/tickets
 ```
 
-> Para lógica de servidor (Server Components, API Routes), usar `@supabase/ssr` con `createServerClient`.
-> Ver documentación: https://supabase.com/docs/guides/auth/server-side/nextjs
+> El backend habilita CORS con `Authorization` mediante `proxy.ts` (middleware de
+> Next 16) en cada microservicio.
 
 ---
 

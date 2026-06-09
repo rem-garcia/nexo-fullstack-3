@@ -1,5 +1,4 @@
-import { getSupabaseClient } from '../../lib/supabase'
-import { redirect } from 'next/navigation'
+import { requireProfile } from '@/lib/session'
 
 const navItems = [
   { id: 1, name: 'Home',         iconClass: 'fa-solid fa-house-user',    path: '/dashboard' },
@@ -16,15 +15,7 @@ export default async function DashboardLayout({
 }: {
   children: React.ReactNode
 }) {
-  const supabase = await getSupabaseClient()
-  const { data: { user } } = await supabase.auth.getUser()
-  if (!user) redirect('/login')
-
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('role, full_name')
-    .eq('id', user.id)
-    .single()
+  const profile = await requireProfile()
 
   const fechaFooter = new Date()
 

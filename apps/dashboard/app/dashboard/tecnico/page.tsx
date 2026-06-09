@@ -1,18 +1,7 @@
-import { getSupabaseClient } from '@/lib/supabase'
-import { redirect } from 'next/navigation'
+import { requireRole } from '@/lib/session'
 
-export default async function CoordinadorDashboard() {
-  const supabase = await getSupabaseClient()
-  const { data: { user } } = await supabase.auth.getUser()
-  if (!user) redirect('/login')
-
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('role, full_name')
-    .eq('id', user.id)
-    .single()
-
-  if (profile?.role !== 'coordinador') redirect('/dashboard')
+export default async function TecnicoDashboard() {
+  const profile = await requireRole(['tecnico'])
 
   const tickets = await fetch(
     process.env.NEXT_PUBLIC_TICKETS_API_URL!,
@@ -22,7 +11,7 @@ export default async function CoordinadorDashboard() {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-gray-900">Panel Coordinador</h1>
+        <h1 className="text-2xl font-bold text-gray-900">Panel Técnico</h1>
         <p className="text-gray-500 mt-1">Bienvenido, {profile?.full_name}</p>
       </div>
 

@@ -2,7 +2,11 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { createBrowserClient } from '@supabase/ssr'
+
+// Backend de auth. Esta página NO usa Supabase: lee el access_token que viene
+// en el enlace del correo (hash de la URL) y se lo reenvía al backend, que es
+// quien actualiza la contraseña contra Supabase.
+const AUTH_API = process.env.NEXT_PUBLIC_AUTH_API_URL!
 
 export default function ResetPasswordPage() {
   const router = useRouter()
@@ -11,19 +15,22 @@ export default function ResetPasswordPage() {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
+  const [accessToken, setAccessToken] = useState<string | null>(null)
   const [ready, setReady] = useState(false)
 
-  const supabase = createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  )
-
   useEffect(() => {
-    supabase.auth.onAuthStateChange(async (event, session) => {
-      if (event === 'PASSWORD_RECOVERY') {
-        setReady(true)
-      }
-    })
+    // El enlace de recuperación llega como #access_token=...&type=recovery
+    const hash = window.location.hash.startsWith('#')
+      ? window.location.hash.slice(1)
+      : window.location.hash
+    const params = new URLSearchParams(hash)
+    const token = params.get('access_token')
+    if (token) {
+      setAccessToken(token)
+      setReady(true)
+    } else {
+      setError('Enlace inválido o expirado. Solicita uno nuevo desde el login.')
+    }
   }, [])
 
   async function handleReset() {
@@ -39,16 +46,28 @@ export default function ResetPasswordPage() {
     setLoading(true)
     setError('')
 
-    const { error } = await supabase.auth.updateUser({ password })
-
-    if (error) {
-      setError(error.message)
+    try {
+      const res = await fetch(AUTH_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'reset-confirm',
+          access_token: accessToken,
+          password,
+        }),
+      })
+      const result = await res.json()
+      if (!res.ok) {
+        setError(result.error ?? 'No se pudo actualizar la contraseña')
+        setLoading(false)
+        return
+      }
+      setSuccess(true)
+      setTimeout(() => router.push('/login'), 3000)
+    } catch {
+      setError('Error de conexión. Intenta nuevamente.')
       setLoading(false)
-      return
     }
-
-    setSuccess(true)
-    setTimeout(() => router.push('/login'), 3000)
   }
 
   return (
@@ -69,7 +88,11 @@ export default function ResetPasswordPage() {
           </div>
         ) : !ready ? (
           <div className="text-center">
-            <p className="text-slate-400 text-sm">Verificando enlace...</p>
+            {error ? (
+              <p className="text-red-400 text-sm">{error}</p>
+            ) : (
+              <p className="text-slate-400 text-sm">Verificando enlace...</p>
+            )}
           </div>
         ) : (
           <div className="space-y-4">

@@ -1,20 +1,8 @@
-import { getSupabaseClient } from '../../lib/supabase'
 import { redirect } from 'next/navigation'
+import { requireProfile } from '@/lib/session'
 
 export default async function DashboardPage() {
-  const supabase = await getSupabaseClient()
-  const { data: { user } } = await supabase.auth.getUser()
-
-  if (!user) redirect('/login')
-
-  // obtener perfil
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('*')
-    .eq('id', user.id)
-    .single()
-
-  if (!profile) redirect('/login')
+  const profile = await requireProfile()
 
   // redirigir según rol
   switch (profile.role) {

@@ -32,3 +32,12 @@ export interface AuthResponse {
   user: Profile | null
   error: string | null
 }
+
+// Resultado del login: además del perfil, devuelve el JWT que el frontend
+// guardará y reenviará en cada petición como `Authorization: Bearer <token>`.
+export interface LoginResult {
+  user: Profile | null
+  access_token: string | null
+  refresh_token: string | null
+  error: string | null
+}
