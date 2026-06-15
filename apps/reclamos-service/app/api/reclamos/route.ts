@@ -17,7 +17,7 @@ export const GET = async () => {
     const reclamos = await reclamoService.obtenerReclamos();
 
     if(!reclamos || reclamos.length === 0) {
-        return NextResponse.json(null, { status: 204 });
+        return new NextResponse(null, { status: 204 });
     }
 
     return NextResponse.json(reclamos, { status: 200 });
