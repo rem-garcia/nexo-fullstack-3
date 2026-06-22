@@ -15,7 +15,8 @@
     "dev:reclamos": "npm --workspace=@nexo/reclamos-postventa run dev",
     "dev:tickets": "npm --workspace=@nexo/tickets run dev",
     "dev:dashboard": "npm --workspace=@nexo/dashboard run dev",
-    "dev:reclamos-service": "npm --workspace=@nexo/reclamos-service run dev"
+    "dev:reclamos-service": "npm --workspace=@nexo/reclamos-service run dev",
+    "test:reclamos": "npm --workspace=@nexo/reclamos-postventa run test"
   },
   "workspaces": [
     "packages/*",
