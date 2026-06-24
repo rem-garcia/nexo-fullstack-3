@@ -6,6 +6,7 @@
     "description": "Microservicio de autenticación y usuarios. El frontend nunca accede a Supabase directamente: todas las operaciones pasan por esta API REST."
   },
   "servers": [
+    { "url": "https://nexo-auth-indol.vercel.app", "description": "Producción (Vercel)" },
     { "url": "http://localhost:3003", "description": "Local" }
   ],
   "tags": [
