@@ -6,24 +6,29 @@
     "dev": "next dev -p 3003",
     "build": "next build",
     "start": "next start -p 3003",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
+    "@supabase/ssr": "latest",
+    "@supabase/supabase-js": "latest",
     "next": "16.2.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "@supabase/supabase-js": "latest",
-    "@supabase/ssr": "latest",
     "zod": "latest"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/jest": "^30.0.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.4",
+    "jest": "^30.4.2",
     "tailwindcss": "^4",
+    "ts-jest": "^29.4.11",
     "typescript": "^5"
   }
 }
