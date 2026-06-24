@@ -15,6 +15,6 @@ export default async function HomePage() {
     case 'cliente':
       redirect('/dashboard/cliente')
     default:
-      redirect('/login')
+      redirect(process.env.NEXT_PUBLIC_AUTH_FRONT_URL!)
   }
 }

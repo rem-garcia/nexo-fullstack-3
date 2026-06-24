@@ -50,7 +50,7 @@ export async function getProfile(): Promise<Profile | null> {
 // Guard: exige sesión. Redirige a /login si no hay perfil.
 export async function requireProfile(): Promise<Profile> {
   const profile = await getProfile()
-  if (!profile) redirect('/login')
+  if (!profile) redirect(process.env.NEXT_PUBLIC_AUTH_FRONT_URL!)
   return profile
 }
 
