@@ -7,7 +7,7 @@ const options = {
     info: {
       title: 'API Propiedades - Nexo',
       version: '1.0.0',
-      description: 'Microservicio de gesti?n de propiedades inmobiliarias',
+      description: 'Microservicio encargado de gestionar el catálogo de propiedades inmobiliarias del sistema Nexo. Permite consultar y registrar departamentos y oficinas asociadas a arrendatarios, incluyendo datos de ubicación, torre, unidad y estado de garantía.',
     },
     servers: [
       {
@@ -60,7 +60,7 @@ const options = {
               description: 'Lista de propiedades',
               content: {
                 'application/json': {
-                  schema: { type: 'array', items: { ref: 'Propiedad' } },
+                  schema: { type: 'array', items: { $ref: '#/components/schemas/Propiedad' } },
                 },
               },
             },
@@ -73,13 +73,13 @@ const options = {
             required: true,
             content: {
               'application/json': {
-                schema: { ref: 'CreatePropiedad' },
+                schema: { $ref: '#/components/schemas/CreatePropiedad' },
               },
             },
           },
           responses: {
             '201': {
-              description: 'Propiedad creada',
+              description: 'Propiedad creada exitosamente',
             },
           },
         },
