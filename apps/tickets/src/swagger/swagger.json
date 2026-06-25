@@ -1,0 +1,267 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Nexo - API de Tickets",
+    "version": "1.0.0",
+    "description": "Microservicio de gestión de reclamos y tickets de soporte técnico."
+  },
+  "servers": [
+    { "url": "http://localhost:3001", "description": "Local" }
+  ],
+  "tags": [
+    { "name": "Reclamos", "description": "Gestión de reclamos de clientes" },
+    { "name": "Tickets", "description": "Gestión de tickets de soporte técnico" }
+  ],
+  "paths": {
+    "/api/tickets": {
+      "get": {
+        "tags": ["Tickets"],
+        "summary": "Listar todos los tickets",
+        "description": "Retorna todos los tickets ordenados por fecha de creación descendente, incluyendo el reclamo asociado.",
+        "responses": {
+          "200": {
+            "description": "Lista de tickets",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Ticket" }
+                }
+              }
+            }
+          },
+          "500": { "description": "Error interno del servidor" }
+        }
+      },
+      "post": {
+        "tags": ["Tickets"],
+        "summary": "Crear un ticket",
+        "description": "Crea un nuevo ticket asociado a un reclamo existente.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateTicketDto" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ticket creado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Ticket" }
+              }
+            }
+          },
+          "400": { "description": "Datos inválidos" },
+          "500": { "description": "Error interno del servidor" }
+        }
+      }
+    },
+    "/api/tickets/{id}": {
+      "get": {
+        "tags": ["Tickets"],
+        "summary": "Obtener ticket por ID",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ticket encontrado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Ticket" }
+              }
+            }
+          },
+          "404": { "description": "Ticket no encontrado" },
+          "500": { "description": "Error interno del servidor" }
+        }
+      },
+      "patch": {
+        "tags": ["Tickets"],
+        "summary": "Actualizar ticket",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateTicketDto" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ticket actualizado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Ticket" }
+              }
+            }
+          },
+          "404": { "description": "Ticket no encontrado" },
+          "500": { "description": "Error interno del servidor" }
+        }
+      }
+    },
+    "/api/tickets/manage": {
+      "get": {
+        "tags": ["Tickets"],
+        "summary": "Listar tickets por técnico",
+        "description": "Retorna los tickets asignados a un técnico específico.",
+        "parameters": [
+          { "name": "tecnico_id", "in": "query", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de tickets del técnico",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Ticket" }
+                }
+              }
+            }
+          },
+          "400": { "description": "tecnico_id requerido" },
+          "500": { "description": "Error interno del servidor" }
+        }
+      }
+    },
+    "/api/reclamos": {
+      "get": {
+        "tags": ["Reclamos"],
+        "summary": "Listar todos los reclamos",
+        "description": "Retorna todos los reclamos ordenados por fecha de creación descendente.",
+        "responses": {
+          "200": {
+            "description": "Lista de reclamos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Reclamo" }
+                }
+              }
+            }
+          },
+          "500": { "description": "Error interno del servidor" }
+        }
+      },
+      "post": {
+        "tags": ["Reclamos"],
+        "summary": "Crear un reclamo",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateReclamoDto" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Reclamo creado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Reclamo" }
+              }
+            }
+          },
+          "400": { "description": "Datos inválidos" },
+          "500": { "description": "Error interno del servidor" }
+        }
+      }
+    },
+    "/api/reclamos/{id}": {
+      "get": {
+        "tags": ["Reclamos"],
+        "summary": "Obtener reclamo por ID",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "Reclamo encontrado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Reclamo" }
+              }
+            }
+          },
+          "404": { "description": "Reclamo no encontrado" },
+          "500": { "description": "Error interno del servidor" }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Reclamo": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "nombre_cliente": { "type": "string" },
+          "email_cliente": { "type": "string", "format": "email" },
+          "num_telefono": { "type": "string" },
+          "tipo_propiedad": { "type": "string" },
+          "nro_dpto": { "type": "string" },
+          "tipo_falla": { "type": "string" },
+          "ubicacion_falla": { "type": "string" },
+          "descripcion_falla": { "type": "string", "nullable": true },
+          "creado_en": { "type": "string", "format": "date-time" }
+        }
+      },
+      "Ticket": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "reclamo_id": { "type": "string" },
+          "tecnico_id": { "type": "string", "nullable": true },
+          "coordinador_id": { "type": "string", "nullable": true },
+          "estado": { "type": "string", "enum": ["pendiente", "en_proceso", "cerrado"] },
+          "notas": { "type": "string", "nullable": true },
+          "created_at": { "type": "string", "format": "date-time" },
+          "updated_at": { "type": "string", "format": "date-time" },
+          "reclamo": { "$ref": "#/components/schemas/Reclamo" }
+        }
+      },
+      "CreateReclamoDto": {
+        "type": "object",
+        "required": ["nombre_cliente", "email_cliente", "num_telefono", "tipo_propiedad", "nro_dpto", "tipo_falla", "ubicacion_falla"],
+        "properties": {
+          "nombre_cliente": { "type": "string" },
+          "email_cliente": { "type": "string", "format": "email" },
+          "num_telefono": { "type": "string" },
+          "tipo_propiedad": { "type": "string" },
+          "nro_dpto": { "type": "string" },
+          "tipo_falla": { "type": "string" },
+          "ubicacion_falla": { "type": "string" },
+          "descripcion_falla": { "type": "string" }
+        }
+      },
+      "CreateTicketDto": {
+        "type": "object",
+        "required": ["reclamo_id"],
+        "properties": {
+          "reclamo_id": { "type": "string" },
+          "tecnico_id": { "type": "string" },
+          "coordinador_id": { "type": "string" },
+          "notas": { "type": "string" }
+        }
+      },
+      "UpdateTicketDto": {
+        "type": "object",
+        "properties": {
+          "tecnico_id": { "type": "string" },
+          "estado": { "type": "string", "enum": ["pendiente", "en_proceso", "cerrado"] },
+          "notas": { "type": "string" }
+        }
+      }
+    }
+  }
+}
