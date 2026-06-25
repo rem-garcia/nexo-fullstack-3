@@ -16,125 +16,6 @@
   "paths": {
     "/api/tickets": {
       "get": {
-        "tags": ["Tickets"],
-        "summary": "Listar todos los tickets",
-        "description": "Retorna todos los tickets ordenados por fecha de creación descendente, incluyendo el reclamo asociado.",
-        "responses": {
-          "200": {
-            "description": "Lista de tickets",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": { "$ref": "#/components/schemas/Ticket" }
-                }
-              }
-            }
-          },
-          "500": { "description": "Error interno del servidor" }
-        }
-      },
-      "post": {
-        "tags": ["Tickets"],
-        "summary": "Crear un ticket",
-        "description": "Crea un nuevo ticket asociado a un reclamo existente.",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "$ref": "#/components/schemas/CreateTicketDto" }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Ticket creado",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/Ticket" }
-              }
-            }
-          },
-          "400": { "description": "Datos inválidos" },
-          "500": { "description": "Error interno del servidor" }
-        }
-      }
-    },
-    "/api/tickets/{id}": {
-      "get": {
-        "tags": ["Tickets"],
-        "summary": "Obtener ticket por ID",
-        "parameters": [
-          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
-        ],
-        "responses": {
-          "200": {
-            "description": "Ticket encontrado",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/Ticket" }
-              }
-            }
-          },
-          "404": { "description": "Ticket no encontrado" },
-          "500": { "description": "Error interno del servidor" }
-        }
-      },
-      "patch": {
-        "tags": ["Tickets"],
-        "summary": "Actualizar ticket",
-        "parameters": [
-          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "$ref": "#/components/schemas/UpdateTicketDto" }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Ticket actualizado",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/Ticket" }
-              }
-            }
-          },
-          "404": { "description": "Ticket no encontrado" },
-          "500": { "description": "Error interno del servidor" }
-        }
-      }
-    },
-    "/api/tickets/manage": {
-      "get": {
-        "tags": ["Tickets"],
-        "summary": "Listar tickets por técnico",
-        "description": "Retorna los tickets asignados a un técnico específico.",
-        "parameters": [
-          { "name": "tecnico_id", "in": "query", "required": true, "schema": { "type": "string" } }
-        ],
-        "responses": {
-          "200": {
-            "description": "Lista de tickets del técnico",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": { "$ref": "#/components/schemas/Ticket" }
-                }
-              }
-            }
-          },
-          "400": { "description": "tecnico_id requerido" },
-          "500": { "description": "Error interno del servidor" }
-        }
-      }
-    },
-    "/api/reclamos": {
-      "get": {
         "tags": ["Reclamos"],
         "summary": "Listar todos los reclamos",
         "description": "Retorna todos los reclamos ordenados por fecha de creación descendente.",
@@ -144,8 +25,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": { "$ref": "#/components/schemas/Reclamo" }
+                  "type": "object",
+                  "properties": {
+                    "tickets": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/Reclamo" }
+                    }
+                  }
                 }
               }
             }
@@ -169,7 +55,12 @@
             "description": "Reclamo creado",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Reclamo" }
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ticket": { "$ref": "#/components/schemas/Reclamo" }
+                  }
+                }
               }
             }
           },
@@ -178,23 +69,86 @@
         }
       }
     },
-    "/api/reclamos/{id}": {
+    "/api/tickets/manage": {
       "get": {
-        "tags": ["Reclamos"],
-        "summary": "Obtener reclamo por ID",
-        "parameters": [
-          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
-        ],
+        "tags": ["Tickets"],
+        "summary": "Listar todos los tickets formales",
+        "description": "Retorna todos los tickets ordenados por fecha de creación descendente.",
         "responses": {
           "200": {
-            "description": "Reclamo encontrado",
+            "description": "Lista de tickets",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Reclamo" }
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "tickets": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/Ticket" }
+                    }
+                  }
+                }
               }
             }
           },
-          "404": { "description": "Reclamo no encontrado" },
+          "500": { "description": "Error interno del servidor" }
+        }
+      },
+      "post": {
+        "tags": ["Tickets"],
+        "summary": "Crear un ticket formal desde un reclamo",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateTicketDto" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ticket creado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ticket": { "$ref": "#/components/schemas/Ticket" }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "description": "Datos inválidos" },
+          "500": { "description": "Error interno del servidor" }
+        }
+      },
+      "patch": {
+        "tags": ["Tickets"],
+        "summary": "Actualizar un ticket",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateTicketDto" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ticket actualizado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ticket": { "$ref": "#/components/schemas/Ticket" }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "description": "Datos inválidos" },
           "500": { "description": "Error interno del servidor" }
         }
       }
@@ -227,17 +181,16 @@
           "estado": { "type": "string", "enum": ["pendiente", "en_proceso", "cerrado"] },
           "notas": { "type": "string", "nullable": true },
           "created_at": { "type": "string", "format": "date-time" },
-          "updated_at": { "type": "string", "format": "date-time" },
-          "reclamo": { "$ref": "#/components/schemas/Reclamo" }
+          "updated_at": { "type": "string", "format": "date-time" }
         }
       },
       "CreateReclamoDto": {
         "type": "object",
         "required": ["nombre_cliente", "email_cliente", "num_telefono", "tipo_propiedad", "nro_dpto", "tipo_falla", "ubicacion_falla"],
         "properties": {
-          "nombre_cliente": { "type": "string" },
+          "nombre_cliente": { "type": "string", "minLength": 3 },
           "email_cliente": { "type": "string", "format": "email" },
-          "num_telefono": { "type": "string" },
+          "num_telefono": { "type": "string", "minLength": 9 },
           "tipo_propiedad": { "type": "string" },
           "nro_dpto": { "type": "string" },
           "tipo_falla": { "type": "string" },
@@ -249,16 +202,18 @@
         "type": "object",
         "required": ["reclamo_id"],
         "properties": {
-          "reclamo_id": { "type": "string" },
-          "tecnico_id": { "type": "string" },
-          "coordinador_id": { "type": "string" },
+          "reclamo_id": { "type": "string", "format": "uuid" },
+          "tecnico_id": { "type": "string", "format": "uuid" },
+          "coordinador_id": { "type": "string", "format": "uuid" },
           "notas": { "type": "string" }
         }
       },
       "UpdateTicketDto": {
         "type": "object",
+        "required": ["id"],
         "properties": {
-          "tecnico_id": { "type": "string" },
+          "id": { "type": "string", "format": "uuid" },
+          "tecnico_id": { "type": "string", "format": "uuid" },
           "estado": { "type": "string", "enum": ["pendiente", "en_proceso", "cerrado"] },
           "notas": { "type": "string" }
         }
