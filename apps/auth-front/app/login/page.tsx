@@ -6,6 +6,7 @@ import { z } from 'zod'
 import { useState } from 'react'
 import { AuthImage } from '@nexo/ui'
 
+
 const loginSchema = z.object({
   email: z.string().email('El correo electrónico no es válido'),
   password: z.string().min(6, 'La contraseña debe tener al menos 6 caracteres')
@@ -21,6 +22,7 @@ type ResetInput = z.infer<typeof resetSchema>
 // Backend de auth (API REST). El frontend NUNCA toca Supabase: solo hace fetch
 // a este endpoint y guarda el JWT que devuelve.
 const AUTH_API = process.env.NEXT_PUBLIC_AUTH_API_URL!
+const DASHBOARD_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL!
 
 export default function LoginPage() {
   const [showReset, setShowReset] = useState(false)
@@ -62,9 +64,10 @@ export default function LoginPage() {
       // servidor (Server Components) la lee y la reenvía al backend como
       // `Authorization: Bearer`. Es first-party, así que funciona en capa
       // gratuita sin dominio propio (no son cookies de terceros).
-      const secure = window.location.protocol === 'https:' ? '; secure' : ''
-      document.cookie = `nexo_token=${result.access_token}; path=/; max-age=${60 * 60 * 8}; samesite=lax${secure}`
-      window.location.href = '/dashboard'
+      // El token cruza al dashboard (otro dominio) por la URL. El dashboard
+      // lo recibe en /auth/recibir y lo guarda en una cookie de SU dominio.
+      window.location.href = `${DASHBOARD_URL}/auth/recibir?token=${encodeURIComponent(result.access_token)}`
+
     } catch {
       setError('Error de conexión. Intenta nuevamente.')
     } finally {
