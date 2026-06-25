@@ -6,7 +6,7 @@
     "description": "Microservicio de gestión de reclamos y tickets de soporte técnico."
   },
   "servers": [
-    { "url": "https://nexo-tickets.vercel.app", "description": "Producción (Vercel)" },
+    { "url": "https://nexo-fullstack-3-tickets.vercel.app", "description": "Producción (Vercel)" },
     { "url": "http://localhost:3001", "description": "Local" }
   ],
   "tags": [
