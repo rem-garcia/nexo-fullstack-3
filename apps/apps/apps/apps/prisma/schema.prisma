@@ -1,0 +1,13 @@
+model propiedades {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  codigo    String   @db.VarChar
+  tipo      String   @db.VarChar
+  direccion String   @db.VarChar
+  sector    String   @db.VarChar
+  piso      Int
+  unidad    String   @db.VarChar
+  torre     String   @db.VarChar
+  m2        Int
+  garantia  String   @db.VarChar
+  creado_en DateTime @default(now()) @db.Timestamptz(6)
+}
