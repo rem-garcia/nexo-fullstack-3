@@ -6,30 +6,38 @@
     "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start -p 3001",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "jest"
   },
   "dependencies": {
-    "next": "16.2.4",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
     "@prisma/adapter-pg": "latest",
     "@prisma/client": "latest",
-    "pg": "latest",
-    "zod": "latest",
-    "dotenv": "latest",
+    "@supabase/ssr": "latest",
     "@supabase/supabase-js": "latest",
-    "@supabase/ssr": "latest"
+    "dotenv": "latest",
+    "next": "16.2.4",
+    "pg": "latest",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "swagger-ui-dist": "^5.32.8",
+    "swagger-ui-react": "^5.32.8",
+    "zod": "latest"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/jest": "^30.0.0",
     "@types/node": "^20",
     "@types/pg": "latest",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/swagger-ui-react": "^5.18.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.4",
+    "jest": "^30.4.2",
+    "jest-mock-extended": "^4.0.1",
     "prisma": "latest",
     "tailwindcss": "^4",
+    "ts-jest": "^29.4.11",
     "typescript": "^5"
   }
 }
