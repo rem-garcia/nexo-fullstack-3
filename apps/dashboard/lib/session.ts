@@ -22,7 +22,7 @@ export interface Profile {
 
 export const SESSION_COOKIE = 'nexo_token'
 
-const AUTH_API = process.env.NEXT_PUBLIC_AUTH_API_URL!
+const AUTH_API = process.env.AUTH_API_URL || process.env.NEXT_PUBLIC_AUTH_API_URL!
 
 export async function getToken(): Promise<string | null> {
   const store = await cookies()
