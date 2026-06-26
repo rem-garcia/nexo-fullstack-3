@@ -1,12 +1,10 @@
 generator client {
   provider = "prisma-client"
-  output   = "../generated/prisma"
+  output   = "../node_modules/@prisma/propiedades-client"
 }
-
 datasource db {
   provider = "postgresql"
 }
-
 model propiedades {
   id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   codigo    String   @db.VarChar
