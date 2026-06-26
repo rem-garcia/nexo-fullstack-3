@@ -18,7 +18,7 @@ export default function LandingPage() {
           
         </div>
         <a
-          href="https://nexo-dashboard-six.vercel.app/login"
+          href="https://nexo-fullstack-3-auth-front.vercel.app/login"
           className="px-5 py-2 bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium rounded-lg transition-colors"
         >
           Iniciar sesión
@@ -43,7 +43,7 @@ export default function LandingPage() {
           de propiedades en arriendo de manera eficiente y trazable.
         </p>
         <a
-          href="https://nexo-dashboard-six.vercel.app/login"
+          href="https://nexo-fullstack-3-auth-front.vercel.app/login"
           className="px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-lg transition-colors text-lg"
         >
           Comenzar ahora
