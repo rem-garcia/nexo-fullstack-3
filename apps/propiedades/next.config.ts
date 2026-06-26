@@ -1,12 +1,5 @@
-import type { NextConfig } from "next";
-import path from "path";
+﻿import type { NextConfig } from 'next'
 
-const nextConfig: NextConfig = {
-  turbopack: {
-    resolveAlias: {
-      "../generated/prisma": path.join(__dirname, "generated/prisma"),
-    },
-  },
-};
+const nextConfig: NextConfig = {}
 
-export default nextConfig;
+export default nextConfig
