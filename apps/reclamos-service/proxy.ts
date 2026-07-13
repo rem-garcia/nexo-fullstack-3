@@ -3,7 +3,8 @@ import type { NextRequest } from 'next/server';
 
 const ALLOWED = [
     'http://localhost:3002',
-    'https://nexo-reclamos-postventa.vercel.app'
+    'https://nexo-reclamos-postventa.vercel.app',
+    'https://nexo-fullstack-3-reclamos-postventa.vercel.app'
 ]
 
 export function proxy(req: NextRequest) {
